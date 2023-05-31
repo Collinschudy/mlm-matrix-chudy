@@ -1,22 +1,71 @@
-.wrapper{
-    height: 6em;
+.wrapper {
     width: 100%;
-    display: flex;
-    align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-    
+    overflow: hidden;
 }
-.container{
+
+.container {
     width: 100%;
+    height: 6rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-  
-    
+    padding: 0 3rem;
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    transition: 0.5s;
 }
 
-.logo{
-    width: 4em;
-    height: 4em;
-    border: 1px solid #000;
+.scroll {
+    background-color: rgba(0, 0, 50, 0.9);
+    box-shadow: 0 0.3em 0.5em rgba(0, 0, 0, 0.3);
+    transition: 0.5s;
 }
+
+
+.logo {
+    display: block;
+    width: 100%;
+    max-width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+    cursor: pointer;
+
+}
+.hamburgercontainer{
+    display: none;
+}
+
+@media screen and (max-width: 650px) {
+    .wrapper{
+      overflow-x: hidden;
+    }
+    .container {
+      height: 4.5rem;
+      padding: 0 1.5rem;
+    }
+    .logo {
+      max-width: 4rem;
+      height: 4rem;
+    }
+    .hamburgercontainer {
+      display: block;
+      width: 100%;
+      max-width: 2rem;
+      height: 2rem;
+      cursor: pointer;
+
+    }
+    .icon {
+      width: 100%;
+      height: 100%;
+      color: #fff;
+      transition: all 0.5s ease-in-out;
+    }
+    .change {
+      /* color: #fff; */
+      color: rgba(3, 138, 255, 1);
+      transition: all 0.5s ease-in-out;
+    }
+  }

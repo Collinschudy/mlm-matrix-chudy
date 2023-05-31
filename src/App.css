@@ -7,6 +7,14 @@
   text-decoration: none;
   color: black;
 }
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+.App {
+  width: 100%;
+  overflow-x: hidden;
+}
 
 .App-logo {
   height: 40vmin;
