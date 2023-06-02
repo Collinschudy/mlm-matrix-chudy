@@ -14,8 +14,8 @@
   user-select: none;
   text-transform: capitalize;
   text-align: center;
-  transform: translateY(100%);
-  transition: 0.7s ease-in-out;
+  /* transform: translateY(100%);
+  transition: 0.7s ease-in-out; */
 }
 .title2 {
   width: 100%;
@@ -24,8 +24,8 @@
   user-select: none;
   text-transform: capitalize;
   text-align: center;
-  transform: translateY(0);
-  transition: 0.7s ease-in-out;
+  /* transform: translateY(0);
+  transition: 0.7s ease-in-out; */
   margin-bottom: 1.5rem;
 }
 .title span {

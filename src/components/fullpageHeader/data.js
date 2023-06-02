@@ -2,17 +2,17 @@ const data = [
     {
         id: 1,
         imageUrl: './images/first.jpg',
-        desc: 'Lorem Ipsum dolor amet'
+        desc: 'Welcome to Alliance Arcade'
     },
     {
         id: 2,
         imageUrl: './images/second.jpg',
-        desc: 'Lorem Ipsum dolores amet'
+        desc: 'Earn more together'
     },
     {
         id: 3,
         imageUrl: './images/third.jpg',
-        desc: 'Lorem Ipsum dolores amet Info'
+        desc: 'Leverage the power of multi-level marketing'
     }
 ]
 

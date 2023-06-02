@@ -10,8 +10,11 @@ import { selectToggleView } from '../../redux/navToggle/navToggleSelect';
 import { setToggleView } from '../../redux/navToggle/navToggleAction';
 import MobileNavBar from '../mobileNavbar/mobileNav.component';
 
+import { useNavigate } from 'react-router-dom';
+
 const Header = ({ setShowHeader, showHeader }) => {
     const [navScroll, setNavScroll] = useState(false);
+    const navigate = useNavigate()
 
     const handleScrollTop = () => {
       window.scrollTo({
@@ -32,7 +35,7 @@ const Header = ({ setShowHeader, showHeader }) => {
   return (
     <nav className={styles.wrapper}>
         <div className={`${styles.container} ${navScroll ? styles.scroll : ""}`}>
-            <img src={Logo} alt="logo" className={`${styles.logo}`} onClick={() => setShowHeader()}/>
+            <img src={Logo} alt="logo" className={`${styles.logo}`} onClick={() => navigate('/')}/>
             <Navcontent />
         
         <div

@@ -14,11 +14,12 @@
   align-items: flex-start;
   justify-content: space-between;
   overflow: hidden;
+  /* border: 1px solid #000; */
 }
 .backgroundImg {
   width: 100%;
   max-width: 45%;
-  transform: translateX(-120%);
+  /* transform: translateX(-120%); */
   transition: 2s ease-in-out;
 }
 .showBackground {
@@ -27,7 +28,7 @@
 .content {
   width: 100%;
   max-width: 50%;
-  transform: translateX(120%);
+  /* transform: translateX(120%); */
   transition: 2s ease-in-out;
   overflow: hidden;
 }

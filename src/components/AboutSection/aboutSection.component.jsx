@@ -96,7 +96,8 @@ const AboutSection = ({ isAboutPage }) => {
             } ${isAboutPage && styles.hide}`}
           >
             <button className={styles.moreinfo} onClick={() => navigate("/about")}>
-              <a href="https://www.flaticon.com/free-icons/team" title="team icons">more info</a>
+              more info
+              
             </button>
           </div>
         </div>

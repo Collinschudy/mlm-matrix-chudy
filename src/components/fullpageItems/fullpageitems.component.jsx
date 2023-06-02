@@ -8,10 +8,15 @@ const FullPageHeaderItems = ({ item }) => {
         <article
             className={styles.wrapper}
             style={{
-                backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0, 0.5)), url(${imageUrl})`,
+                backgroundImage: `linear-gradient(rgba(31,54,147,0.6), rgba(31,54,148, 0.6)), url(${imageUrl})`,
             }}
         >
             <h1>{desc}</h1>
+            <div className={styles.container}>
+                <button className={styles.signup}>Sign up</button>
+                <button className={styles.signup}>Sign In</button>
+            </div>
+
 
         </article>
     )

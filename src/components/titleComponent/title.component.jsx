@@ -2,11 +2,12 @@ import styles from "./title.module.css";
 
 import { useState } from "react";
 
-const Title = ({ heading, title, isService, isAbout, isAboutPage, isContact, isTestimonial }) => {
+const Title = ({ heading, title, isService, isAbout, isAboutPage, isContact, isTestimonial, howItWorks }) => {
   const [showAboutTitle, setShowAboutTitle] = useState(false);
   const [showServicestTitle, setShowServicesTitle] = useState(false);
   const [showTestimonialTitle, setShowTestimonialTitle] = useState(false);
   const [showContactTitle, setShowContactTitle] = useState(false);
+  const [showHowItWorksTitle, setShowHowItWorks] = useState(false)
 
   const showSection = () => {
     if (window.scrollY >= 200) {
@@ -14,16 +15,20 @@ const Title = ({ heading, title, isService, isAbout, isAboutPage, isContact, isT
     } else {
       setShowAboutTitle(false);
     }
+    if (window.scrollY >= 210) {
+      setShowHowItWorks(true);
+    } 
+
     if (window.scrollY >= 900) {
       setShowServicesTitle(true);
     } else {
       setShowServicesTitle(false);
     }
-     if (window.scrollY >= 1500) {
-       setShowTestimonialTitle(true);
-     } else {
-       setShowTestimonialTitle(false);
-     }
+    if (window.scrollY >= 1500) {
+      setShowTestimonialTitle(true);
+    } else {
+      setShowTestimonialTitle(false);
+    }
     if (window.scrollY >= 1900) {
       setShowContactTitle(true);
     } else {
@@ -35,11 +40,9 @@ const Title = ({ heading, title, isService, isAbout, isAboutPage, isContact, isT
   return (
     <div className={styles.titleBox}>
       <h1
-        className={`${isAboutPage ? styles.title2 : styles.title} ${
-          isAbout && showAboutTitle ? styles.showTitle : ""
-        }  ${isService && showServicestTitle ? styles.showTitle : ""} ${
-          isContact && showContactTitle ? styles.showTitle : ""
-        } ${isTestimonial && showTestimonialTitle ? styles.showTitle : ""}`}
+        className={`${isAboutPage ? styles.title2 : styles.title} ${isAbout && showAboutTitle ? styles.showTitle : ""
+          }  ${isService && showServicestTitle ? styles.showTitle : ""} ${isContact && showContactTitle ? styles.showTitle : ""
+          } ${isTestimonial && showTestimonialTitle ? styles.showTitle : ""} ${howItWorks && showHowItWorksTitle ? styles.showTitle: ''}`}
       >
         {" "}
         <span>{heading}</span> {title}

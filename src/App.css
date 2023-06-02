@@ -15,6 +15,34 @@ body {
   width: 100%;
   overflow-x: hidden;
 }
+.scroll{
+  bottom: 6rem;
+}
+.arrowUpBox{
+  width: 100%;
+  max-width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 15%;
+  position: fixed;
+  right: 1.5rem;
+  bottom: -3rem;
+  z-index: 20;
+  background-color: rgb(0, 0, 50);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 1s ease-in-out;
+}
+.arrowUp{
+  font-size: 1.8rem;
+  /* color: rgba(3, 138, 255, 1); */
+  color: #fff;
+}
+.arrowScroll{
+  bottom: 1rem;
+}
+
 
 .App-logo {
   height: 40vmin;

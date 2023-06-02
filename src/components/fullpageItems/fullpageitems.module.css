@@ -9,6 +9,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
     
   }
   .wrapper h1 {
@@ -20,6 +21,29 @@
     margin-bottom: 1rem;
     text-align: center;
     user-select: none;
+  }
+
+  .container{
+    position: absolute;
+    bottom: 10em;
+    display: flex;
+    width: 20rem;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 20;
+  }
+  .container button{
+    display: inline-block;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid yellowgreen;
+
+  }
+  .wrapper .container .signup:hover {
+    background-color: yellowgreen;
   }
 
   @media screen and (max-width: 650px) {
