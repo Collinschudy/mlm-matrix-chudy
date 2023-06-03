@@ -29,7 +29,6 @@
     width: 100%;
     max-width: 4rem;
     height: 4rem;
-    object-fit: cover;
     cursor: pointer;
 
 }
@@ -46,14 +45,14 @@
       padding: 0 1.5rem;
     }
     .logo {
-      max-width: 4rem;
-      height: 4rem;
+      max-width: 3rem;
+      height: 3rem;
     }
     .hamburgercontainer {
       display: block;
       width: 100%;
-      max-width: 2rem;
-      height: 2rem;
+      max-width: 1.5rem;
+      height: 1.5rem;
       cursor: pointer;
 
     }
