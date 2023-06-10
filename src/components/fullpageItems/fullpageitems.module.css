@@ -39,7 +39,8 @@
     font-size: 1.2rem;
     background-color: transparent;
     color: #fff;
-    border: 1px solid yellowgreen;
+    /* border: 1px solid yellowgreen; */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;;
     border-radius: 5%;
 
   }

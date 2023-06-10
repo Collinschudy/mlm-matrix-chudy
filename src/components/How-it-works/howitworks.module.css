@@ -17,6 +17,7 @@
     margin: auto;
     text-align: center;
     line-height: 1.8rem;
+    color: rgba(0,0,50,1);
 }
 
 .box {
@@ -30,6 +31,7 @@
     justify-content: center;
     text-align: center;
     padding: 0 2rem;
+    color: rgba(0,0,50,1);
 }
 
 .icon{

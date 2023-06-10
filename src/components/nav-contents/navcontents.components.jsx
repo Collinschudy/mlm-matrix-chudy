@@ -66,7 +66,7 @@ const Navcontent = ({ showheader, setShowHeader, mobileNavBar,  }) => {
                   } ${pathName.includes('faqs') ? styles.pathname : ''}`}
                   onClick={() => {handleScrollTop();setShowHeader(!showheader)}}
             >
-                FAQs<span></span>
+                Faq<span></span>
             </Link>
             <Link to='contact'
                 className={`${styles.link} ${navScroll ? styles.change : ""} ${
@@ -74,7 +74,7 @@ const Navcontent = ({ showheader, setShowHeader, mobileNavBar,  }) => {
                   } ${pathName.includes('contact') ? styles.pathname : ''}`}
                   onClick={() => {handleScrollTop();setShowHeader(!showheader)}}
             >
-                contact<span></span>
+                Contact<span></span>
             </Link>
             <Link to='signin'
                 className={`${styles.link} ${styles.signin} ${navScroll ? styles.change : ""} ${
@@ -82,7 +82,7 @@ const Navcontent = ({ showheader, setShowHeader, mobileNavBar,  }) => {
                   }`}
                   onClick={() => {handleScrollTop();setShowHeader(!showheader)}}
             >
-                Sign In<span></span>
+                Sign in<span></span>
             </Link>
         
         </div>

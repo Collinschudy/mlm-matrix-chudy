@@ -14,7 +14,7 @@ const FullPageHeaderItems = ({ item }) => {
             <h1>{desc}</h1>
             <div className={styles.container}>
                 <button className={styles.signup}>Sign up</button>
-                <button className={styles.signup}>Sign In</button>
+                <button className={styles.signup}>Sign in</button>
             </div>
 
 

@@ -1,8 +1,9 @@
 .wrapper {
     width: 100%;
     height: 40rem;
-    background-color: rgb(0, 0, 56);
+    background-color: rgba(0, 0, 50, 1);
     padding: 5rem 0;
+    /* border-top: 7px solid yellowgreen; */
 
 }
 
@@ -24,11 +25,14 @@
 
 .footerOne h3 {
     margin-bottom: 2rem;
+    color: #fcfcfc;
+    
 }
 
 .footerTwo h2,
 .footerThree h2 {
     margin-bottom: 2rem;
+    color: #fcfcfc;
 }
 
 .footerTwo ul li {
@@ -36,6 +40,7 @@
     border-bottom: 1px solid #fff;
     padding-bottom: 1rem;
     margin-bottom: 1rem;
+    color: #fcfcfc;
 
 }
 
@@ -63,6 +68,7 @@
 
     width: 2.5rem;
     height: 2.5rem;
+    color: yellowgreen;
 }
 
 .hr {

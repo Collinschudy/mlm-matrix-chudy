@@ -1,7 +1,7 @@
 .links {
     /* border: 1px solid #000; */
     width: 100%;
-    max-width: 50rem;
+    max-width: 40rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -9,9 +9,9 @@
 }
 
 .link {
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     text-decoration: none;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     padding: 0.3rem 0.6rem;
     position: relative;
     display: flex;
@@ -55,7 +55,7 @@
     opacity: 1;
 }
 .pathname{
-  border: 1px solid yellowgreen;
+  background-color: yellowgreen;
 }
 
 
@@ -73,7 +73,6 @@
       display: none;
     }
     .mobileNavLinks {
-    border: 1px solid #000;
       display: flex;
       flex-direction: column;
       justify-content: center;

@@ -13,7 +13,7 @@
     background-color: transparent;
     position: fixed;
     top: 0;
-    z-index: 10;
+    z-index: 10000;
     transition: 0.5s;
 }
 
