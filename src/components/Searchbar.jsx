@@ -30,7 +30,7 @@ const Searchbar = ({ collapsed, setIsCollapsed, show, setShow }) => {
           {collapsed ? (
             <CancelOutlinedIcon onClick={() => {isNotMobile && setIsCollapsed(!collapsed);!isNotMobile && setShow(!show)}} />
           ) : (
-            <MenuIcon onClick={() => {setIsCollapsed(!collapsed);!isNotMobile && setShow(!show)}}/>
+            <MenuIcon onClick={() => {isNotMobile && setIsCollapsed(!collapsed);!isNotMobile && setShow(!show);}}/>
           )}
         </IconButton>
         <Box

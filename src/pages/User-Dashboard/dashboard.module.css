@@ -10,7 +10,6 @@
 .topbar{
     flex: 5;
     overflow-y: scroll;
-    /* */
     position: relative;
     /* background-color: lightgray; */
 }
@@ -32,11 +31,6 @@
     z-index: -10;
 }
 
-/* .sidebarinner{
-    /* border: 2px solid red; */
-
 .hide{
     display: none;
-    /* width: 6%; */
-    
 }
