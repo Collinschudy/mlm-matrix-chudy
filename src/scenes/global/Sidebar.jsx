@@ -26,18 +26,19 @@ import VerifiedUserOutlinedIcon from "@mui/icons-material/VerifiedUserOutlined";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
 import RadioButtonCheckedOutlinedIcon from "@mui/icons-material/RadioButtonCheckedOutlined";
+import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 
 const Item = ({ title, to, icon, selected, setSelected, small }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
-    <MenuItem
+    <MenuItem className="menuitem"
       active={selected === title}
       style={{ color: colors.grey[100], fontSize: `${small ? '14px' : ''}`, backgroundColor: `${small ? colors.grey[500] : ''}` }}
       onclick={() => setSelected(title)}
       icon={icon}
     >
-      <Typography>{title}</Typography>
+      <Typography sx={{ml: 2}}>{title}</Typography>
       <Link to={to} />
     </MenuItem>
   );
@@ -55,7 +56,7 @@ const Sidebar = () => {
 
   return (
     <Box
-      border=""
+      className='container'
       sx={{
         "& .pro-sidebar-inner": {
           background: `${colors.primary[400]} !important`,
@@ -382,6 +383,13 @@ const Sidebar = () => {
               title="Language"
               to=""
               icon={<LanguageOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+             <Item
+              title="Calendar"
+              to="calendar"
+              icon={<CalendarMonthOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />

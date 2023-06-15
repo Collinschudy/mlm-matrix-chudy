@@ -1,0 +1,42 @@
+.dashboard{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    position: relative;
+    z-index: 10;
+    background-color: #fff;
+}
+
+.topbar{
+    flex: 5;
+    overflow-y: scroll;
+    /* */
+    position: relative;
+    /* background-color: lightgray; */
+}
+.sidebar{
+    
+    background-color: rgba(0, 0, 50, 1);
+    overflow-y: scroll;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+.background{
+    background: linear-gradient(to right, rgba(0, 0, 50), rgb(98, 192, 98)); 
+    height: 18rem;
+    box-shadow: rgb(3, 35, 63) 3px 3px 6px 0px inset, rgba(100, 90, 243, 0.5) -3px -3px 6px 1px inset;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -10;
+}
+
+/* .sidebarinner{
+    /* border: 2px solid red; */
+
+.hide{
+    display: none;
+    /* width: 6%; */
+    
+}

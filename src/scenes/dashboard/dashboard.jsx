@@ -30,10 +30,12 @@ import DownloadingIcon from "@mui/icons-material/Downloading";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import HourglassBottomIcon from "@mui/icons-material/HourglassBottom";
 import { mockTransactions } from "../../data/mockData";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const isNotMobile = useMediaQuery("(min-width: 600px)");
   return (
     <Box m="20px">
       <Box display="flex" justifyContent="space-between" alignItems="center">
@@ -53,10 +55,14 @@ const Dashboard = () => {
           </Button>
         </Box>
       </Box>
-
       <Box
+        className="dashboardcontainer"
         display="grid"
         gridTemplateColumns="repeat(12, 1fr)"
+        sx={{
+          "& > div": { gridColumn: isNotMobile ? undefined : "span 6" },
+        }}
+        // flexWrap='wrap'
         gridAutoRows="140px"
         gap="20px"
       >
@@ -380,8 +386,13 @@ const Dashboard = () => {
             }
           />
         </Box>
+      </Box>
 
-        {/* CHARTS */}
+      {/* CHARTS */}
+      <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" mt="20px" gridAutoRows='140px' sx={{
+          "& > div": { gridColumn: isNotMobile ? undefined : "span 12" },
+          // "& > div": { height: isNotMobile ? undefined : '500px' }
+        }}>
         <Box
           gridColumn="span 8"
           gridRow="span 2"
@@ -468,9 +479,8 @@ const Dashboard = () => {
             );
           })}
         </Box>
-        {/*  */}
-        
       </Box>
+      {/*  */}
     </Box>
   );
 };

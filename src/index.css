@@ -38,3 +38,15 @@ code {
 ::-webkit-scrollbar-track:hover {
   background: #555;
 }
+
+@media screen and (max-width: 650px){
+
+  .container{
+    display: none;
+  }
+  /* .content .admin Box .dashboardcontainer{
+    display: grid;
+    border: 1px solid yellow;
+    grid-template-columns: 1fr 1fr 1fr;
+  } */
+}
