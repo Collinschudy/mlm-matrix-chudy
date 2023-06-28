@@ -1,7 +1,22 @@
+
 .wrapper{
     padding: 4rem 10rem;
 }
 .wrapper p{
     font-family: 'Lexend', sans-serif;
     text-align: center;
+}
+
+@media screen and (max-width: 650px){
+    .wrapper{
+        padding: 1em 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .wrapper p{
+        width: 90%;
+        text-align: justify;
+    }
 }
