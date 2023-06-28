@@ -15,7 +15,7 @@ const AboutUsPage = () => {
     <div>
       <Header />
       <PageHeading background="./images/aboutus.jpg" title="About Us" />
-      <AboutSection />
+      <AboutSection isAboutPage/>
       <Footer />
     </div>
   );

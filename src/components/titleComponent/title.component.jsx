@@ -2,7 +2,7 @@ import styles from "./title.module.css";
 
 import { useState } from "react";
 
-const Title = ({ heading, title, isService, isAbout, isAboutPage, isContact, isTestimonial, howItWorks }) => {
+const Title = ({ heading, title, isAbout, isAboutPage, howItWorks }) => {
   const [showAboutTitle, setShowAboutTitle] = useState(false);
   const [showServicestTitle, setShowServicesTitle] = useState(false);
   const [showTestimonialTitle, setShowTestimonialTitle] = useState(false);
@@ -41,8 +41,7 @@ const Title = ({ heading, title, isService, isAbout, isAboutPage, isContact, isT
     <div className={styles.titleBox}>
       <h1
         className={`${isAboutPage ? styles.title2 : styles.title} ${isAbout && showAboutTitle ? styles.showTitle : ""
-          }  ${isService && showServicestTitle ? styles.showTitle : ""} ${isContact && showContactTitle ? styles.showTitle : ""
-          } ${isTestimonial && showTestimonialTitle ? styles.showTitle : ""} ${howItWorks && showHowItWorksTitle ? styles.showTitle: ''}`}
+          } ${howItWorks && showHowItWorksTitle ? styles.showTitle: ''}`}
       >
         {" "}
         <span>{heading}</span> {title}

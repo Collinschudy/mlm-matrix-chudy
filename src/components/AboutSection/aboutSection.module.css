@@ -14,7 +14,11 @@
   align-items: flex-start;
   justify-content: space-between;
   overflow: hidden;
+  font-family: 'Lexend', sans-serif;
   /* border: 1px solid #000; */
+}
+.hide{
+  display: none;
 }
 .backgroundImg {
   width: 100%;

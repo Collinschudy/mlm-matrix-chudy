@@ -1,12 +1,13 @@
 import React from "react";
 import styles from "./plan.module.css";
+import Title from "../titleComponent/title.component";
 // import Footer from "../Footer-section/footer.component";
 
 const Plan = () => {
   return (
     <section className={styles.container}>
       <div className={styles.wrapper}>
-        <h1>Our Plan</h1>
+        <Title heading='Our Plan' />
         <div className={styles.plancontainer}>
           <p className={styles.introparagraph}>
             We offer only a single plan at the moment, that is the #1,000 plan

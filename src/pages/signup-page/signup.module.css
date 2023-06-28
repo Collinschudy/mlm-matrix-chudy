@@ -1,13 +1,33 @@
+.wrap{
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .container{
-  display: flex;
-  align-items: center;
+  /* display: flex; */
+  /* align-items: center; */
   flex-direction: column;
-  padding-top: 6rem;
+  padding-top: 4rem;
+}
+.icon{
+    display: flex;
+    align-items: center;
+    font-family: 'Lexend', sans-serif;
+    font-size: 1.2em;
+    color: slategrey;
+    padding-bottom: 2rem;
+    text-align: left;
+    font-weight: 800;
+}
+.logo{
+    width: 1.1rem;
+    height: 1.1rem;
 }
 .title{
     color: slategrey;
     font-family: 'Lexend', sans-serif;
-    font-size: 1.4em;
+    font-size: 1em;
 }
 
 .formgroup{

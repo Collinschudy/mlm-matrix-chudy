@@ -6,7 +6,7 @@ import HowItWorks from '../../components/How-it-works/howitworks.component';
 import Header from '../../components/Header/header.component';
 import Footer from '../../components/Footer-section/footer.component';
 import Plan from '../../components/Plan/Plan.component';
-
+import Vision from '../../components/vision/vision.component';
 
 const Homepage = () => {
   useEffect(() => {
@@ -17,6 +17,7 @@ const Homepage = () => {
     <div className={styles.wrapper}>
       <Header />
         <FullPageHeader />
+        <Vision />
         <AboutSection />
         <HowItWorks />
         <Plan />
