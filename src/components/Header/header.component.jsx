@@ -35,7 +35,11 @@ const Header = ({ setShowHeader, showHeader }) => {
   return (
     <nav className={styles.wrapper}>
         <div className={`${styles.container} ${navScroll ? styles.scroll : ""}`}>
-            <img src={Logo} alt="logo" className={`${styles.logo}`} onClick={() => navigate('/')}/>
+          <div className={styles.logowrapper}>
+          <img src={Logo} alt="logo" className={`${styles.logo}`} onClick={() => navigate('/')}/>
+          <span className={styles.logo_text}>Alliance Arcade</span>
+          </div>
+            
             <Navcontent />
         
         <div

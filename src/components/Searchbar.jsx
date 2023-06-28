@@ -27,10 +27,10 @@ const Searchbar = ({ collapsed, setIsCollapsed, show, setShow }) => {
         }}
       >
         <IconButton type="button" sx={{ color: "lightgrey" }}>
-          {collapsed ? (
-            <CancelOutlinedIcon onClick={() => {isNotMobile && setIsCollapsed(!collapsed);!isNotMobile && setShow(!show)}} />
-          ) : (
-            <MenuIcon onClick={() => {isNotMobile && setIsCollapsed(!collapsed);!isNotMobile && setShow(!show);}}/>
+          {collapsed && show ? (
+            <CancelOutlinedIcon onClick={() => {isNotMobile && setIsCollapsed((prev)=>!prev);!isNotMobile && setShow((prev)=>!prev)}} />
+          ) :  (
+            <MenuIcon onClick={() => {isNotMobile && setIsCollapsed((prev)=>!prev);!isNotMobile && setShow((prev)=>!prev);}}/>
           )}
         </IconButton>
         <Box

@@ -14,7 +14,7 @@ const Topbar = ({userDashboard}) => {
   const colors = tokens(theme.palette.mode);
   const colorMode = useContext(ColorModeContext);
   return (
-    <Box display="flex" justifyContent="space-between" p={2} backgroundColor={colors.greenAccent[500]}>
+    <Box display="flex" justifyContent="space-between" p={2} >
       {/* SEARCH BAR */}
       <Box
         display="flex"

@@ -1,0 +1,9 @@
+.goback{
+    position: fixed;
+    background: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 0 1.5rem 1.5rem 0;
+}

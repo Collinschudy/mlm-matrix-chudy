@@ -1,0 +1,43 @@
+.container{
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+
+.wrapper{
+    height: 100vh;
+    overflow-y: scroll;
+}
+.wrapper h1{
+    text-align: center;
+    padding: 2rem 0 1rem 0;
+    font-size: 2rem;
+}
+.introparagraph, .secondparagraph{
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    font-family: 'Lexend', sans-serif;
+}
+.secondparagraph{
+    margin-bottom: 1rem;
+}
+table{
+    width: 70%;
+    margin: auto;
+}
+thead{
+    font-size: 1.4rem;
+}
+tr{
+    text-align: center;
+    height: 2.5em;
+    font-weight: 600;
+}
+tr:nth-child(even) {
+    background-color: #D6EEEE;
+  }

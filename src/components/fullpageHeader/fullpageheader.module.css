@@ -6,8 +6,8 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    /* border-bottom: 10px solid rgba(3, 138, 255, 1); */
-    border-bottom: 7px solid yellowgreen;
+    font-family: 'Lexend', sans-serif;
+    border-bottom: 7px solid #D4F1F4;
     
   }
   .item{

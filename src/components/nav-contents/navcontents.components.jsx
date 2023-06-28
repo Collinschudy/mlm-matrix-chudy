@@ -42,7 +42,7 @@ const Navcontent = ({ showheader, setShowHeader, mobileNavBar }) => {
         Home<span></span>
       </Link>
       <Link
-        to="about"
+        to="/about"
         className={`${styles.link} ${navScroll ? styles.change : ""} ${
           mobileNavBar ? styles.mobileLinks : ""
         } ${pathName.includes("about") ? styles.pathname : ""}`}
@@ -54,7 +54,7 @@ const Navcontent = ({ showheader, setShowHeader, mobileNavBar }) => {
         About<span></span>
       </Link>
       <Link
-        to="how"
+        to="/how"
         className={`${styles.link} ${navScroll ? styles.change : ""} ${
           mobileNavBar ? styles.mobileLinks : ""
         } ${pathName.includes("how") ? styles.pathname : ""}`}
@@ -66,7 +66,7 @@ const Navcontent = ({ showheader, setShowHeader, mobileNavBar }) => {
         How It Works<span></span>
       </Link>
       <Link
-        to="plan"
+        to="/plan"
         className={`${styles.link} ${navScroll ? styles.change : ""} ${
           mobileNavBar ? styles.mobileLinks : ""
         } ${pathName.includes("plan") ? styles.pathname : ""}`}
@@ -78,7 +78,7 @@ const Navcontent = ({ showheader, setShowHeader, mobileNavBar }) => {
         Plan<span></span>
       </Link>
       <Link
-        to="faqs"
+        to="/faqs"
         className={`${styles.link} ${navScroll ? styles.change : ""} ${
           mobileNavBar ? styles.mobileLinks : ""
         } ${pathName.includes("faqs") ? styles.pathname : ""}`}
@@ -90,7 +90,7 @@ const Navcontent = ({ showheader, setShowHeader, mobileNavBar }) => {
         Faq<span></span>
       </Link>
       <Link
-        to="contact"
+        to="/contact"
         className={`${styles.link} ${navScroll ? styles.change : ""} ${
           mobileNavBar ? styles.mobileLinks : ""
         } ${pathName.includes("contact") ? styles.pathname : ""}`}
@@ -102,7 +102,7 @@ const Navcontent = ({ showheader, setShowHeader, mobileNavBar }) => {
         Contact<span></span>
       </Link>
       <Link
-        to="signin"
+        to="/signin"
         className={`${styles.link} ${styles.signin} ${
           navScroll ? styles.change : ""
         } ${mobileNavBar ? styles.mobileLinks : ""}`}

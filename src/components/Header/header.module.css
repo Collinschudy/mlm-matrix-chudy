@@ -5,7 +5,7 @@
 
 .container {
     width: 100%;
-    height: 6rem;
+    height: 5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -27,10 +27,20 @@
 .logo {
     display: block;
     width: 100%;
-    max-width: 4rem;
-    height: 4rem;
+    max-width: 2rem;
+    height: 2rem;
     cursor: pointer;
 
+}
+.logowrapper{
+  width: 12em;
+  display: flex;
+  align-items: center;
+}
+.logo_text{
+  margin-left: 1em;
+  font-family: 'Lexend', sans-serif;
+  color: lightgray;
 }
 .hamburgercontainer{
     display: none;
@@ -48,23 +58,28 @@
       max-width: 3rem;
       height: 3rem;
     }
+    .logo_text{
+      display: none;
+    }
     .hamburgercontainer {
       display: block;
       width: 100%;
       max-width: 1.5rem;
       height: 1.5rem;
       cursor: pointer;
+      color: #D4F1F4;
 
     }
     .icon {
       width: 100%;
       height: 100%;
-      color: #fff;
+      /* color: #fff; */
+      color: #D4F1F4;
       transition: all 0.5s ease-in-out;
     }
     .change {
-      /* color: #fff; */
-      color: lightgrey;
+      /* color: lightgrey; */
+      color: #D4F1F4;
       /* color: rgba(3, 138, 255, 1); */
       transition: all 0.5s ease-in-out;
     }

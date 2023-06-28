@@ -27,25 +27,27 @@
     position: absolute;
     bottom: 10em;
     display: flex;
-    width: 20rem;
+    width: 16rem;
     align-items: center;
     justify-content: space-between;
     z-index: 20;
   }
   .container button{
+    font-family: 'Lexend', sans-serif;
     display: inline-block;
     border: none;
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
     background-color: transparent;
-    color: #fff;
-    /* border: 1px solid yellowgreen; */
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;;
-    border-radius: 5%;
+    color: #D4F1F4;
+    border: 1px solid rgba(0, 0, 50, 1);
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+    border-radius: 30px;
 
   }
+ 
   .wrapper .container .signup:hover {
-    background-color: yellowgreen;
+    background-color: rgba(0, 0, 50, 1);
   }
 
   @media screen and (max-width: 650px) {

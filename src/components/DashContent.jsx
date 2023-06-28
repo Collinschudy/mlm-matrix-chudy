@@ -56,7 +56,7 @@ const DashContent = ({ collapsed, setIsCollapsed }) => {
             display="flex"
             alignItems="center"
             justifyContent="center"
-            borderRadius="5px"
+            borderRadius="8px"
             sx={{
               background:
                 "linear-gradient(to top left, rgba(0,0,50), yellowgreen)",
@@ -74,6 +74,7 @@ const DashContent = ({ collapsed, setIsCollapsed }) => {
             display="flex"
             alignItems="center"
             justifyContent="center"
+            borderRadius="8px"
             sx={{
               background:
                 "linear-gradient(to bottom right, rgba(0,0,50), yellowgreen)",
@@ -91,6 +92,7 @@ const DashContent = ({ collapsed, setIsCollapsed }) => {
             display="flex"
             alignItems="center"
             justifyContent="center"
+            borderRadius="8px"
             sx={{
               background:
                 "linear-gradient(to bottom right, rgba(0,0,50), yellowgreen)",
@@ -108,6 +110,7 @@ const DashContent = ({ collapsed, setIsCollapsed }) => {
             display="flex"
             alignItems="center"
             justifyContent="center"
+            borderRadius="8px"
             sx={{
               background:
                 "linear-gradient(to bottom right, rgba(0,0,50), yellowgreen)",
@@ -125,6 +128,7 @@ const DashContent = ({ collapsed, setIsCollapsed }) => {
             display="flex"
             alignItems="center"
             justifyContent="center"
+            borderRadius="8px"
             sx={{
               background:
                 "linear-gradient(to bottom right, rgba(0,0,50), yellowgreen)",
@@ -142,6 +146,7 @@ const DashContent = ({ collapsed, setIsCollapsed }) => {
             display="flex"
             alignItems="center"
             justifyContent="center"
+            borderRadius="8px"
             sx={{
               background:
                 "linear-gradient(to bottom right, rgba(0,0,50), yellowgreen)",
@@ -159,6 +164,7 @@ const DashContent = ({ collapsed, setIsCollapsed }) => {
             display="flex"
             alignItems="center"
             justifyContent="center"
+            borderRadius="8px"
             sx={{
               background:
                 "linear-gradient(to bottom right, rgba(0,0,50), yellowgreen)",
@@ -178,6 +184,7 @@ const DashContent = ({ collapsed, setIsCollapsed }) => {
             display="flex"
             alignItems="center"
             justifyContent="center"
+            borderRadius="8px"
             sx={{
               background:
                 "linear-gradient(to bottom right, rgba(0,0,50), yellowgreen)",
@@ -195,6 +202,7 @@ const DashContent = ({ collapsed, setIsCollapsed }) => {
             display="flex"
             alignItems="center"
             justifyContent="center"
+            borderRadius="8px"
             sx={{
               background:
                 "linear-gradient(to bottom right, rgba(0,0,50), yellowgreen)",

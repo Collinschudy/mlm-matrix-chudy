@@ -1,0 +1,27 @@
+.container{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 6rem;
+}
+.title{
+    color: slategrey;
+    font-family: 'Lexend', sans-serif;
+    font-size: 1.4em;
+}
+
+.formgroup{
+    width: 30em;
+    margin: auto;
+    margin-bottom: 2em;
+    margin-top: 2em;
+}
+
+@media screen and (max-width: 650px){
+    .formgroup{
+        width: 25em;
+    }
+    .title{
+        font-size: medium;
+    }
+}

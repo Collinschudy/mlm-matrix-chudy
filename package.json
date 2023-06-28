@@ -11,6 +11,7 @@
     "@fullcalendar/list": "^6.1.8",
     "@fullcalendar/react": "^6.1.8",
     "@fullcalendar/timegrid": "^6.1.8",
+    "@hookform/resolvers": "^3.1.1",
     "@mdi/font": "^7.2.96",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.13.4",
@@ -25,6 +26,7 @@
     "formik": "^2.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.45.0",
     "react-icons": "^4.9.0",
     "react-pro-sidebar": "^0.7.1",
     "react-redux": "^8.0.5",
@@ -34,7 +36,7 @@
     "redux-logger": "^3.0.6",
     "reselect": "^4.1.8",
     "web-vitals": "^2.1.4",
-    "yup": "^1.2.0"
+    "zod": "^3.21.4"
   },
   "scripts": {
     "start": "react-scripts start",

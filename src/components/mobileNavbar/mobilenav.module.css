@@ -31,7 +31,6 @@
       padding:  2rem;
       transform: translateY(-100%);
       transition: 0.5s ease-in-out;
-      border: 1px solid;
     }
     .show{
       transform: translateY(0);
