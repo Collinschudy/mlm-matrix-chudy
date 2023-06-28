@@ -111,7 +111,7 @@ const Navcontent = ({ showheader, setShowHeader, mobileNavBar }) => {
           setShowHeader(!showheader);
         }}
       >
-        Sign in<span></span>
+        Register<span></span>
       </Link>
     </div>
   );
