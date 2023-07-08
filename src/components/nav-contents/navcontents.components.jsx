@@ -48,7 +48,7 @@ const Navcontent = ({ showheader, setShowHeader, mobileNavBar }) => {
         } ${pathName.includes("about") ? styles.pathname : ""}`}
         onClick={() => {
           handleScrollTop();
-          setShowHeader(!showheader);
+          setShowHeader(false);
         }}
       >
         About<span></span>
@@ -60,7 +60,7 @@ const Navcontent = ({ showheader, setShowHeader, mobileNavBar }) => {
         } ${pathName.includes("how") ? styles.pathname : ""}`}
         onClick={() => {
           handleScrollTop();
-          setShowHeader(!showheader);
+          setShowHeader(false);
         }}
       >
         How It Works<span></span>
@@ -72,7 +72,7 @@ const Navcontent = ({ showheader, setShowHeader, mobileNavBar }) => {
         } ${pathName.includes("plan") ? styles.pathname : ""}`}
         onClick={() => {
           handleScrollTop();
-          setShowHeader(!showheader);
+          setShowHeader(false);
         }}
       >
         Plan<span></span>
@@ -84,7 +84,7 @@ const Navcontent = ({ showheader, setShowHeader, mobileNavBar }) => {
         } ${pathName.includes("faqs") ? styles.pathname : ""}`}
         onClick={() => {
           handleScrollTop();
-          setShowHeader(!showheader);
+          setShowHeader(false);
         }}
       >
         Faq<span></span>
@@ -96,7 +96,7 @@ const Navcontent = ({ showheader, setShowHeader, mobileNavBar }) => {
         } ${pathName.includes("contact") ? styles.pathname : ""}`}
         onClick={() => {
           handleScrollTop();
-          setShowHeader(!showheader);
+          setShowHeader(false);
         }}
       >
         Contact<span></span>
@@ -108,7 +108,7 @@ const Navcontent = ({ showheader, setShowHeader, mobileNavBar }) => {
         } ${mobileNavBar ? styles.mobileLinks : ""}`}
         onClick={() => {
           handleScrollTop();
-          setShowHeader(!showheader);
+          setShowHeader(false);
         }}
       >
         Register<span></span>

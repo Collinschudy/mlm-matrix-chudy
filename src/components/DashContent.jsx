@@ -58,8 +58,7 @@ const DashContent = ({ collapsed, setIsCollapsed }) => {
             justifyContent="center"
             borderRadius="8px"
             sx={{
-              background:
-                "linear-gradient(to top left, rgba(0,0,50), yellowgreen)",
+              background:'linear-gradient(to bottom right, #14213d, #8ec33e)',
             }}
           >
             <StatBox
@@ -76,8 +75,10 @@ const DashContent = ({ collapsed, setIsCollapsed }) => {
             justifyContent="center"
             borderRadius="8px"
             sx={{
-              background:
-                "linear-gradient(to bottom right, rgba(0,0,50), yellowgreen)",
+              background:'linear-gradient(to bottom right, #14213d, #8ec33e)'
+
+              // '#8ec33e'
+                // "linear-gradient(to bottom right, rgba(0,0,50), yellowgreen)",
             }}
           >
             <StatBox
@@ -94,8 +95,7 @@ const DashContent = ({ collapsed, setIsCollapsed }) => {
             justifyContent="center"
             borderRadius="8px"
             sx={{
-              background:
-                "linear-gradient(to bottom right, rgba(0,0,50), yellowgreen)",
+              background:'linear-gradient(to bottom right, #14213d, #8ec33e)',
             }}
           >
             <StatBox
@@ -112,8 +112,7 @@ const DashContent = ({ collapsed, setIsCollapsed }) => {
             justifyContent="center"
             borderRadius="8px"
             sx={{
-              background:
-                "linear-gradient(to bottom right, rgba(0,0,50), yellowgreen)",
+              background:'linear-gradient(to bottom right, #14213d, #8ec33e)',
             }}
           >
             <StatBox
@@ -130,8 +129,7 @@ const DashContent = ({ collapsed, setIsCollapsed }) => {
             justifyContent="center"
             borderRadius="8px"
             sx={{
-              background:
-                "linear-gradient(to bottom right, rgba(0,0,50), yellowgreen)",
+              background:'linear-gradient(to bottom right, #14213d, #8ec33e)',
             }}
           >
             <StatBox
@@ -148,8 +146,7 @@ const DashContent = ({ collapsed, setIsCollapsed }) => {
             justifyContent="center"
             borderRadius="8px"
             sx={{
-              background:
-                "linear-gradient(to bottom right, rgba(0,0,50), yellowgreen)",
+              background:'linear-gradient(to bottom right, #14213d, #8ec33e)',
             }}
           >
             <StatBox
@@ -166,8 +163,7 @@ const DashContent = ({ collapsed, setIsCollapsed }) => {
             justifyContent="center"
             borderRadius="8px"
             sx={{
-              background:
-                "linear-gradient(to bottom right, rgba(0,0,50), yellowgreen)",
+              background:'linear-gradient(to bottom right, #14213d, #8ec33e)',
             }}
           >
             <StatBox
@@ -186,8 +182,7 @@ const DashContent = ({ collapsed, setIsCollapsed }) => {
             justifyContent="center"
             borderRadius="8px"
             sx={{
-              background:
-                "linear-gradient(to bottom right, rgba(0,0,50), yellowgreen)",
+              background:'linear-gradient(to bottom right, #14213d, #8ec33e)',
             }}
           >
             <StatBox
@@ -204,8 +199,7 @@ const DashContent = ({ collapsed, setIsCollapsed }) => {
             justifyContent="center"
             borderRadius="8px"
             sx={{
-              background:
-                "linear-gradient(to bottom right, rgba(0,0,50), yellowgreen)",
+              background:'linear-gradient(to bottom right, #14213d, #8ec33e)',
             }}
           >
             <StatBox
