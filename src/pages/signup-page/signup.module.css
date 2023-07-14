@@ -1,47 +1,191 @@
-.wrap{
-    background-color: #fff;
+.wrap {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    font-family: 'Lexend', sans-serif;
+    position: relative;
+
+
+}
+
+.inner {
+    height: 100%;
+    overflow: hidden;
+    width: 50%;
+    display: flex;
+    background: rgba(0, 0, 0, 0.8);
+    position: relative;
+
+}
+
+
+
+.backgroundImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: -1;
+}
+
+.text {
+    width: 100%;
+    height: 100vh;
+}
+
+
+
+
+.logowrapper {
+    width: 100%;
+    max-width: 14em;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    margin: 2rem;
+}
+
+.logowrapper2 {
+    width: 100%;
+    max-width: 14em;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    margin: 2rem 0;
+    display: none;
+}
+
+.logo {
+    display: block;
+    width: 100%;
+    max-width: 4rem;
+    height: 100%;
+    cursor: pointer;
+    object-fit: contain;
+
+}
+.logo2 {
+    display: block;
+    width: 100%;
+    max-width: 3.5rem;
+    height: 100%;
+    cursor: pointer;
+    object-fit: contain;
+
+}
+
+.logo_text {
+    margin-left: 0.4em;
+    font-family: sans-serif;
+    color: transparent;
+    background-image: linear-Gradient(to right, lightgray, silver);
+    background-clip: text;
+    font-family: 'Lexend', sans-serif;
+}
+
+.logo_text2 {
+    margin-left: 0.4em;
+    font-family: sans-serif;
+    color: transparent;
+    background-image: linear-Gradient(to right, black, silver);
+    background-clip: text;
+    font-family: 'Lexend', sans-serif;
+
+}
+
+.spantwo {
+    color: #6CB4EE;
+}
+
+
+.formsection {
+    width: 50%;
+    height: 100%;
+    color: black;
+    display: flex;
+    justify-content: center;
+    background-color: #fafafa;
+
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 600;
+    font-family: 'Lexend', sans-serif;
+    color: black;
+
+}
+
+.description {
+    margin-bottom: 2rem;
+}
+
+.formwrapper {
+    width: 70%;
+    height: 100%;
+    background: white;
+    padding: 2rem;
+    position: relative;
+    z-index: 400;
+    overflow: scroll;
+
+}
+
+.formgroup {
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
-.container{
-  /* display: flex; */
-  /* align-items: center; */
-  flex-direction: column;
-  padding-top: 4rem;
-}
-.icon{
-    display: flex;
-    align-items: center;
-    font-family: 'Lexend', sans-serif;
-    font-size: 1.2em;
-    color: slategrey;
-    padding-bottom: 2rem;
-    text-align: left;
-    font-weight: 800;
-}
-.logo{
-    width: 1.1rem;
-    height: 1.1rem;
-}
-.title{
-    color: slategrey;
-    font-family: 'Lexend', sans-serif;
-    font-size: 1em;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
 }
 
-.formgroup{
-    width: 30em;
-    margin: auto;
-    margin-bottom: 2em;
-    margin-top: 2em;
+.formgroup input,
+select {
+    height: 3rem;
 }
+input:focus{
+    outline: none;
+}
+.errors{
+    font-size: 0.8rem;
+    color: red;
+}
+button{
+    padding: 1rem;
+    border: none;
+    background-color: #6CB4EE;
+    font-size: 1.2rem;
+    color: #fff;
+    transition: 0.5s all ease-in;
+}
+button:hover{
+    background-color: #3489ce;
+}
+@media screen and (max-width: 650px) {
+    .inner {
+        display: none;
+    }
 
-@media screen and (max-width: 650px){
-    .formgroup{
-        width: 25em;
+    .formsection {
+        width: 100%;
     }
-    .title{
-        font-size: medium;
+
+
+    .formwrapper {
+        width: 100%;
     }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .title p {
+        font-size: 14px;
+    }
+    .logowrapper2{
+        display: flex;
+    }
+
 }

@@ -6,7 +6,7 @@ const Vision = () => {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <Title heading='Our Vision' />
+        <Title heading='Our Vision' vision/>
         <p>
           Our vision is to create a powerful platform for Nigeria to make money
           everyday and to provide them best environment to act and achieve big

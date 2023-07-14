@@ -35,7 +35,7 @@ const Item = ({ title, to, icon, selected, setSelected, small }) => {
     <MenuItem className="menuitem"
       active={selected === title}
       style={{ color: colors.grey[100], fontSize: `${small ? '14px' : ''}`, backgroundColor: `${small ? colors.grey[500] : ''}` }}
-      onclick={() => setSelected(title)}
+      onClick={() => setSelected(title)}
       icon={icon}
     >
       <Typography sx={{ml: 2}}>{title}</Typography>

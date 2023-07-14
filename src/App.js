@@ -16,7 +16,7 @@ import ContactPage from './pages/contact-us/contactpage';
 import AboutUsPage from './pages/about-us/AboutUsPage';
 import Admin from './pages/Admin/admin';
 import Dashboard from './pages/User-Dashboard/Dashboard';
-import MuiForm from './pages/signup-page/SignUp';
+import SignUpPage from './pages/signup-page/SignUp';
 import Plan from './components/Plan/Plan.component';
 import PlanPage from './pages/planPage/planPage';
 
@@ -67,7 +67,7 @@ function App() {
         <Route path='about' element={<AboutUsPage />} />
         <Route path='admin/*' element={<Admin />} />
         <Route path='user' element={<Dashboard />} />
-        <Route path='signin' element={<MuiForm />} />
+        <Route path='signin' element={<SignUpPage />} />
         <Route path='plan' element={<PlanPage />} />
 
       </Routes>

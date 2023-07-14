@@ -19,7 +19,8 @@
     cursor: pointer;
     transition: 0.5s;
     border-radius: 0.2em;
-    color: #D4F1F4;
+    /* color: #D4F1F4; */
+    color: white;
 
 }
 
@@ -55,7 +56,10 @@
     opacity: 1;
 }
 .pathname{
-  background: linear-gradient(to bottom, transparent, lightblue);
+  background: linear-gradient(to bottom, white, #6CB4EE);
+  /* background: #6CB4EE; */
+  color: rgb(24, 23, 23);
+  /* background-color: pink; */
 }
 
 

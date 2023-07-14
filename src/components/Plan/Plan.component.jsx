@@ -5,8 +5,8 @@ import Title from "../titleComponent/title.component";
 
 const Plan = () => {
   return (
-    <section className={styles.container}>
-      <div className={styles.wrapper}>
+
+      <section className={styles.wrapper}>
         <Title heading='Our Plan' />
         <div className={styles.plancontainer}>
           <p className={styles.introparagraph}>
@@ -86,8 +86,8 @@ const Plan = () => {
             </table>
           </article>
         </div>
-      </div>
-    </section>
+      </section>
+    
   );
 };
 

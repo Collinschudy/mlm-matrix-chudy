@@ -1,49 +1,28 @@
 import styles from "./signup.module.css";
-import { TextField, Button, useTheme, IconButton, styled } from "@mui/material";
-import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
-import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import { tokens, ColorModeContext } from "../../theme";
+import { useNavigate } from "react-router-dom";
+import Logo from "../../logo.png";
 import { number, z, string, required } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, useController, Controller } from "react-hook-form";
 import { useState, useContext } from "react";
 
-import Header from "../../components/Header/header.component";
-import Footer from "../../components/Footer-section/footer.component";
-import GoBack from "../../components/goBack/goBack.component";
 
-const country = [
-  {
-    value: "usa",
-    label: "USA",
-  },
-  {
-    value: "nigeria",
-    label: "Nigeria",
-  },
-  {
-    value: "canada",
-    label: "Canada",
-  },
-  {
-    value: "denmark",
-    label: "Denmark",
-  },
-];
+const SignUpPage = ({ user = {} }) => {
+  const [submitting, setSubmitting] = useState(false);
+  const navigate = useNavigate();
 
-const MuiForm = ({ user = {} }) => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
-  const colorMode = useContext(ColorModeContext);
+  const phoneRegex = new RegExp(
+    /^(\+234|234|0)(701|702|703|704|705|706|707|708|709|802|803|804|805|806|807|808|809|810|811|812|813|814|815|816|817|818|819|909|908|901|902|903|904|905|906|907)([0-9]{7})$/);
 
   const schema = z
     .object({
-      name: z.string().min(5),
+      firstName: z.string().min(3),
+      lastName: z.string().min(3),
       email: z.string().email(),
-      age: z.number().min(17),
+      gender: z.string().min(1),
+      phone: z.string().regex(phoneRegex, 'Enter a valid phone number'),
       password: z.string().min(6).max(20),
       confirmPassword: z.string().min(6).max(20),
-      country: z.string().min(1),
     })
     .refine(
       (formValues) => formValues.password === formValues.confirmPassword,
@@ -57,166 +36,105 @@ const MuiForm = ({ user = {} }) => {
     defaultValues: user,
     resolver: zodResolver(schema),
   });
-  const { field } = useController({ name: "country", control });
   const { errors } = formState;
 
   const submit = (formValues) => {
+    setSubmitting(true)
     alert("Form submitted successfully");
     console.log(formValues);
+    setSubmitting(false)
   };
 
-  const StyledButton = styled(Button)({
-    // backgroundColor: colors.primary[200],
-    color: colors.grey[100],
-  });
-  return (
-    <>
-      <GoBack />
+  return (<>
+
       <div className={styles.wrap}>
-        <div className={styles.container}>
-          <div className={styles.icon}>
-            <img src="./logo.png" alt="company_logo" className={styles.logo} />
-            <span>Alliance Arcade</span>
+        <section className={styles.inner}>
+          <img
+            src="./images/signup.jpg"
+            alt="background"
+            className={styles.backgroundImage}
+          />
+          <div className={styles.text}>
+            <div className={styles.logowrapper}>
+              <img
+                src={Logo}
+                alt="logo"
+                className={styles.logo}
+                onClick={() => navigate("/")}
+              />
+              <span className={styles.logo_text}>Alliance <span className={styles.spantwo}>Arcade</span></span>
+            </div>
           </div>
-          <p className={styles.title}>
-            If you don't have an account, register here
-          </p>
-          <form onSubmit={handleSubmit(submit)}>
-            <div className={styles.formgroup}>
-              <TextField
-                name="name"
-                fullWidth
-                required
-                placeholder="Enter your name"
-                type="text"
-                label="Name"
-                {...register("name")}
-                error={errors.name ? true : false}
-                helperText={
-                  errors.name ? "Name should have at least five characters" : ""
-                }
+        </section>
+        <section className={styles.formsection}>
+          <div className={styles.formwrapper}>
+          <div className={styles.logowrapper2}>
+              <img
+                src={Logo}
+                alt="logo"
+                className={styles.logo2}
+                onClick={() => navigate("/")}
               />
+              <span className={styles.logo_text2}>Alliance <span className={styles.spantwo}>Arcade</span></span>
             </div>
+            <p className={styles.title}>Registration Form</p>
+            <p className={styles.description}>Fill in your details below:</p>
+            <form onSubmit={handleSubmit(submit)}>
+              <div className={styles.formgroup}>
+                <label htmlFor="firstname">First Name:</label>
+                <input type="text" placeholder="first name" name="firstName" {...register("firstName")}/>
+                <div className={styles.errors}>{errors.firstName ? "first name should have at least three characters" : ""}</div>
+              </div>
 
-            <div className={styles.formgroup}>
-              <TextField
-                name="name"
-                fullWidth
-                required
-                placeholder="Enter your name"
-                type="text"
-                label="Name"
-                {...register("name")}
-                error={errors.name ? true : false}
-                helperText={
-                  errors.name ? "Name should have at least five characters" : ""
-                }
-              />
-            </div>
-            <div className={styles.formgroup}>
-              <TextField
-                name="name"
-                fullWidth
-                required
-                placeholder="Enter your name"
-                type="text"
-                label="Name"
-                {...register("name")}
-                error={errors.name ? true : false}
-                helperText={
-                  errors.name ? "Name should have at least five characters" : ""
-                }
-              />
-            </div>
+              <div className={styles.formgroup}>
+                <label htmlFor="last-name">Last Name:</label>
+                <input type="text" placeholder="last name" name="lastName" {...register("lastName")}/>
+                <div className={styles.errors}>{errors.firstName ? "last name should have at least three characters" : ""}</div>
+              </div>
 
-            <div className={styles.formgroup}>
-              <TextField
-                fullWidth
-                required
-                label="Email"
-                type="email"
-                {...register("email")}
-                error={errors.email ? true : false}
-                helperText={errors.email?.message}
-              />
-            </div>
+              <div className={styles.formgroup}>
+                <label htmlFor="email">Email:</label>
+                <input type="email" name="email" {...register("email")}/>
+                <div className={styles.errors}>{errors.email?.message}</div>
+              </div>
 
-            <div className={styles.formgroup}>
-              <TextField
-                defaultValue=""
-                fullWidth
-                placeholder="Enter Age"
-                type="number"
-                label="Age"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                {...register("age", { valueAsNumber: true })}
-                error={errors.age ? true : false}
-                helperText={errors.age?.message}
-              />
-            </div>
+              <div className={styles.formgroup}>
+                <label htmlFor="gender">Gender:</label>
+                <select name="gender" {...register("gender")}>
+                  <option value="">Please select one…</option>
+                  <option value="female">Female</option>
+                  <option value="male">Male</option>
+                </select>
+              </div>
+              <div className={styles.formgroup}>
+                <label htmlFor="phone">Phone Number:</label>
+                <input type="number" name="phone" {...register("phone")}/>
+                <div className={styles.errors}>{errors.phone?.message}</div>
+              </div>
 
-            <div className={styles.formgroup}>
-              <TextField
-                fullWidth
-                placeholder="Enter your password"
-                type="password"
-                label="Password"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                {...register("password")}
-                error={errors.password ? true : false}
-                helperText={errors.password?.message}
-              />
-            </div>
+              <div className={styles.formgroup}>
+                <label htmlFor="phone">Password:</label>
+                <input type="number" name="password" {...register("password")}/>
+                <div className={styles.errors}>{errors.password?.message}</div>
+              </div>
 
-            <div className={styles.formgroup}>
-              <TextField
-                fullWidth
-                placeholder="Confirm password"
-                type="password"
-                label="Confirm Password"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                {...register("confirmPassword")}
-                error={errors.confirmPassword ? true : false}
-                helperText={errors.confirmPassword?.message}
-              />
-            </div>
-
-            <div className={styles.formgroup}>
-              <TextField
-                SelectProps={{
-                  native: true,
-                }}
-                select
-                label="Country"
-                defaultValue="nigeria"
-                helperText="Please select your country"
-                {...register("country")}
-              >
-                {country.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </TextField>
-            </div>
-
-            <div className={styles.formgroup}>
-              <StyledButton variant="outlined" type="submit">
-                Submit
-              </StyledButton>
-            </div>
-          </form>
-        </div>
+              <div className={styles.formgroup}>
+                <label htmlFor="phone">Confirm your password:</label>
+                <input type="number" name="phone" {...register("confirmPassword")}/>
+                <div className={styles.errors}>{errors.confirmPassword?.message}</div>
+              </div>
+              
+              <div className={styles.formgroup}>
+               <button type="submit">
+                 {submitting ? 'submitting...' : 'submit'}
+              </button>
+           </div>
+            </form>
+          </div>
+        </section>
       </div>
-      <Footer />
     </>
   );
 };
 
-export default MuiForm;
+export default SignUpPage;

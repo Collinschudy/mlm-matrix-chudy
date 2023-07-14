@@ -147,7 +147,7 @@ export const themeSettings = (mode) => {
           }
         : {
             primary: {
-              main: colors.primary[100],
+              main: colors.primary[500],
             },
             secondary: {
               main: colors.greenAccent[500],
@@ -161,6 +161,7 @@ export const themeSettings = (mode) => {
               default: '#D4F1F4',
             },
           }),
+          // #D4F1F4
     },
     typography: {
       fontFamily: ["Source Sans 3", "sans-serif"].join(","),
@@ -198,7 +199,7 @@ export const ColorModeContext = createContext({
 });
 
 export const useMode = () => {
-  const [mode, setMode] = useState("light");
+  const [mode, setMode] = useState("dark");
 
   const colorMode = useMemo(
     () => ({

@@ -1,10 +1,12 @@
 
 .wrapper{
     padding: 4rem 10rem;
+    background-color: rgba(0, 0, 50, 1);
 }
 .wrapper p{
     font-family: 'Lexend', sans-serif;
     text-align: center;
+    
 }
 
 @media screen and (max-width: 650px){

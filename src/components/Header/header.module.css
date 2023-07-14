@@ -42,6 +42,9 @@
   font-family: 'Lexend', sans-serif;
   color: lightgray;
 }
+.logo_text span{
+  color: #6CB4EE;
+}
 .hamburgercontainer{
     display: none;
 }

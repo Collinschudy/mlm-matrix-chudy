@@ -50,7 +50,7 @@ const Item = ({ title, to, icon, selected, setSelected,  }) => {
         }}
         
         // border: '1px solid yellowgreen'
-      onclick={() => setSelected(title)}
+      onClick={() => setSelected(title)}
     >
       <IconButton size="small">{icon}</IconButton>
 
