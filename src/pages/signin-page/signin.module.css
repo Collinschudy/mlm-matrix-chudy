@@ -86,6 +86,7 @@ input:focus{
 }
 button{
     padding: 1rem;
+    border-radius: 0.2rem;
     border: none;
     background-color: #6CB4EE;
     font-size: 1.2rem;
@@ -96,3 +97,19 @@ button:hover{
     background-color: #3489ce;
 }
 
+@media screen and (max-width: 650px) {
+    .wrap{
+        height: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        border-radius: 0%;
+        padding: auto 0;
+    }
+    .logowrapper{
+        font-size: 1.5rem;
+    }
+    .logo{
+        max-width: 3rem;
+    }
+    
+}
