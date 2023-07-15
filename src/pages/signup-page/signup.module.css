@@ -4,8 +4,6 @@
     display: flex;
     font-family: 'Lexend', sans-serif;
     position: relative;
-
-
 }
 
 .inner {
@@ -52,7 +50,7 @@
     height: 4rem;
     display: flex;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin: 2rem 0;
     display: none;
 }
@@ -69,7 +67,7 @@
 .logo2 {
     display: block;
     width: 100%;
-    max-width: 3.5rem;
+    max-width: 3rem;
     height: 100%;
     cursor: pointer;
     object-fit: contain;
@@ -93,6 +91,21 @@
     background-clip: text;
     font-family: 'Lexend', sans-serif;
 
+}
+.signinparagraph{
+    position: absolute;
+    margin-left: 12px;
+    bottom: 10%;
+    left: 20px;
+    font-size: 1.2rem;
+}
+.signinparagraph span a{
+    color:#6CB4EE;
+}
+.socialicons{
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
 }
 
 .spantwo {
@@ -186,6 +199,28 @@ button:hover{
     }
     .logowrapper2{
         display: flex;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .title{
+        font-size: 20px;
+        margin-top: 1rem;
+    }
+    .formwrapper {
+        width: 100%;
+    }
+    .logowrapper{
+        font-size: 1.5rem;
+    }
+    .logo{
+        max-width: 3.5rem;
+    }
+    .signinparagraph{
+        width: 70%;
+        text-align: center;
+       
     }
 
 }

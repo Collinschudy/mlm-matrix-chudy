@@ -17,6 +17,7 @@ import AboutUsPage from './pages/about-us/AboutUsPage';
 import Admin from './pages/Admin/admin';
 import Dashboard from './pages/User-Dashboard/Dashboard';
 import SignUpPage from './pages/signup-page/SignUp';
+import SignInPage from './pages/signin-page/Signin';
 import Plan from './components/Plan/Plan.component';
 import PlanPage from './pages/planPage/planPage';
 
@@ -67,7 +68,8 @@ function App() {
         <Route path='about' element={<AboutUsPage />} />
         <Route path='admin/*' element={<Admin />} />
         <Route path='user' element={<Dashboard />} />
-        <Route path='signin' element={<SignUpPage />} />
+        <Route path='signup' element={<SignUpPage />} />
+        <Route path='signin' element={<SignInPage />} />
         <Route path='plan' element={<PlanPage />} />
 
       </Routes>
