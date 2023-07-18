@@ -17,7 +17,7 @@ const SignUpPage = ({ user = {} }) => {
   const navigate = useNavigate();
 
   const phoneRegex = new RegExp(
-    /^(\+234|234|0)(701|702|703|704|705|706|707|708|709|802|803|804|805|806|807|808|809|810|811|812|813|814|815|816|817|818|819|909|908|901|902|903|904|905|906|907)([0-9]{7})$/
+    /^(\+234|234|0)(701|702|703|704|705|706|707|708|709|801|802|803|804|805|806|807|808|809|810|811|812|813|814|815|816|817|818|819|909|908|901|902|903|904|905|906|907)([0-9]{7})$/
   );
 
   const schema = z
@@ -49,9 +49,11 @@ const SignUpPage = ({ user = {} }) => {
   };
 
   const submit = (formValues) => {
+    setSubmitting(true);
     alert("Form submitted successfully");
     console.log(formValues);
     handleReset();
+    setSubmitting(false);
   };
 
   return (
@@ -105,13 +107,15 @@ const SignUpPage = ({ user = {} }) => {
             <p className={styles.title}>Registration Form</p>
 
             <p className={styles.description}>Fill in your details below:</p>
-            <form onSubmit={handleSubmit(submit)}>
+            <form onSubmit={handleSubmit(submit)} autoComplete="off">
               <div className={styles.formgroup}>
                 <label htmlFor="firstname">First Name:</label>
                 <input
                   type="text"
                   placeholder="first name"
                   name="firstName"
+                  id="firstname"
+                  autoFocus
                   {...register("firstName")}
                 />
                 <div className={styles.errors}>
@@ -138,7 +142,7 @@ const SignUpPage = ({ user = {} }) => {
 
               <div className={styles.formgroup}>
                 <label htmlFor="email">Email:</label>
-                <input type="email" name="email" {...register("email")} />
+                <input type="email" name="email" {...register("email")} autoComplete="off" />
                 <div className={styles.errors}>{errors.email?.message}</div>
               </div>
 
@@ -159,9 +163,10 @@ const SignUpPage = ({ user = {} }) => {
               <div className={styles.formgroup}>
                 <label htmlFor="phone">Password:</label>
                 <input
-                  type="number"
+                  type="password"
                   name="password"
                   {...register("password")}
+                  
                 />
                 <div className={styles.errors}>{errors.password?.message}</div>
               </div>
@@ -169,7 +174,7 @@ const SignUpPage = ({ user = {} }) => {
               <div className={styles.formgroup}>
                 <label htmlFor="phone">Confirm your password:</label>
                 <input
-                  type="number"
+                  type="password"
                   name="phone"
                   {...register("confirmPassword")}
                 />
@@ -179,7 +184,7 @@ const SignUpPage = ({ user = {} }) => {
               </div>
 
               <div className={styles.formgroup}>
-                <button type="submit">
+                <button type="submit" disabled={submitting}>
                   {submitting ? "submitting..." : "submit"}
                 </button>
               </div>
