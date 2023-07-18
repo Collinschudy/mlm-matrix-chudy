@@ -28,11 +28,16 @@ import { setToggleView } from "../redux/navToggle/navToggleAction";
 import { selectToggleView } from "../redux/navToggle/navToggleSelect";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import AdminHeader from "../userScenes/userGlobal/AdminHeader";
 
 const DashContent = ({ collapsed, setIsCollapsed }) => {
   const isNotMobile = useMediaQuery("(min-width: 600px)");
 
   return (
+    <>
+    <Box display="flex" justifyContent="space-between" alignItems="center">
+    <AdminHeader title="Dashboard" subtitle="Welcome to your dashboard" />
+  </Box>
     <div>
       <Box
         m="20px"
@@ -211,6 +216,7 @@ const DashContent = ({ collapsed, setIsCollapsed }) => {
         </Box>
       </Box>
     </div>
+    </>
   );
 };
 

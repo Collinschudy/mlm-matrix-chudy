@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './fullpageitems.module.css'
 
 import React from 'react'
@@ -12,10 +13,10 @@ const FullPageHeaderItems = ({ item }) => {
             }}
         >
             <h1>{desc}</h1>
-            <div className={styles.container}>
-                <button className={styles.signup}>Sign up</button>
-                <button className={styles.signup}>Sign in</button>
-            </div>
+            {/* <div className={styles.container}>
+                <button className={styles.signup}><Link to='signin'>Log in</Link></button>
+                <button className={styles.signup}><Link to='signup'>Register</Link></button>
+            </div> */}
 
 
         </article>

@@ -55,7 +55,7 @@
 }
 
 .box:hover{
-    background-color: yellowgreen;
+    background-color: gray;
     color: #fff;
     transition: 0.5s ease-in all;
 }

@@ -102,7 +102,7 @@ const Navcontent = ({ showheader, setShowHeader, mobileNavBar }) => {
         Contact<span></span>
       </Link>
       <Link
-        to="/signup"
+        to="/signin"
         className={`${styles.link} ${styles.signin} ${
           navScroll ? styles.change : ""
         } ${mobileNavBar ? styles.mobileLinks : ""}`}
@@ -111,7 +111,7 @@ const Navcontent = ({ showheader, setShowHeader, mobileNavBar }) => {
           setShowHeader(false);
         }}
       >
-        Register<span></span>
+        Login/Register<span></span>
       </Link>
     </div>
   );

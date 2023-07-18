@@ -7,7 +7,7 @@
 .introparagraph, .secondparagraph{
     /* width: 70%; */
     margin: auto;
-    text-align: center;
+    text-align: justify;
     font-family: 'Lexend', sans-serif;
     color: rgb(0,0,50)
 }

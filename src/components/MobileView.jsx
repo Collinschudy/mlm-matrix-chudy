@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Sidebar from "./Sidebar";
+import Sidebar from "../userScenes/userGlobal/Sidebar";
 import { Box, useMediaQuery, Typography, IconButton } from "@mui/material";
 import { selectMobileView } from "../redux/mobileToggle/mobileToggleSelect";
 import { setMobileView } from "../redux/mobileToggle/mobileToggleAction";
