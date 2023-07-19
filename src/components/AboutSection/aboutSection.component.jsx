@@ -49,7 +49,7 @@ const AboutSection = ({ isAboutPage }) => {
 
   return (
     <section className={styles.wrapper}>
-      <Title heading={"about Alliance Arcade"} title={""} isAbout />
+      <Title heading={"about alliance"} title={"arcade"} isAbout />
       <div className={styles.contentBox}>
         <img
           src="./images/about.jpg"

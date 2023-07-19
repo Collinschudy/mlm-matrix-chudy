@@ -14,8 +14,8 @@
   user-select: none;
   text-transform: capitalize;
   text-align: center;
-  /* transform: translateY(100%);
-  transition: 0.7s ease-in-out; */
+  color: #135992;
+  font-family: 'Raleway', sans-serif;
 }
 .title2 {
   width: 100%;
@@ -24,9 +24,8 @@
   user-select: none;
   text-transform: capitalize;
   text-align: center;
-  /* transform: translateY(0);
-  transition: 0.7s ease-in-out; */
   margin-bottom: 1.5rem;
+  font-family: 'Raleway', sans-serif;
 }
 .vision{
   width: 100%;
@@ -35,13 +34,13 @@
   user-select: none;
   text-transform: capitalize;
   text-align: center;
+  font-family: 'Raleway', sans-serif;
 }
 .vison span{
   color: white;
 }
 .title span {
   color: rgba(0, 0, 50, 1);
-  /* color: red; */
 }
 .title2 span {
   color: rgba(0, 0, 50, 1);
@@ -49,6 +48,7 @@
 
 @media screen and (max-width: 650px) {
   .title, .title2, .vision{
-    font-size: 2rem;
+    font-size: 1.5rem;
+    
   }
 }

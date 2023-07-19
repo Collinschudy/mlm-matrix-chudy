@@ -76,14 +76,11 @@
     .icon {
       width: 100%;
       height: 100%;
-      /* color: #fff; */
-      color: #D4F1F4;
+      color: #fff;
       transition: all 0.5s ease-in-out;
     }
     .change {
-      /* color: lightgrey; */
-      color: #D4F1F4;
-      /* color: rgba(3, 138, 255, 1); */
+      color: white;
       transition: all 0.5s ease-in-out;
     }
   }

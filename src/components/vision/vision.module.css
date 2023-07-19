@@ -4,22 +4,24 @@
     background-color: rgba(0, 0, 50, 1);
 }
 .wrapper p{
-    font-family: 'Lexend', sans-serif;
-    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    text-align: justify;
     
 }
 
 @media screen and (max-width: 650px){
     .wrapper{
-        padding: 2rem 1rem;
+        padding: 2rem 1.5rem;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
     .wrapper p{
-        width: 90%;
+        width: 100%;
         text-align: justify;
+        line-height: 1.8rem;
+        font-size: 15px;
     }
 }
 

@@ -18,8 +18,10 @@
     cursor: pointer;
     transition: 0.5s;
     border-radius: 0.2em;
-    /* color: #D4F1F4; */
+    font-weight: 500;
+    font-size: 15px;
     color: white;
+    font-family: 'Raleway', sans-serif;
 
 }
 

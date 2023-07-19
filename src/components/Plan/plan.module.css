@@ -5,10 +5,10 @@
 }
 
 .introparagraph, .secondparagraph{
-    /* width: 70%; */
     margin: auto;
     text-align: justify;
-    font-family: 'Lexend', sans-serif;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
     color: rgb(0,0,50)
 }
 .secondparagraph{
@@ -21,6 +21,7 @@ table{
 }
 thead{
     font-size: 1.4rem;
+    font-family: 'Raleway', sans-serif;
     
 }
 
@@ -29,19 +30,31 @@ tr{
     height: 2.5em;
     font-weight: 600;
 }
+td{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+}
 tr:nth-child(even) {
     background-color: #D6EEEE;
   }
 
   @media screen and (max-width: 650px){
     .wrapper{
-        padding: 2rem 0;
+        padding: 2rem 1.5rem;
     }
 
     .introparagraph, .secondparagraph{
-        width: 90%;
+        width: 100%;
         text-align: justify;
+        font-size: 15px;
         
+    }
+    thead{
+        font-size: 1.2rem;
+    }
+    table{
+        width: 100%;
+        margin: 0;
     }
   }
   
