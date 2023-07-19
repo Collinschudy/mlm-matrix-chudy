@@ -65,7 +65,6 @@ const Item = ({
       }}
       onClick={() => {
         setSelected(title);
-        console.log(selected);
       }}
     >
       <IconButton size="small">{icon}</IconButton>
