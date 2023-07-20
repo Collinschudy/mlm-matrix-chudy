@@ -12,8 +12,8 @@ const Footer = () => {
             <div className={styles.container}>
                 <section className={styles.footerOne}>
                     <img src={Logo} alt="logo" className={styles.logo}/>
-                    <h3>Alliance Arcade</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, molestiae.</p>
+                    <h3>Alliance <span>Arcade</span></h3>
+                    <p>Your one ticket to financial freedom. Become a member today!</p>
                 </section>
 
                 <section className={styles.footerTwo}>
@@ -40,7 +40,7 @@ const Footer = () => {
                     
                 </section>
             </div>
-            {/* <hr className={styles.hr}/> */}
+           
             <p style={{'borderBottom': '1px solid grey'}}></p>
             <span className={styles.footernote}>&#169;2023 Alliance Arcade, All Rights Reserved.</span>
 

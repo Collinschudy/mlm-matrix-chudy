@@ -24,3 +24,5 @@ const FullPageHeaderItems = ({ item }) => {
 }
 
 export default FullPageHeaderItems;
+
+// rgba(31,54,147,0.6), rgba(31,54,148, 0.6)
