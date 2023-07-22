@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import Logo from "../../logo.png";
 import styles from "./signin.module.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { connect } from "react-redux";
+
 
 const SignInPage = () => {
   const navigate = useNavigate();
@@ -11,18 +16,28 @@ const SignInPage = () => {
   const [error, setError] = useState(false);
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (password.length < 5){
     
       return setError(true)
     }
-    console.log(email,password)
-    navigate('/user/dashboard')
+    try{
+      await axios.post('https://mlm.zurupevarietiesstore.com/api/auth/login', {
+        email, password
+      })
+      navigate('/user/dashboard')
+    }catch(err){
+      console.log(err.message)
+      toast.error(err.message)
+    }
+    // console.log(email,password)
+    
   }
   return (
     <div className={styles.container}>
       <div className={styles.wrap}>
+        
         <div className={styles.logowrapper}>
           <img
             src={Logo}
@@ -34,14 +49,19 @@ const SignInPage = () => {
             Alliance <span className={styles.spantwo}>Arcade</span>
           </span>
         </div>
+        <div className={styles.title}>
+        <h2>Sign In</h2>
+        <p>Enter your email address and password to login to your dashboard</p>
+        </div>
         <div className={styles.formwrapper}>
-          <form action="" onSubmit={handleSubmit}>
+          <form action="" onSubmit={handleSubmit} autoComplete="off">
             <div className={styles.formgroup}>
               <label htmlFor="email">Email:</label>
               <input
                 type="email"
                 name="email"
                 value={email}
+                autoFocus
                 onChange={(e) => setEmail(e.target.value)}
                 
               />
@@ -62,12 +82,17 @@ const SignInPage = () => {
             </div>
           </form>
           <p className={styles.instruction}>
-            If you do not have an account, <span onClick={() => navigate('/signup')}>click here to Register</span>
+            Forgot your password? <span onClick={() => navigate('/signup')}>Reset Here</span>
           </p>
+          <p className={styles.instruction}>
+            Don't have an account yet? <span onClick={() => navigate('/signup')}>Register</span>
+          </p>
+          <ToastContainer />
         </div>
       </div>
     </div>
   );
 };
+
 
 export default SignInPage;
