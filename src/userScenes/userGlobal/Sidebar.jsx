@@ -72,7 +72,6 @@ const Item = ({
       <Typography variant="p" sx={{ ml: 3, fontSize: "0.9rem" }}>
         {title}
       </Typography>
-      <Link to={to} />
     </Box>
   );
 };
