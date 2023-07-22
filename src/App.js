@@ -20,6 +20,7 @@ import SignUpPage from './pages/signup-page/SignUp';
 import SignInPage from './pages/signin-page/Signin';
 import Plan from './components/Plan/Plan.component';
 import PlanPage from './pages/planPage/planPage';
+import SignupVerify from './pages/SignUpVerification/SignupVerify';
 
 function App() {
   const [arrowScrollUp, setArrowScrollUp] = useState(false);
@@ -71,6 +72,7 @@ function App() {
         <Route path='signup' element={<SignUpPage />} />
         <Route path='signin' element={<SignInPage />} />
         <Route path='plan' element={<PlanPage />} />
+        <Route path='verify' element={<SignupVerify />} />
 
       </Routes>
       {/* <Footer /> */}
