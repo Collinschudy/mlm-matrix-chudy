@@ -11,10 +11,17 @@ import { useForm, useController, Controller } from "react-hook-form";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { IconButton } from "@mui/material";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { selectUserTokenAndEmail } from "../../redux/userInfo/userSelect";
+import { setUserInfo, setUserTokenAndEmail } from "../../redux/userInfo/userInfoAction";
 
-const SignUpPage = ({ user = {} }) => {
+const SignUpPage = ({ user = {}, userVerify, setUserVerify}) => {
   const [submitting, setSubmitting] = useState(false);
   const navigate = useNavigate();
+
 
   const phoneRegex = new RegExp(
     /^(\+234|234|0)(701|702|703|704|705|706|707|708|709|801|802|803|804|805|806|807|808|809|810|811|812|813|814|815|816|817|818|819|909|908|901|902|903|904|905|906|907)([0-9]{7})$/
@@ -22,11 +29,11 @@ const SignUpPage = ({ user = {} }) => {
 
   const schema = z
     .object({
-      firstName: z.string().min(3),
-      lastName: z.string().min(3),
+      firstname: z.string().min(3),
+      lastname: z.string().min(3),
+      username: z.string().min(3),
       email: z.string().email(),
-      gender: z.string().min(1),
-      phone: z.string().regex(phoneRegex, "Enter a valid phone number"),
+      phone_number: z.string().regex(phoneRegex, "Enter a valid phone number"),
       password: z.string().min(6).max(20),
       confirmPassword: z.string().min(6).max(20),
     })
@@ -48,16 +55,38 @@ const SignUpPage = ({ user = {} }) => {
     reset();
   };
 
-  const submit = (formValues) => {
-    setSubmitting(true);
-    alert("Form submitted successfully");
-    console.log(formValues);
-    handleReset();
+  const submit = async (formValues) => {
+    const { firstname, lastname, email, username, phone_number, password } =
+      formValues;
+     
+    try {
+      const res = await axios.post(
+        "https://mlm.zurupevarietiesstore.com/api/auth/register",
+        {
+          firstname,
+          lastname,
+          username,
+          email,
+          phone_number,
+          password,
+        }
+      );
+      const token = res.data.data.token;
+      setSubmitting(true);
+      setUserVerify({"token":token,
+      "email": email})
+      navigate('/verify')
+    } catch (err) {
+      toast.error(err.message);
+    }
+
+    // handleReset();
     setSubmitting(false);
   };
 
   return (
     <>
+    {/* {console.log(userVerify)} */}
       <div className={styles.wrap}>
         <section className={styles.inner}>
           <img
@@ -78,7 +107,10 @@ const SignUpPage = ({ user = {} }) => {
               </span>
             </div>
             <p className={styles.signinparagraph}>
-              If you already have an account, you can <span><Link to='/signin'>log in here</Link></span>
+              If you already have an account, you can{" "}
+              <span>
+                <Link to="/signin">log in here</Link>
+              </span>
             </p>
             <div className={styles.socialicons}>
               <IconButton>
@@ -113,10 +145,10 @@ const SignUpPage = ({ user = {} }) => {
                 <input
                   type="text"
                   placeholder="first name"
-                  name="firstName"
+                  name="firstname"
                   id="firstname"
                   autoFocus
-                  {...register("firstName")}
+                  {...register("firstname")}
                 />
                 <div className={styles.errors}>
                   {errors.firstName
@@ -130,8 +162,8 @@ const SignUpPage = ({ user = {} }) => {
                 <input
                   type="text"
                   placeholder="last name"
-                  name="lastName"
-                  {...register("lastName")}
+                  name="lastname"
+                  {...register("lastname")}
                 />
                 <div className={styles.errors}>
                   {errors.firstName
@@ -141,23 +173,40 @@ const SignUpPage = ({ user = {} }) => {
               </div>
 
               <div className={styles.formgroup}>
+                <label htmlFor="last_name">Username:</label>
+                <input
+                  type="text"
+                  placeholder="username"
+                  name="username"
+                  id='last_name'
+                  {...register("username")}
+                />
+                <div className={styles.errors}>
+                  {errors.username
+                    ? "username should have at least three characters"
+                    : ""}
+                </div>
+              </div>
+
+              <div className={styles.formgroup}>
                 <label htmlFor="email">Email:</label>
-                <input type="email" name="email" {...register("email")} autoComplete="off" />
+                <input
+                  type="email"
+                  name="email"
+                  {...register("email")}
+                  autoComplete="off"
+                />
                 <div className={styles.errors}>{errors.email?.message}</div>
               </div>
 
               <div className={styles.formgroup}>
-                <label htmlFor="gender">Gender:</label>
-                <select name="gender" {...register("gender")}>
-                  <option value="">Please select one…</option>
-                  <option value="female">Female</option>
-                  <option value="male">Male</option>
-                </select>
-              </div>
-              <div className={styles.formgroup}>
                 <label htmlFor="phone">Phone Number:</label>
-                <input type="number" name="phone" {...register("phone")} />
-                <div className={styles.errors}>{errors.phone?.message}</div>
+                <input
+                  type="number"
+                  name="phone"
+                  {...register("phone_number")}
+                />
+                <div className={styles.errors}>{errors.phone_number?.message}</div>
               </div>
 
               <div className={styles.formgroup}>
@@ -166,7 +215,6 @@ const SignUpPage = ({ user = {} }) => {
                   type="password"
                   name="password"
                   {...register("password")}
-                  
                 />
                 <div className={styles.errors}>{errors.password?.message}</div>
               </div>
@@ -189,6 +237,7 @@ const SignUpPage = ({ user = {} }) => {
                 </button>
               </div>
             </form>
+            <ToastContainer limit={1}/>
           </div>
         </section>
       </div>
@@ -196,4 +245,12 @@ const SignUpPage = ({ user = {} }) => {
   );
 };
 
-export default SignUpPage;
+const mapStateToProps = createStructuredSelector({
+  userVerify: selectUserTokenAndEmail
+})
+
+const mapDispatchToProps = dispatch => ({
+  setUserVerify: (user) => dispatch(setUserTokenAndEmail(user))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpPage);

@@ -1,0 +1,17 @@
+.container{
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container h3{
+    font-family: 'Raleway', san-serif;
+    text-align: center;
+    
+}
+.container h3 span{
+    color: #3489ce;
+}
