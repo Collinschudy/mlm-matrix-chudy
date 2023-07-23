@@ -6,6 +6,17 @@ import { connect } from "react-redux";
 import { selectToggleView } from "../../redux/navToggle/navToggleSelect";
 import { setToggleView } from "../../redux/navToggle/navToggleAction";
 import { createStructuredSelector } from "reselect";
+import {
+  setCurrentUser,
+  setUserTokenAndEmail,
+} from "../../redux/userInfo/userInfoAction";
+import {
+  selectCurrentUser,
+  selectUserTokenAndEmail,
+} from "../../redux/userInfo/userSelect";
+
+import { toast, ToastContainer } from "react-toastify";
+import axios from "axios";
 
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
@@ -33,6 +44,7 @@ import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
 
 import { useMediaQuery } from "@mui/material";
 import { MenuItem } from "react-pro-sidebar";
+import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 
 const Item = ({
   title,
@@ -76,17 +88,49 @@ const Item = ({
   );
 };
 
-const Sidebar = ({ collapsed, setIsCollapsed }) => {
+const Sidebar = ({
+  collapsed,
+  setIsCollapsed,
+  userVerify,
+  userData,
+  setUserVerify,
+  setUserData,
+}) => {
   const isNotMobile = useMediaQuery("(min-width: 600px)");
   const [selected, setSelected] = useState("Dashboard");
   const navigate = useNavigate();
   const [pathName, setPathName] = useState("");
   const location = useLocation();
   const { pathname } = location;
-
+  const token = userVerify.token;
+  // console.log(token)
+  
   useEffect(() => {
     setPathName(pathname);
   }, [pathname]);
+
+  const logOutUser = async () => {
+    
+    
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+
+    try {
+      const res = await axios.get(
+        "https://mlm.zurupevarietiesstore.com/api/auth/logout",
+        config
+      );
+      setUserVerify([]);
+      setUserData(null);
+      console.log(res)
+      toast.success(res.data.message);
+      navigate("/signin");
+
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
 
   return (
     <Box style={{ color: "lightgray", overflowY: "scroll" }}>
@@ -109,6 +153,7 @@ const Sidebar = ({ collapsed, setIsCollapsed }) => {
               "linear-Gradient(to bottom right, rgb(0, 0, 50), rgba(0,0,55, 0.9))",
           }}
         >
+          <ToastContainer limit={1} />
           <Typography
             variant="h5"
             sx={{
@@ -122,7 +167,8 @@ const Sidebar = ({ collapsed, setIsCollapsed }) => {
             Alliance Arcade
           </Typography>
         </Box>
-        <Box pt={isNotMobile ? "11rem" : "1rem"}>
+
+        <Box pt={isNotMobile ? "11rem" : "0rem"}>
           {/* <Menu iconShape="square"> */}
           <Link to="dashboard">
             <Item
@@ -275,20 +321,28 @@ const Sidebar = ({ collapsed, setIsCollapsed }) => {
             />
           </Link>
 
-          {/* </Menu> */}
+          <Box display="flex" alignItems="center" gap="5px" ml="15px" mt="5px" >
+            <IconButton>
+              <LogoutOutlinedIcon />
+            </IconButton>
+            <Typography onClick={() => {logOutUser(); console.log('Ebuka')}}>Log out</Typography>
+          </Box>
         </Box>
       </>
 
-      {/* </ProSidebar> */}
     </Box>
   );
 };
 
 const mapStateToProps = createStructuredSelector({
   collapsed: selectToggleView,
+  userData: selectCurrentUser,
+  userVerify: selectUserTokenAndEmail,
 });
 const mapDispatchToProps = (dispatch) => ({
   setIsCollapsed: () => dispatch(setToggleView()),
+  setUserVerify: (user) => dispatch(setUserTokenAndEmail(user)),
+  setUserData: (userData) => dispatch(setCurrentUser(userData)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
