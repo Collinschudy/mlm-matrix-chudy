@@ -6,9 +6,12 @@ import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { connect } from "react-redux";
+import { setCurrentUser, setUserTokenAndEmail } from "../../redux/userInfo/userInfoAction";
+import { selectCurrentUser, selectUserTokenAndEmail } from "../../redux/userInfo/userSelect";
+import { createStructuredSelector } from "reselect";
 
 
-const SignInPage = () => {
+const SignInPage = ({setUserData, setUserVerify, userData, userVerify}) => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -23,12 +26,19 @@ const SignInPage = () => {
       return setError(true)
     }
     try{
-      await axios.post('https://mlm.zurupevarietiesstore.com/api/auth/login', {
+      const res = await axios.post('https://mlm.zurupevarietiesstore.com/api/auth/login', {
         email, password
       })
+      toast.success(res.data.message)
+      console.log(res.data)
+      const token = res.data.data.token;
+      const userdata = res.data.data.user;
+      setUserVerify({"token":token,
+      "email": email});
+      setUserData(userdata)
       navigate('/user/dashboard')
     }catch(err){
-      console.log(err.message)
+
       toast.error(err.message)
     }
     // console.log(email,password)
@@ -87,7 +97,7 @@ const SignInPage = () => {
           <p className={styles.instruction}>
             Don't have an account yet? <span onClick={() => navigate('/signup')}>Register</span>
           </p>
-          <ToastContainer />
+          <ToastContainer limit={1}/>
         </div>
       </div>
     </div>
@@ -95,4 +105,15 @@ const SignInPage = () => {
 };
 
 
-export default SignInPage;
+const mapStateToProps = createStructuredSelector({
+  userData: selectCurrentUser,
+  userVerify: selectUserTokenAndEmail,
+});
+const mapDispatchToProps = (dispatch) => ({
+  setUserVerify: (user) => dispatch(setUserTokenAndEmail(user)),
+  setUserData: (userData) => dispatch(setCurrentUser(userData)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignInPage);
+
+
