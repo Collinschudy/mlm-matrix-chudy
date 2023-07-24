@@ -45,6 +45,8 @@ import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
 import { useMediaQuery } from "@mui/material";
 import { MenuItem } from "react-pro-sidebar";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
+import { selectMobileView } from "../../redux/mobileToggle/mobileToggleSelect";
+import { setMobileView } from "../../redux/mobileToggle/mobileToggleAction";
 
 const Item = ({
   title,
@@ -91,6 +93,8 @@ const Item = ({
 const Sidebar = ({
   collapsed,
   setIsCollapsed,
+  mobileCollapsed,
+  setMobileCollapsed,
   userVerify,
   userData,
   setUserVerify,
@@ -170,7 +174,7 @@ const Sidebar = ({
 
         <Box pt={isNotMobile ? "11rem" : "0rem"}>
           {/* <Menu iconShape="square"> */}
-          <Link to="dashboard">
+          <Link to="dashboard" onClick={() => setMobileCollapsed(false)}>
             <Item
               title="Dashboard"
               icon={
@@ -183,7 +187,7 @@ const Sidebar = ({
               setSelected={setSelected}
             />
           </Link>
-          <Link to="deposit">
+          <Link to="deposit" onClick={() => setMobileCollapsed(false)}>
             <Item
               title="Deposit"
               to="deposit"
@@ -196,7 +200,7 @@ const Sidebar = ({
             />
           </Link>
 
-          <Link to="subscription">
+          <Link to="subscription" onClick={() => setMobileCollapsed(false)}>
             <Item
               title="Subscription Plan"
               icon={
@@ -208,7 +212,7 @@ const Sidebar = ({
             />
           </Link>
 
-          <Link to="withdrawal">
+          <Link to="withdrawal" onClick={() => setMobileCollapsed(false)}>
             <Item
               title="Withdrawal"
               to="user/withdrawal"
@@ -223,7 +227,7 @@ const Sidebar = ({
             />
           </Link>
 
-          <Link to="epin-recharge">
+          <Link to="epin-recharge" onClick={() => setMobileCollapsed(false)}>
             <Item
               title="E-Pin Recharge"
               icon={
@@ -237,7 +241,7 @@ const Sidebar = ({
             />
           </Link>
 
-          <Link to="transfer-balance">
+          <Link to="transfer-balance" onClick={() => setMobileCollapsed(false)}>
             <Item
               title="Transfer Balance"
               icon={
@@ -251,7 +255,7 @@ const Sidebar = ({
             />
           </Link>
 
-          <Link to="mymatrix">
+          <Link to="mymatrix" onClick={() => setMobileCollapsed(false)}>
             <Item
               title="My Matrix"
               icon={
@@ -265,7 +269,7 @@ const Sidebar = ({
             />
           </Link>
 
-          <Link to="referral">
+          <Link to="referral" onClick={() => setMobileCollapsed(false)}>
             <Item
               title="My Referral"
               to="user/referral"
@@ -278,7 +282,7 @@ const Sidebar = ({
             />
           </Link>
 
-          <Link to="transactions">
+          <Link to="transactions" onClick={() => setMobileCollapsed(false)}>
             <Item
               title="Transactions"
               to="user/transactions"
@@ -293,7 +297,7 @@ const Sidebar = ({
             />
           </Link>
 
-          <Link to="2fa-security">
+          <Link to="2fa-security" onClick={() => setMobileCollapsed(false)}>
             <Item
               title="2FA Security"
               icon={
@@ -307,7 +311,7 @@ const Sidebar = ({
             />
           </Link>
 
-          <Link to="account-settings">
+          <Link to="account-settings" onClick={() => setMobileCollapsed(false)}>
             <Item
               title="Account Settings"
               icon={
@@ -336,11 +340,13 @@ const Sidebar = ({
 
 const mapStateToProps = createStructuredSelector({
   collapsed: selectToggleView,
+  mobileCollapsed: selectMobileView,
   userData: selectCurrentUser,
   userVerify: selectUserTokenAndEmail,
 });
 const mapDispatchToProps = (dispatch) => ({
   setIsCollapsed: () => dispatch(setToggleView()),
+  setMobileCollapsed: () => dispatch(setMobileView()),
   setUserVerify: (user) => dispatch(setUserTokenAndEmail(user)),
   setUserData: (userData) => dispatch(setCurrentUser(userData)),
 });
