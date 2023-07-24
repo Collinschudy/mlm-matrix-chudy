@@ -41,9 +41,11 @@ const SignInPage = ({setUserData, setUserVerify, userData, userVerify}) => {
 
       toast.error(err.message)
     }
-    // console.log(email,password)
     
   }
+
+  
+
   return (
     <div className={styles.container}>
       <div className={styles.wrap}>
@@ -92,7 +94,7 @@ const SignInPage = ({setUserData, setUserVerify, userData, userVerify}) => {
             </div>
           </form>
           <p className={styles.instruction}>
-            Forgot your password? <span onClick={() => navigate('/signup')}>Reset Here</span>
+            Forgot your password? <span onClick={() => navigate('/forgotpassword')}>Reset Here</span>
           </p>
           <p className={styles.instruction}>
             Don't have an account yet? <span onClick={() => navigate('/signup')}>Register</span>
