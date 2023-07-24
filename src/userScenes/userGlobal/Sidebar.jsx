@@ -107,7 +107,7 @@ const Sidebar = ({
   const location = useLocation();
   const { pathname } = location;
   const token = userVerify.token;
-  // console.log(token)
+ 
   
   useEffect(() => {
     setPathName(pathname);
@@ -127,7 +127,6 @@ const Sidebar = ({
       );
       setUserVerify([]);
       setUserData(null);
-      console.log(res)
       toast.success(res.data.message);
       navigate("/signin");
 
@@ -138,8 +137,6 @@ const Sidebar = ({
 
   return (
     <Box style={{ color: "lightgray", overflowY: "scroll" }}>
-      {/* <ProSidebar collapsed={collapsed}> */}
-
       <>
         <Box
           width="16.66%"
@@ -173,7 +170,6 @@ const Sidebar = ({
         </Box>
 
         <Box pt={isNotMobile ? "11rem" : "0rem"}>
-          {/* <Menu iconShape="square"> */}
           <Link to="dashboard" onClick={() => setMobileCollapsed(false)}>
             <Item
               title="Dashboard"
