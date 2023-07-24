@@ -21,6 +21,8 @@ import SignInPage from './pages/signin-page/Signin';
 import Plan from './components/Plan/Plan.component';
 import PlanPage from './pages/planPage/planPage';
 import SignupVerify from './pages/SignUpVerification/SignupVerify';
+import PasswordReset from './pages/PasswordReset/PasswordReset';
+import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
 
 function App() {
   const [arrowScrollUp, setArrowScrollUp] = useState(false);
@@ -73,6 +75,8 @@ function App() {
         <Route path='signin' element={<SignInPage />} />
         <Route path='plan' element={<PlanPage />} />
         <Route path='verify' element={<SignupVerify />} />
+        <Route path='forgotpassword' element={<ForgotPassword />} />
+        <Route path='resetpassword' element={<PasswordReset />} />
 
       </Routes>
       {/* <Footer /> */}
