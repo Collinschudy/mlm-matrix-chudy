@@ -111,7 +111,7 @@ const DashContent = ({ collapsed, setIsCollapsed, userData, setUserData }) => {
             >
               <StatBox
                 icon={<PaymentIcon sx={{ height: "4em", width: "4em" }} />}
-                title={"\u20A6"}
+                title={"\u20A6"+0}
                 subtitle="Total Withdrawal"
               />
             </Box>
@@ -131,7 +131,7 @@ const DashContent = ({ collapsed, setIsCollapsed, userData, setUserData }) => {
                 icon={
                   <MonetizationOnIcon sx={{ height: "4em", width: "4em" }} />
                 }
-                title={`"\u20A6"`}
+                title={`\u20A6+0`}
                 subtitle="Total Referral Commission"
               />
             </Box>

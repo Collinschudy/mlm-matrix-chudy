@@ -3,53 +3,57 @@ import Logo from "../../logo.png";
 import styles from "./signin.module.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { connect } from "react-redux";
-import { setCurrentUser, setUserTokenAndEmail } from "../../redux/userInfo/userInfoAction";
-import { selectCurrentUser, selectUserTokenAndEmail } from "../../redux/userInfo/userSelect";
+import {
+  setCurrentUser,
+  setUserTokenAndEmail,
+} from "../../redux/userInfo/userInfoAction";
+import {
+  selectCurrentUser,
+  selectUserTokenAndEmail,
+} from "../../redux/userInfo/userSelect";
 import { createStructuredSelector } from "reselect";
 
-
-const SignInPage = ({setUserData, setUserVerify, userData, userVerify}) => {
+const SignInPage = ({ setUserData, setUserVerify, userData, userVerify }) => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
 
-
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    if (password.length < 5){
-    
-      return setError(true)
+    e.preventDefault();
+    if (password.length < 5) {
+      return setError(true);
     }
-    try{
-      const res = await axios.post('https://mlm.zurupevarietiesstore.com/api/auth/login', {
-        email, password
-      })
-      toast.success(res.data.message)
-      console.log(res.data)
+    try {
+      const res = await axios.post(
+        "https://mlm.zurupevarietiesstore.com/api/auth/login",
+        {
+          email,
+          password,
+        }
+      );
+      toast.success(res.data.message);
+      console.log(res.data);
       const token = res.data.data.token;
       const userdata = res.data.data.user;
-      setUserVerify({"token":token,
-      "email": email});
-      setUserData(userdata)
-      navigate('/user/dashboard')
-    }catch(err){
+      setUserVerify({ token: token, email: email });
+      setUserData(userdata);
 
-      toast.error(err.message)
+      if (userData?.email_verified_at === null) {
+        navigate("/verify");
+      } else navigate("/user/dashboard");
+    } catch (err) {
+      toast.error(err.message);
     }
-    
-  }
-
-  
+  };
 
   return (
     <div className={styles.container}>
       <div className={styles.wrap}>
-        
         <div className={styles.logowrapper}>
           <img
             src={Logo}
@@ -62,8 +66,10 @@ const SignInPage = ({setUserData, setUserVerify, userData, userVerify}) => {
           </span>
         </div>
         <div className={styles.title}>
-        <h2>Sign In</h2>
-        <p>Enter your email address and password to login to your dashboard</p>
+          <h2>Sign In</h2>
+          <p>
+            Enter your email address and password to login to your dashboard
+          </p>
         </div>
         <div className={styles.formwrapper}>
           <form action="" onSubmit={handleSubmit} autoComplete="off">
@@ -75,7 +81,6 @@ const SignInPage = ({setUserData, setUserVerify, userData, userVerify}) => {
                 value={email}
                 autoFocus
                 onChange={(e) => setEmail(e.target.value)}
-                
               />
               {/* {<div className={styles.errors}>{"Invalid Email"}</div>} */}
             </div>
@@ -87,25 +92,28 @@ const SignInPage = ({setUserData, setUserVerify, userData, userVerify}) => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              {error && <div className={styles.errors}>{"Invalid password"}</div>}
+              {error && (
+                <div className={styles.errors}>{"Invalid password"}</div>
+              )}
             </div>
             <div className={styles.formgroup}>
               <button type="submit">Login</button>
             </div>
           </form>
           <p className={styles.instruction}>
-            Forgot your password? <span onClick={() => navigate('/forgotpassword')}>Reset Here</span>
+            Forgot your password?{" "}
+            <span onClick={() => navigate("/forgotpassword")}>Reset Here</span>
           </p>
           <p className={styles.instruction}>
-            Don't have an account yet? <span onClick={() => navigate('/signup')}>Register</span>
+            Don't have an account yet?{" "}
+            <span onClick={() => navigate("/signup")}>Register</span>
           </p>
-          <ToastContainer limit={1}/>
+          <ToastContainer limit={1} />
         </div>
       </div>
     </div>
   );
 };
-
 
 const mapStateToProps = createStructuredSelector({
   userData: selectCurrentUser,
@@ -117,5 +125,3 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignInPage);
-
-
