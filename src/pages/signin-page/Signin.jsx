@@ -22,11 +22,14 @@ const SignInPage = ({ setUserData, setUserVerify, userData, userVerify }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
+  const [errMessage, setErrMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password.length < 5) {
-      return setError(true);
+      setError(true);
+      setErrMessage('Password is too short')
+      return;
     }
     try {
       const res = await axios.post(
@@ -47,11 +50,14 @@ const SignInPage = ({ setUserData, setUserVerify, userData, userVerify }) => {
         navigate("/verify");
       } else navigate("/user/dashboard");
     } catch (err) {
+      setError(true)
+      setErrMessage(err.message)
       toast.error(err.message);
     }
   };
 
   return (
+    <><ToastContainer limit={1} />
     <div className={styles.container}>
       <div className={styles.wrap}>
         <div className={styles.logowrapper}>
@@ -90,10 +96,10 @@ const SignInPage = ({ setUserData, setUserVerify, userData, userVerify }) => {
                 type="password"
                 name="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => {setPassword(e.target.value);setError(false)}}
               />
               {error && (
-                <div className={styles.errors}>{"Invalid password"}</div>
+                <div className={styles.errors}>{errMessage}</div>
               )}
             </div>
             <div className={styles.formgroup}>
@@ -108,10 +114,11 @@ const SignInPage = ({ setUserData, setUserVerify, userData, userVerify }) => {
             Don't have an account yet?{" "}
             <span onClick={() => navigate("/signup")}>Register</span>
           </p>
-          <ToastContainer limit={1} />
+          
         </div>
       </div>
     </div>
+    </>
   );
 };
 

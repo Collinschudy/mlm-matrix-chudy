@@ -1,28 +1,29 @@
-import './App.css';
-import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import "./App.css";
+import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import { FaAngleUp } from "react-icons/fa";
 
-import Header from './components/Header/header.component';
+import Header from "./components/Header/header.component";
 
-import { ColorModeContext, useMode } from './theme';
-import { CssBaseline, ThemeProvider } from '@mui/material';
+import { ColorModeContext, useMode } from "./theme";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 
-import Homepage from './pages/Homepage/Homepage';
-import Footer from './components/Footer-section/footer.component';
-import Faqs from './pages/FAQs/faqs.page';
-import HowItWorksPage from './pages/HowItWorks/howitworks.page';
-import ContactPage from './pages/contact-us/contactpage';
-import AboutUsPage from './pages/about-us/AboutUsPage';
-import Admin from './pages/Admin/admin';
-import Dashboard from './pages/User-Dashboard/Dashboard';
-import SignUpPage from './pages/signup-page/SignUp';
-import SignInPage from './pages/signin-page/Signin';
-import Plan from './components/Plan/Plan.component';
-import PlanPage from './pages/planPage/planPage';
-import SignupVerify from './pages/SignUpVerification/SignupVerify';
-import PasswordReset from './pages/PasswordReset/PasswordReset';
-import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
+import Footer from "./components/Footer-section/footer.component";
+import Faqs from "./pages/FAQs/faqs.page";
+import HowItWorksPage from "./pages/HowItWorks/howitworks.page";
+import ContactPage from "./pages/contact-us/contactpage";
+import AboutUsPage from "./pages/about-us/AboutUsPage";
+import Admin from "./pages/Admin/admin";
+import Dashboard from "./pages/User-Dashboard/Dashboard";
+import SignUpPage from "./pages/signup-page/SignUp";
+import SignInPage from "./pages/signin-page/Signin";
+import Plan from "./components/Plan/Plan.component";
+import PlanPage from "./pages/planPage/planPage";
+import SignupVerify from "./pages/SignUpVerification/SignupVerify";
+import PasswordReset from "./pages/PasswordReset/PasswordReset";
+import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
+
+const Homepage = React.lazy(() => import("./pages/Homepage/Homepage"));
 
 function App() {
   const [arrowScrollUp, setArrowScrollUp] = useState(false);
@@ -41,13 +42,13 @@ function App() {
     } else {
       setArrowScrollUp(false);
     }
-  }
-  window.addEventListener('scroll', handleScroll);
+  };
+  window.addEventListener("scroll", handleScroll);
 
   const handleScrollTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
 
@@ -55,33 +56,49 @@ function App() {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-    <div className="App">
-      <div
-        className={`arrowUpBox ${arrowScrollUp && "arrowScroll"}`}
-        onClick={handleScrollTop}
-      >
-        <FaAngleUp className="arrowUp" />
-      </div>
-      {/* <Header /> */}
-      <Routes >
-        <Route path='/' element={<Homepage />} />
-        <Route path='faqs' element={<Faqs />} />
-        <Route path='how' element={<HowItWorksPage />} />
-        <Route path='contact' element={<ContactPage />} />
-        <Route path='about' element={<AboutUsPage />} />
-        <Route path='admin/*' element={<Admin />} />
-        <Route path='user/*' element={<Dashboard />} />
-        <Route path='signup' element={<SignUpPage />} />
-        <Route path='signin' element={<SignInPage />} />
-        <Route path='plan' element={<PlanPage />} />
-        <Route path='verify' element={<SignupVerify />} />
-        <Route path='forgotpassword' element={<ForgotPassword />} />
-        <Route path='resetpassword' element={<PasswordReset />} />
-
-      </Routes>
-      {/* <Footer /> */}
-    </div>
-    </ThemeProvider>
+        <div className="App">
+          <div
+            className={`arrowUpBox ${arrowScrollUp && "arrowScroll"}`}
+            onClick={handleScrollTop}
+          >
+            <FaAngleUp className="arrowUp" />
+          </div>
+          {/* <Header /> */}
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <React.Suspense
+                  fallback={<div className="holder">
+                    <div className="lds-ring">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                    </div>
+                  }
+                >
+                  <Homepage />
+                </React.Suspense>
+              }
+            />
+            <Route path="faqs" element={<Faqs />} />
+            <Route path="how" element={<HowItWorksPage />} />
+            <Route path="contact" element={<ContactPage />} />
+            <Route path="about" element={<AboutUsPage />} />
+            <Route path="admin/*" element={<Admin />} />
+            <Route path="user/*" element={<Dashboard />} />
+            <Route path="signup" element={<SignUpPage />} />
+            <Route path="signin" element={<SignInPage />} />
+            <Route path="plan" element={<PlanPage />} />
+            <Route path="verify" element={<SignupVerify />} />
+            <Route path="forgotpassword" element={<ForgotPassword />} />
+            <Route path="resetpassword" element={<PasswordReset />} />
+          </Routes>
+          {/* <Footer /> */}
+        </div>
+      </ThemeProvider>
     </ColorModeContext.Provider>
   );
 }
