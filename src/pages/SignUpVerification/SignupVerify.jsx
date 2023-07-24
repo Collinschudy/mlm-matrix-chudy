@@ -17,7 +17,7 @@ const SignupVerify = ({ setUserVerify, userVerify, userData, setUserData }) => {
       const res = await axios.post(
         "https://mlm.zurupevarietiesstore.com/api/auth/verify-signup", userVerify
       );
-      // console.log(res.data.data);
+
       const userDetails = res.data.data.user;
       setUserData(userDetails);
       toast.success("Verification successful, sign in to continue");
@@ -50,7 +50,3 @@ const mapDispatchToProps = (dispatch) => ({
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignupVerify);
 
-// const config = {
-//   headers: { Authorization: `Bearer ${token}` }
-// };
-// console.log(token)
