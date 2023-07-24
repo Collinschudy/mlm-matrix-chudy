@@ -20,8 +20,8 @@ const SignupVerify = ({ setUserVerify, userVerify, userData, setUserData }) => {
       // console.log(res.data.data);
       const userDetails = res.data.data.user;
       setUserData(userDetails);
-      toast.success("Verification successful");
-      navigate("/user/dashboard");
+      toast.success("Verification successful, sign in to continue");
+      navigate("/signin");
     } catch (error) {
       toast.error(error.message);
     }
