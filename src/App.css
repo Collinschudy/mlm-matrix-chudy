@@ -59,7 +59,7 @@ body {
 
 .lds-ring {
   display: inline-block;
-  position: relative;
+  /* position: relative; */
   width: 60px;
   height: 60px;
   margin: auto;

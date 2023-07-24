@@ -119,6 +119,10 @@ button:hover{
 }
 
 @media screen and (max-width: 650px) {
+    .container{
+        height: 100vh;
+        overflow-y: hidden;
+    }
     .wrap{
         height: 100%;
         max-width: 100%;
