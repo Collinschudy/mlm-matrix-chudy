@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Suspense, Lazy } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { FaAngleUp } from "react-icons/fa";
 
 import Header from "./components/Header/header.component";
@@ -22,13 +23,23 @@ import PlanPage from "./pages/planPage/planPage";
 import SignupVerify from "./pages/SignUpVerification/SignupVerify";
 import PasswordReset from "./pages/PasswordReset/PasswordReset";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
+import { connect } from "react-redux";
+import { setCurrentUser } from "./redux/userInfo/userInfoAction";
+import { selectCurrentUser } from "./redux/userInfo/userSelect";
+import { createStructuredSelector } from "reselect";
 
 const Homepage = React.lazy(() => import("./pages/Homepage/Homepage"));
 
-function App() {
+const Protected = ({ userData, children }) => {
+  if (!userData) {
+    return <Navigate to="/" />;
+  }
+  return children;
+};
+
+function App({ userData, setUserData }) {
   const [arrowScrollUp, setArrowScrollUp] = useState(false);
   const [scrollUp, setScrollUp] = useState(false);
-
   const [theme, colorMode] = useMode();
 
   const handleScroll = () => {
@@ -69,13 +80,14 @@ function App() {
               path="/"
               element={
                 <React.Suspense
-                  fallback={<div className="holder">
-                    <div className="lds-ring">
-                      <div></div>
-                      <div></div>
-                      <div></div>
-                      <div></div>
-                    </div>
+                  fallback={
+                    <div className="holder">
+                      <div className="lds-ring">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                      </div>
                     </div>
                   }
                 >
@@ -88,7 +100,14 @@ function App() {
             <Route path="contact" element={<ContactPage />} />
             <Route path="about" element={<AboutUsPage />} />
             <Route path="admin/*" element={<Admin />} />
-            <Route path="user/*" element={<Dashboard />} />
+            <Route
+              path="user/*"
+              element={
+                <Protected userData={userData}>
+                  <Dashboard />{" "}
+                </Protected>
+              }
+            />
             <Route path="signup" element={<SignUpPage />} />
             <Route path="signin" element={<SignInPage />} />
             <Route path="plan" element={<PlanPage />} />
@@ -103,4 +122,11 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = createStructuredSelector({
+  userData: selectCurrentUser,
+});
+const mapDispatchToProps = (dispatch) => ({
+  setUserData: (userData) => dispatch(setCurrentUser(userData)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
