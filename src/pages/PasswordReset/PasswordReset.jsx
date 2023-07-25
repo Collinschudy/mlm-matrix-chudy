@@ -39,7 +39,7 @@ const PasswordReset = ({ userVerify, setUserVerify }) => {
     if (password !== confirmPassword) {
        
       return setErr(true);
-    return;
+    
     }
     userResetToken();
   };
