@@ -126,6 +126,7 @@ const mapStateToProps = createStructuredSelector({
   userData: selectCurrentUser,
   userVerify: selectUserTokenAndEmail,
 });
+
 const mapDispatchToProps = (dispatch) => ({
   setUserVerify: (user) => dispatch(setUserTokenAndEmail(user)),
   setUserData: (userData) => dispatch(setCurrentUser(userData)),
