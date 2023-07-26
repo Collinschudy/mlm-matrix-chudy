@@ -158,8 +158,8 @@
 select {
     height: 3rem;
 }
-input:focus{
-    outline: none;
+input{
+    font-family: 'Lexend', sans-serif;
 }
 .errors{
     font-size: 0.8rem;
@@ -172,6 +172,9 @@ button{
     font-size: 1.2rem;
     color: #fff;
     transition: 0.5s all ease-in;
+}
+button:focus{
+    outline: none;
 }
 button:hover{
     background-color: #3489ce;
