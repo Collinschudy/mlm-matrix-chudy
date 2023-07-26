@@ -28,7 +28,7 @@ const PasswordReset = ({ userVerify, setUserVerify }) => {
         reset_token: token,
       }
     );
-    navigate('/signin')
+    navigate('/login')
     }catch(error){
         toast.error(error.message)
     }
