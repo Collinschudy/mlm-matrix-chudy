@@ -13,31 +13,29 @@ const ForgotPassword = ({ userVerify, setUserVerify }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [err, setErr] = useState(false);
-  const [errMessage, setErrMessage] = useState('');
-  const [submitting, setSubmitting] = useState(false)
+  const [errMessage, setErrMessage] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   const passwordReset = async () => {
     try {
-      setSubmitting(true)
+      setSubmitting(true);
       const res = await axios.post(
         "https://mlm.zurupevarietiesstore.com/api/auth/forgot-password",
         {
           email,
         }
       );
-      
-      const token = res.data.data.reset_token;
-      console.log(res.data)
-      setUserVerify({ "token": token, "email": email });
-      navigate("/resetpassword");
-    } 
-    catch (error) {
-      setSubmitting(false)
-      toast.error(error.message)
-      setErr(true)
-      setErrMessage(error.message)
-    }
 
+      const token = res.data.data.reset_token;
+      console.log(res.data);
+      setUserVerify({ token: token, email: email });
+      navigate("/resetpassword");
+    } catch (error) {
+      setSubmitting(false);
+      toast.error(error.message);
+      setErr(true);
+      setErrMessage(error.message);
+    }
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -54,11 +52,16 @@ const ForgotPassword = ({ userVerify, setUserVerify }) => {
             name=""
             id="email"
             value={email}
-            onChange={(e) => {setEmail(e.target.value);setErr(false)}}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              setErr(false);
+            }}
           />
           {err && <div className={styles.error}>{errMessage}</div>}
         </div>
-        <button type="submit" className={styles.button}>{submitting===true ? 'submitting...' : 'Submit'}</button>
+        <button type="submit" className={styles.button}>
+          {submitting === true ? "submitting..." : "Submit"}
+        </button>
       </form>
     </div>
   );
