@@ -32,7 +32,7 @@ const Homepage = React.lazy(() => import("./pages/Homepage/Homepage"));
 
 const Protected = ({ userData, children }) => {
   if (!userData) {
-    return <Navigate to="/" />;
+    return <Navigate to="/login" />;
   }
   return children;
 };
@@ -109,7 +109,7 @@ function App({ userData, setUserData }) {
               }
             />
             <Route path="signup" element={<SignUpPage />} />
-            <Route path="signin" element={<SignInPage />} />
+            <Route path="login" element={<SignInPage />} />
             <Route path="plan" element={<PlanPage />} />
             <Route path="verify" element={<SignupVerify />} />
             <Route path="forgotpassword" element={<ForgotPassword />} />
