@@ -9,7 +9,6 @@ import { createStructuredSelector } from "reselect";
 
 const MobileView = ({ show, setShow }) => {
   const isNotMobile = useMediaQuery("(min-width: 600px)");
-  //   const [show, setShow] = useState(false)
   return (
     <Box
       position="absolute"
@@ -19,8 +18,6 @@ const MobileView = ({ show, setShow }) => {
       zIndex="1000"
       backgroundColor="rgb(0,0,50)"
       height="100vh"
-      //   transform={`${!show ? 'translateX(-12%)': 'translateX(22%)'}`}
-      // transform='translatex(120%)'
       sx={{
         transform: !show ? "translateX(-120%)" : "translateX(0)",
         transition: "0.5s all ease-in",
