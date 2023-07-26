@@ -50,6 +50,7 @@
     background-image: linear-Gradient(to right, black, silver);
     background-clip: text;
     font-family: 'Lexend', sans-serif;
+    user-select: none;
 }
 .logo_text span{
     color: #6CB4EE;

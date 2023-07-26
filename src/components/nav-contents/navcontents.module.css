@@ -31,7 +31,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    /* background-color: rgba(3, 138, 255, 1); */
     background-color: linear-gradient(to right, transparent,  yellowgreen);
     border-radius: 0.2em;
     z-index: -1;
@@ -44,6 +43,10 @@
 .active span {
     transform: scale(1);
     opacity: 1;
+}
+.link:hover{
+  box-shadow:  0 0.3em 0.5em rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid #6CB4EE;
 }
 .signin{
     /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */

@@ -41,6 +41,7 @@
   margin-left: 1em;
   font-family: 'Lexend', sans-serif;
   color: lightgray;
+  user-select: none;
 }
 .logo_text span{
   color: #6CB4EE;

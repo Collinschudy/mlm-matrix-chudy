@@ -81,6 +81,7 @@
     background-image: linear-Gradient(to right, lightgray, silver);
     background-clip: text;
     font-family: 'Lexend', sans-serif;
+    user-select: none;
 }
 
 .logo_text2 {
