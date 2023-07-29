@@ -21,7 +21,7 @@ const Searchbar = ({ collapsed, setIsCollapsed, show, setShow }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const isNotMobile = useMediaQuery("(min-width:600px)");
-  // const [show, setShow] = useState(false)
+  
   return (
     <>
       <div
@@ -70,9 +70,7 @@ const Searchbar = ({ collapsed, setIsCollapsed, show, setShow }) => {
           </IconButton>
         </Box>
 
-        {/* <input type='text' placeholder='Search'/> */}
       </div>
-      {/* <span style={{borderBottom: '1px solid yellowgreen', display:'block', width: '100%' }}></span> */}
     </>
   );
 };
