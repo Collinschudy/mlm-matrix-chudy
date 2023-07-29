@@ -213,7 +213,7 @@ const Sidebar = ({
               title="Withdrawal"
               to="user/withdrawal"
               icon={
-                <HomeOutlinedIcon
+                <ReceiptIcon
                   sx={{ color: "skyblue", fontSize: "1.1rem" }}
                 />
               }
@@ -241,7 +241,7 @@ const Sidebar = ({
             <Item
               title="Transfer Balance"
               icon={
-                <HomeOutlinedIcon
+                <MonetizationOnIcon
                   sx={{ color: "skyblue", fontSize: "1.1rem" }}
                 />
               }
@@ -283,7 +283,7 @@ const Sidebar = ({
               title="Transactions"
               to="user/transactions"
               icon={
-                <HomeOutlinedIcon
+                <PointOfSaleIcon
                   sx={{ color: "skyblue", fontSize: "1.1rem" }}
                 />
               }
@@ -297,7 +297,7 @@ const Sidebar = ({
             <Item
               title="2FA Security"
               icon={
-                <HomeOutlinedIcon
+                <BlockIcon
                   sx={{ color: "skyblue", fontSize: "1.1rem" }}
                 />
               }
@@ -325,7 +325,7 @@ const Sidebar = ({
             <IconButton>
               <LogoutOutlinedIcon />
             </IconButton>
-            <Typography onClick={() => {logOutUser(); console.log('Ebuka')}}>Log out</Typography>
+            <Typography onClick={() => {logOutUser(); console.log('')}}>Log out</Typography>
           </Box>
         </Box>
       </>
