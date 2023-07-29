@@ -34,11 +34,12 @@ import { setCurrentUser } from "../redux/userInfo/userInfoAction";
 
 const DashContent = ({ collapsed, setIsCollapsed, userData, setUserData }) => {
   const isNotMobile = useMediaQuery("(min-width: 600px)");
+  const usernameCap = userData?.username.charAt(0).toUpperCase() + userData?.username.slice(1)
 
   return (
     <>
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <AdminHeader title="Dashboard" subtitle={`Welcome to your dashboard, ${userData?.username} `} />
+        <AdminHeader title="Dashboard" subtitle={`Welcome to your dashboard, ${usernameCap} `} />
       </Box>
       <div>
         <Box
@@ -111,7 +112,7 @@ const DashContent = ({ collapsed, setIsCollapsed, userData, setUserData }) => {
             >
               <StatBox
                 icon={<PaymentIcon sx={{ height: "4em", width: "4em" }} />}
-                title={"\u20A6"+0}
+                title={"\u20A6"}
                 subtitle="Total Withdrawal"
               />
             </Box>
@@ -131,7 +132,7 @@ const DashContent = ({ collapsed, setIsCollapsed, userData, setUserData }) => {
                 icon={
                   <MonetizationOnIcon sx={{ height: "4em", width: "4em" }} />
                 }
-                title={`\u20A6+0`}
+                title={`\u20A6`}
                 subtitle="Total Referral Commission"
               />
             </Box>
