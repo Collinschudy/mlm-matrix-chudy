@@ -3,7 +3,7 @@ import { Typography, Box, useTheme } from "@mui/material";
 const AdminHeader = ({ title, subtitle }) => {
 
   return (
-    <Box mt="20px" ml='40px'>
+    <Box mt="40px" ml='40px'>
       <Typography
         variant="h3"
         // color='rgba(0,0,50)'
