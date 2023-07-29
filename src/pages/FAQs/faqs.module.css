@@ -1,0 +1,27 @@
+.container{
+    background-color: white;
+    width: 100vw;
+    min-height: 30rem;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+}
+.wrap{
+    width: 80%;
+}
+.wrap h2{
+    color: black;
+    text-align: center;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+}
+.accordion{
+    background-color: rgba(0, 0, 50, 1);
+}
+
+@media screen and (max-width: 650px) {
+    .wrap{
+        width: 100%;
+        padding: 1rem;
+    }
+}
