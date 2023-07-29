@@ -7,11 +7,12 @@ import { GrInstagram } from 'react-icons/gr'
 
 
 const Footer = () => {
+
     return (
         <article className={styles.wrapper}>
             <div className={styles.container}>
                 <section className={styles.footerOne}>
-                    <img src={Logo} alt="logo" className={styles.logo}/>
+                    <img src={Logo} alt="logo" className={styles.logo} />
                     <h3>Alliance <span>Arcade</span></h3>
                     <p>Your one ticket to financial freedom. Become a member today!</p>
                 </section>
@@ -20,11 +21,11 @@ const Footer = () => {
                     <h2>Quick Links</h2>
                     <ul>
                         <li><Link to='/'>Home</Link></li>
-                        <li><Link>About Us</Link></li>
-                        <li><Link>FAQs</Link></li>
-                        <li><Link>How It Works</Link></li>
-                        <li><Link>Plan</Link></li>
-                        <li><Link>Contact</Link></li>
+                        <li><Link to='about'>About Us</Link></li>
+                        <li><Link to='/faqs'>FAQs</Link></li>
+                        <li><Link to='/how'>How It Works</Link></li>
+                        <li><Link to='/plan'>Plan</Link></li>
+                        <li><Link to='/contact'>Contact</Link></li>
                     
                     </ul>
                 </section>
