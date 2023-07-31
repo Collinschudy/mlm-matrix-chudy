@@ -43,7 +43,8 @@ const DashContent = ({ collapsed, setIsCollapsed, userData, setUserData }) => {
       </Box>
       <div>
         <Box
-          m="20px"
+          m="0px 20px 20px 20px"
+          mt={!isNotMobile ? '60px' : '70px'}
           backgroundColor="transparent"
           borderRadius="5px"
           p={!isNotMobile ? "0" : "20px"}
@@ -59,7 +60,6 @@ const DashContent = ({ collapsed, setIsCollapsed, userData, setUserData }) => {
           >
             <Box
               gridColumn="span 4"
-              background={``}
               display="flex"
               alignItems="center"
               justifyContent="center"
@@ -88,8 +88,6 @@ const DashContent = ({ collapsed, setIsCollapsed, userData, setUserData }) => {
                 background:
                   "linear-gradient(to bottom right, #14213d, #8ec33e)",
 
-                // '#8ec33e'
-                // "linear-gradient(to bottom right, rgba(0,0,50), yellowgreen)",
               }}
             >
               <StatBox
