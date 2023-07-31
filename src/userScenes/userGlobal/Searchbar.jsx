@@ -26,7 +26,7 @@ const Searchbar = ({ collapsed, setIsCollapsed, show, setShow }) => {
     <>
       <div
         style={{
-          height: "4rem",
+          height: "3rem",
           display: "flex",
           alignItems: "center",
           marginTop: "1em",
@@ -56,7 +56,7 @@ const Searchbar = ({ collapsed, setIsCollapsed, show, setShow }) => {
           </IconButton>
         )}
 
-        <Box
+        {/* <Box
           display="flex"
           borderRadius="1.5em"
           justifyContent="space-between"
@@ -68,7 +68,7 @@ const Searchbar = ({ collapsed, setIsCollapsed, show, setShow }) => {
           <IconButton type="button">
             <SearchIcon sx={{ color: colors.grey[500] }} />
           </IconButton>
-        </Box>
+        </Box> */}
 
       </div>
     </>
