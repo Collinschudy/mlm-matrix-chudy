@@ -54,8 +54,6 @@ const Item = ({
   icon,
   selected,
   setSelected,
-  pathName,
-  setPathName,
   backGround,
 }) => {
   const isNotMobile = useMediaQuery("(min-width: 600px)");
@@ -67,15 +65,12 @@ const Item = ({
         alignItems: "center",
         justifyContent: "flex-start",
         color: "lightgrey",
-        m: "0.8em 1em 0 1.25em",
+        m: "0.8em 1em 0 1em",
         background: backGround,
         "&:hover": {
           background: "linear-Gradient(to right, transparent, yellowgreen)",
           cursor: "pointer",
         },
-        // "&:active": {
-        //   background: "linear-Gradient(to right, transparent, yellowgreen)",
-        // }
       }}
       onClick={() => {
         setSelected(title);
@@ -223,7 +218,7 @@ const Sidebar = ({
             />
           </Link>
 
-          <Link to="epin-recharge" onClick={() => setMobileCollapsed(false)}>
+          {/* <Link to="epin-recharge" onClick={() => setMobileCollapsed(false)}>
             <Item
               title="E-Pin Recharge"
               icon={
@@ -235,7 +230,7 @@ const Sidebar = ({
               setSelected={setSelected}
               backGround={pathName.includes("epin-recharge") ? "grey" : ""}
             />
-          </Link>
+          </Link> */}
 
           <Link to="transfer-balance" onClick={() => setMobileCollapsed(false)}>
             <Item
