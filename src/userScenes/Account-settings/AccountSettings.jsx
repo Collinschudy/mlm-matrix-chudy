@@ -8,7 +8,7 @@ const AccountSettings = () => {
         title="Account Settings"
         subtitle="Welcome to your account settings"
       />
-      AccountSettings
+      
     </div>
   );
 };
