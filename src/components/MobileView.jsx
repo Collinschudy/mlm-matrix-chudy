@@ -26,10 +26,10 @@ const MobileView = ({ show, setShow }) => {
     >
       <IconButton
         sx={{
-          position: "sticky",
+          position: "fixed",
           zIndex: "100",
           top: 0,
-          right: "10px",
+          right: 0,
           color: "lightgray",
         }}
         onClick={() => setShow(!show)}
@@ -45,7 +45,7 @@ const MobileView = ({ show, setShow }) => {
         left="0"
         right="0"
         zIndex="10"
-        height="8em"
+        height="12em"
         display={`${isNotMobile ? undefined : "flex"}`}
         alignItems="center"
         justifyContent="center"
