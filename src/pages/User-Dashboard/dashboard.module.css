@@ -24,7 +24,7 @@
 .background{
     background: linear-gradient(to right, rgba(0, 0, 50), rgb(98, 192, 98));
     height: 14rem;
-    box-shadow: rgb(3, 35, 63) 3px 3px 6px 0px inset, rgba(100, 90, 243, 0.5) -3px -3px 6px 1px inset;
+    box-shadow: rgb(3, 35, 63) 3px 3px 6px 0px inset, rgba(100, 90, 243, 0.5) -3px -3px 6px 1px;
     width: 100%;
     position: absolute;
     top: 0;
