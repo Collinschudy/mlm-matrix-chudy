@@ -71,7 +71,7 @@ const SignUpPage = ({ user = {}, userVerify, setUserVerify}) => {
           password,
         }
       );
-      const token = res.data.data.token;
+      const { token } = res.data.data;
       setSubmitting(true);
       setUserVerify({"token":token,
       "email": email})
@@ -80,7 +80,7 @@ const SignUpPage = ({ user = {}, userVerify, setUserVerify}) => {
       toast.error(err.message);
     }
 
-    // handleReset();
+    handleReset();
     setSubmitting(false);
   };
 
