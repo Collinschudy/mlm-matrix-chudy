@@ -166,7 +166,7 @@ input{
     font-size: 0.8rem;
     color: red;
 }
-button{
+.button{
     padding: 1rem;
     border: none;
     background-color: #6CB4EE;
@@ -174,10 +174,10 @@ button{
     color: #fff;
     transition: 0.5s all ease-in;
 }
-button:focus{
+.button:focus{
     outline: none;
 }
-button:hover{
+.button:hover{
     background-color: #3489ce;
 }
 @media screen and (max-width: 650px) {
