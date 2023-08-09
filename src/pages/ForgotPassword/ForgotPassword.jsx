@@ -60,7 +60,7 @@ const ForgotPassword = ({ userVerify, setUserVerify }) => {
           {err && <div className={styles.error}>{errMessage}</div>}
         </div>
         <button type="submit" className={styles.button}>
-          {submitting === true ? "submitting..." : "Submit"}
+          {submitting === true ? "resetting..." : "reset"}
         </button>
       </form>
     </div>

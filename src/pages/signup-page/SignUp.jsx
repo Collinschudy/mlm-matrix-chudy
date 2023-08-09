@@ -232,7 +232,7 @@ const SignUpPage = ({ user = {}, userVerify, setUserVerify}) => {
               </div>
 
               <div className={styles.formgroup}>
-                <button type="submit" disabled={submitting}>
+                <button type="submit" disabled={submitting} className={styles.button}>
                   {submitting ? "submitting..." : "submit"}
                 </button>
               </div>
