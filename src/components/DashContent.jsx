@@ -29,10 +29,10 @@ import { selectToggleView } from "../redux/navToggle/navToggleSelect";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import AdminHeader from "../userScenes/userGlobal/AdminHeader";
-import { selectCurrentUser } from "../redux/userInfo/userSelect";
+import { selectCurrentUser, selectPaymentResponse } from "../redux/userInfo/userSelect";
 import { setCurrentUser } from "../redux/userInfo/userInfoAction";
 
-const DashContent = ({ collapsed, setIsCollapsed, userData, setUserData }) => {
+const DashContent = ({ collapsed, setIsCollapsed, userData, setUserData, paymentResponse }) => {
   const isNotMobile = useMediaQuery("(min-width: 600px)");
   const usernameCap = userData?.username.charAt(0).toUpperCase() + userData?.username.slice(1)
 
@@ -73,7 +73,7 @@ const DashContent = ({ collapsed, setIsCollapsed, userData, setUserData }) => {
                 icon={
                   <MonetizationOnIcon sx={{ height: "4em", width: "4em" }} />
                 }
-                title={`\u20A6${userData?.balance}`}
+                title={`\u20A6${paymentResponse ? Number(paymentResponse.amount) + Number(userData.balance) : '0'}`}
                 subtitle="Current Balance"
               />
             </Box>
@@ -240,6 +240,7 @@ const DashContent = ({ collapsed, setIsCollapsed, userData, setUserData }) => {
 const mapStateToProps = createStructuredSelector({
   collapsed: selectToggleView,
   userData: selectCurrentUser,
+  paymentResponse: selectPaymentResponse
 });
 
 const mapDispatchToProps = (dispatch) => ({
