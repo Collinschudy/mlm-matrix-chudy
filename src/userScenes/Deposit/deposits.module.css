@@ -1,3 +1,20 @@
 .deposits{
-    margin-top: 5rem;
+    margin-top: 8rem;
+    color: black;
+    margin-left: 2rem;
+}
+.depositbox{
+    color: black;
+}
+.button{
+    padding: 0.5rem;
+    border: none;
+    background-color: gray;
+    font-size: 1rem;
+    color: white;
+    transition: 0.5s all ease-in;
+}
+.button:hover{
+    background: linear-Gradient(to right, rgb(0,0,50), yellowgreen);
+  
 }
