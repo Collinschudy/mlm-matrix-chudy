@@ -11,3 +11,8 @@ export const selectCurrentUser = createSelector(
   [selectDetails],
   (user) => user.userData
 )
+
+export const selectPaymentResponse = createSelector(
+  [selectDetails],
+  (response) => response.payment_response
+)
