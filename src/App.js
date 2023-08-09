@@ -27,6 +27,8 @@ import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/userInfo/userInfoAction";
 import { selectCurrentUser } from "./redux/userInfo/userSelect";
 import { createStructuredSelector } from "reselect";
+import VerifyPayment from "./pages/VerifyTransaction/VerifyPayment";
+import PaymentSuccessful from "./pages/PaymentSuccessful/PaymentSuccessful";
 
 const Homepage = React.lazy(() => import("./pages/Homepage/Homepage"));
 
@@ -109,11 +111,15 @@ function App({ userData, setUserData }) {
               }
             />
             <Route path="signup" element={<SignUpPage />} />
+            
             <Route path="login" element={<SignInPage />} />
             <Route path="plan" element={<PlanPage />} />
             <Route path="verify" element={<SignupVerify />} />
             <Route path="forgotpassword" element={<ForgotPassword />} />
             <Route path="resetpassword" element={<PasswordReset />} />
+
+            <Route path="verifypayment" element={<VerifyPayment />} />
+            <Route path="paymentsuccess" element={<PaymentSuccessful />} />
           </Routes>
           {/* <Footer /> */}
         </div>
