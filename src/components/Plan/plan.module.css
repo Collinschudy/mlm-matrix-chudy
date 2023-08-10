@@ -14,12 +14,12 @@
 .secondparagraph{
     margin-bottom: 1rem;
 }
-table{
+.table{
     width: 70%;
     margin: auto;
     color: rgb(0,0,50)
 }
-thead{
+.thead{
     font-size: 1.4rem;
     font-family: 'Raleway', sans-serif;
     

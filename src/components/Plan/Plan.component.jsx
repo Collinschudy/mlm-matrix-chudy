@@ -18,8 +18,8 @@ const Plan = () => {
             the number of people that make up the level, their percentage earning, (of 1000) and 
             the amount that percentage represents, in otherwords, the amount the subscriber earns from that level</p>
           <article>
-            <table>
-              <thead>
+            <table className={styles.table}>
+              <thead className={styles.thead}>
                 <tr>
                   <th>Level</th>
                   <th>People</th>
@@ -27,7 +27,7 @@ const Plan = () => {
                   <th>Amount</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className={styles.tbody}>
                 <tr>
                   <td>1</td>
                   <td>3</td>
