@@ -95,7 +95,7 @@ function App({ userData, setUserData }) {
             <Route path="how" element={<HowItWorksPage />} />
             <Route path="contact" element={<ContactPage />} />
             <Route path="about" element={<AboutUsPage />} />
-            {/* <Route path="admin/*" element={<Admin />} /> */}
+            
             <Route
               path="user/*"
               element={
