@@ -95,8 +95,9 @@
 }
 .signinparagraph{
     position: absolute;
+    color: white;
     margin-left: 12px;
-    bottom: 10%;
+    bottom: 20%;
     left: 20px;
     font-size: 1.2rem;
 }
@@ -105,14 +106,21 @@
 }
 .socialicons{
     position: absolute;
-    bottom: 10px;
-    left: 20px;
+    color: white;
+    bottom: 5rem;
+    left: 20rem;
 }
 
 .spantwo {
     color: #6CB4EE;
 }
-
+.footnote{
+    color: white;
+    position: absolute;
+    bottom: 3rem;
+    left: 15rem;
+    
+}
 
 .formsection {
     width: 50%;

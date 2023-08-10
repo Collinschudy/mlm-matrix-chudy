@@ -86,7 +86,6 @@ const SignUpPage = ({ user = {}, userVerify, setUserVerify}) => {
 
   return (
     <>
-    {/* {console.log(userVerify)} */}
       <div className={styles.wrap}>
         <section className={styles.inner}>
           <img
@@ -113,14 +112,15 @@ const SignUpPage = ({ user = {}, userVerify, setUserVerify}) => {
               </span>
             </p>
             <div className={styles.socialicons}>
-              <IconButton>
+              <IconButton sx={{color: 'white' }}>
                 <FacebookIcon />
               </IconButton>
 
-              <IconButton>
+              <IconButton sx={{color: 'white' }}>
                 <WhatsAppIcon />
               </IconButton>
             </div>
+            <p className={styles.footnote}>Alliance Arcade. All rights reserved</p>
           </div>
         </section>
         <section className={styles.formsection}>

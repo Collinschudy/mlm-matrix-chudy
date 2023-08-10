@@ -1,7 +1,7 @@
 import { createContext, useState, useMemo } from "react";
 import { createTheme } from "@mui/material/styles";
 
-// color design tokens
+
 export const tokens = (mode) => ({
   ...(mode === "dark"
     ? {
@@ -120,49 +120,49 @@ export const tokens = (mode) => ({
       }),
 });
 
-// mui theme settings
+
 
 export const themeSettings = (mode) => {
   const colors = tokens(mode);
 
   return {
-    palette: {
-      mode: mode,
-      ...(mode === "dark"
-        ? {
-            primary: {
-              main: colors.primary[500],
-            },
-            secondary: {
-              main: colors.greenAccent[500],
-            },
-            neutral: {
-              dark: colors.grey[700],
-              main: colors.grey[500],
-              light: colors.grey[100],
-            },
-            background: {
-              default: colors.primary[500],
-            },
-          }
-        : {
-            primary: {
-              main: colors.primary[500],
-            },
-            secondary: {
-              main: colors.greenAccent[500],
-            },
-            neutral: {
-              dark: colors.grey[700],
-              main: colors.grey[500],
-              light: colors.grey[100],
-            },
-            background: {
-              default: '#D4F1F4',
-            },
-          }),
-          // #D4F1F4
-    },
+    // palette: {
+    //   mode: mode,
+    //   ...(mode === "dark"
+    //     ? {
+    //         primary: {
+    //           main: colors.primary[500],
+    //         },
+    //         secondary: {
+    //           main: colors.greenAccent[500],
+    //         },
+    //         neutral: {
+    //           dark: colors.grey[700],
+    //           main: colors.grey[500],
+    //           light: colors.grey[100],
+    //         },
+    //         background: {
+    //           default: colors.primary[500],
+    //         },
+    //       }
+    //     : {
+    //         primary: {
+    //           main: colors.primary[500],
+    //         },
+    //         secondary: {
+    //           main: colors.greenAccent[500],
+    //         },
+    //         neutral: {
+    //           dark: colors.grey[700],
+    //           main: colors.grey[500],
+    //           light: colors.grey[100],
+    //         },
+    //         background: {
+    //           default: '#D4F1F4',
+    //         },
+    //       }),
+          
+    // },
     typography: {
       fontFamily: ["Source Sans 3", "sans-serif"].join(","),
       fontSize: 14,

@@ -1,4 +1,4 @@
-import { tokens } from "../theme";
+// import { tokens } from "../theme";
 
 
 export const mockDataUsers = [
@@ -709,7 +709,7 @@ export const mockLineData = [
  
   {
     id: "Investments",
-    color: tokens("dark").blueAccent[300],
+    // color: tokens("dark").blueAccent[300],
     data: [
       {
         x: "12th Feb, 2023",
@@ -763,7 +763,7 @@ export const mockLineData = [
   },
   {
     id: "Deposits",
-    color: tokens("dark").redAccent[200],
+    // color: tokens("dark").redAccent[200],
     data: [
       {
         x: "12th Feb, 2023",

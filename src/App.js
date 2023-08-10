@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
-import { Suspense, Lazy } from "react";
+import { Suspense, lazy } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { FaAngleUp } from "react-icons/fa";
 
@@ -29,8 +29,9 @@ import { selectCurrentUser } from "./redux/userInfo/userSelect";
 import { createStructuredSelector } from "reselect";
 import VerifyPayment from "./pages/VerifyTransaction/VerifyPayment";
 import PaymentSuccessful from "./pages/PaymentSuccessful/PaymentSuccessful";
+import Loader from "./components/Loader/Loader";
 
-const Homepage = React.lazy(() => import("./pages/Homepage/Homepage"));
+const Homepage = lazy(() => import("./pages/Homepage/Homepage"));
 
 const Protected = ({ userData, children }) => {
   if (!userData) {
@@ -83,14 +84,7 @@ function App({ userData, setUserData }) {
               element={
                 <React.Suspense
                   fallback={
-                    <div className="holder">
-                      <div className="lds-ring">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                      </div>
-                    </div>
+                   <Loader />
                   }
                 >
                   <Homepage />
@@ -101,7 +95,7 @@ function App({ userData, setUserData }) {
             <Route path="how" element={<HowItWorksPage />} />
             <Route path="contact" element={<ContactPage />} />
             <Route path="about" element={<AboutUsPage />} />
-            <Route path="admin/*" element={<Admin />} />
+            {/* <Route path="admin/*" element={<Admin />} /> */}
             <Route
               path="user/*"
               element={
