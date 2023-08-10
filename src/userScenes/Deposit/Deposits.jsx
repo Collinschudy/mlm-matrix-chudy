@@ -5,9 +5,9 @@ import styles from "./deposits.module.css";
 
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
-import { useNavigate } from "react-router-dom";
 
 import { connect } from "react-redux";
+
 import {
   selectCurrentUser,
   selectUserTokenAndEmail,
@@ -20,7 +20,6 @@ import { createStructuredSelector } from "reselect";
 
 const Deposits = ({ userData, userVerify }) => {
   const [txn_ref, setTxn_ref] = useState("");
-  const form = useRef();
 
   const generateRef = () => {
     const timestamp = Date.now();
@@ -63,13 +62,14 @@ const Deposits = ({ userData, userVerify }) => {
       />
       <div className={styles.deposits}>
         <div className={styles.depositbox}>
-          Click here to initiate deposit
-          <form onSubmit={initiateTransaction} ref={form}>
-            <div>
+          <h3>Begin your payment process</h3>
+          <p className={styles.warning}>*Note* Your details are autofilled, just click on the deposit button below</p>
+          <form onSubmit={initiateTransaction} className={styles.form}>
+            <div className={styles.formgroup}>
               <label>Email</label>
               <input type="text" defaultValue={userData.email} disabled />
             </div>
-            <div>
+            <div className={styles.formgroup}>
               <label>Phone</label>
               <input
                 type="text"
@@ -78,12 +78,12 @@ const Deposits = ({ userData, userVerify }) => {
               />
             </div>
 
-            <div>
+            <div className={styles.formgroup}>
               <label>Amount</label>
               <input type="text" defaultValue="1000" disabled />
             </div>
 
-            <div>
+            <div className={styles.formgroup}>
               <label>Reference</label>
               <input type="text" defaultValue={txn_ref && txn_ref} disabled />
             </div>

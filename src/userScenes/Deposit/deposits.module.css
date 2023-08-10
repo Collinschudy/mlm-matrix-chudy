@@ -1,12 +1,37 @@
 .deposits{
     margin-top: 8rem;
     color: black;
-    margin-left: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .depositbox{
     color: black;
+    width: 40rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 4rem;
+}
+.form{
+    width: 100%;
+    
+   
+}
+.warning{
+    color: rgb(222, 49, 99);
+    font-size: 0.9rem;
+    margin: 1rem 0;
+
+}
+.formgroup{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
 }
 .button{
+    width: 100%;
     padding: 0.5rem;
     border: none;
     background-color: gray;
@@ -17,4 +42,16 @@
 .button:hover{
     background: linear-Gradient(to right, rgb(0,0,50), yellowgreen);
   
+}
+
+@media screen and (max-width:650px){
+    .depositbox{
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        margin: 1rem;
+    }
+    /* .form{
+        margin: 1rem;
+    } */
 }
