@@ -1,0 +1,40 @@
+.transactions{
+    color: black;
+    margin: 6rem 1rem 1rem 1rem;
+}
+.txnbox{
+    color: black;
+}
+.table{
+    width: 100%;
+    color: rgb(0,0,50);
+    
+}
+thead{
+    font-size: 1.1rem;
+    border: 1px solid black;
+    
+}
+.tbody{
+    font-size: 0.9rem;
+}
+
+tr{
+    text-align: center;
+    height: 2.5em;
+    font-weight: 600;
+}
+td{
+    font-weight: 500;
+    border: 1px solid black;
+}
+/* tr:nth-child(odd) {
+    background-color: #D6EEEE;
+  } */
+
+
+  @media screen and (max-width: 650px){
+    .hide{
+        display: none;
+    }
+  }
