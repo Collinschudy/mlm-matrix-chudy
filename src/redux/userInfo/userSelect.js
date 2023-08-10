@@ -16,3 +16,9 @@ export const selectPaymentResponse = createSelector(
   [selectDetails],
   (response) => response.payment_response
 )
+
+export const selectUserTransactions = createSelector(
+  [selectDetails],
+  (transactions) => transactions.userTransactions
+)
+

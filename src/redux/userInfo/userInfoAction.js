@@ -15,3 +15,8 @@ export const setPaymentResponse = (response) => ({
     type: ActionTypes.STORE_PAYMENT_RESPONSE,
     payload: response
 })
+
+export const setUserTransactions = (transactions) => ({
+    type:ActionTypes.STORE_USER_TRANSACTIONS,
+    payload: transactions
+})
