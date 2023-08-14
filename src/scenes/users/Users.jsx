@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Typography, useTheme, Button } from "@mui/material";
 import { tokens } from "../../theme";
 import { DataGrid } from "@mui/x-data-grid";
-import { mockDataUsers } from "../../data/mockData";
+// import { mockDataUsers } from "../../data/mockData";
 import { AdminPanelSettingsOutlinedIcon } from "@mui/icons-material/AdminPanelSettingsOutlined";
 import { LockOpenOutlinedIcon } from "@mui/icons-material/LockOpenOutlined";
 import { SecurityOutlinedIcon } from "@mui/icons-material/SecurityOutlined";
@@ -48,9 +48,9 @@ const Users = () => {
   return (
     <Box>
       <AdminHeader title="Users" subtitle="Managing users" />
-      <Box>
+      {/* <Box>
         <DataGrid rows={mockDataUsers} columns={columns} />
-      </Box>
+      </Box> */}
     </Box>
   );
 };

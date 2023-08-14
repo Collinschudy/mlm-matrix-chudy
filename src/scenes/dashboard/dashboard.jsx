@@ -31,7 +31,7 @@ import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 // import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
 // import PersonAddIcon from "@mui/icons-material/PersonAdd";
 
-import { mockTransactions } from "../../data/mockData";
+
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 const Dashboard = () => {
