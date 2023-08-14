@@ -1,0 +1,12 @@
+.container{
+    height: 100vh;
+    
+}
+.wrap{
+    display: flex;
+    height: 100%;
+}
+.pageroute{
+    height: 100%;
+    overflow-y: scroll;
+}

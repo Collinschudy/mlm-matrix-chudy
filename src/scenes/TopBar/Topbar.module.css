@@ -1,0 +1,125 @@
+.container{
+    height: 5rem;
+    /* background-color: #1b1b32; */
+    /* background-color: rgba(0, 0, 50, 1); */
+    /* background-color: #6CB4EE; */
+    /* background-color: orange; */
+    background: linear-gradient(to right, rgb(0,0,50), #176eb6);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+}
+.logocontainer{
+    width: 12em;
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+}
+.logo {
+    display: block;
+    width: 100%;
+    max-width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+
+}
+/* .logowrapper{
+  width: 12em;
+  display: flex;
+  align-items: center;
+} */
+.logo_text{
+  margin-left: 1em;
+  font-family: 'Lexend', sans-serif;
+  color: lightgray;
+  user-select: none;
+}
+.logo_text span{
+  color: #6CB4EE;
+}
+.logocontainer img{
+    width: 100%;
+    height: 100%;
+}
+.namecontainer{
+    color: white;
+    margin-right: 2rem;
+    width: 100%;
+    max-width: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.usericon{
+    width: 2.6rem;
+    height: 2.3rem;
+    background: lightgray;
+    border-radius: 50%;
+    color: black;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.usericon object{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 10;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.usericon p{
+    background-color: lightgray;
+    border-radius: 50%;
+    font-size: 1.4rem;
+}
+.namewrap{
+    width: 100%;
+    max-width: 12rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.namewrap p{
+    font-size: 1.2rem;
+    color: white;
+}
+.arrow{
+    transition: 0.5s ease-in all;
+    font-weight: 400;
+}
+.arrowflip{
+    transform: rotate(180deg);
+}
+.menubar{
+    display: none;
+}
+
+@media screen and (max-width: 650px){
+    .logocontainer{
+        width: 12rem;
+        height: 1.5rem;
+        margin-left: 1rem;
+    }
+    .namecontainer{
+        display: none;
+    }
+    .menubar{
+        display: block;
+        margin-right: 1rem;
+    }
+    .close{
+        color: white;
+    }
+    .hide{
+        transform: scale(0);
+    }
+    .scale{
+        transform: scale(1);
+    }
+}

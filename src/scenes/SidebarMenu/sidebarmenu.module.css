@@ -1,0 +1,45 @@
+.itembox {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: lightgrey;
+    margin: 0.8em 1em 0 1em;
+
+}
+
+
+/* #A01FE7 */
+.itembox:hover {
+    background: linear-Gradient(to right, transparent, #a8a4e6);
+    cursor: pointer;
+}
+
+.itembox a {
+    font-size: 0.9rem;
+    margin-left: 1rem;
+    color: white;
+}
+
+.hide {
+    display: none;
+}
+
+.carrier {
+    margin-left: 1rem;
+    border: 1px solid #000;
+    color: white;
+}
+
+.title {
+    font-size: 1.2rem;
+}
+
+.links {
+    margin-left: 2rem;
+    color: white;
+}
+
+.link {
+    display: block;
+    color: white;
+}

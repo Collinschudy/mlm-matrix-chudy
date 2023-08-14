@@ -1,0 +1,17 @@
+.container{
+    width: 15rem;
+    padding-top: 4rem;
+    margin-top: 5rem;
+    height: calc(100vh - 5rem);
+    /* background: linear-gradient(to bottom right, rgba(0,0,50), rgba(0,0,50,0.9));  */
+    background: linear-gradient(to top, black, #176eb6)
+}
+
+@media screen and (max-width: 650px){
+    .container{
+        display: none;
+    }
+}
+
+
+/* #6CB4EE; */
