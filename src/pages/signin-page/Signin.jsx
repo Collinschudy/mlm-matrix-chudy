@@ -103,7 +103,7 @@ const SignInPage = ({ setUserData, setUserVerify, userData, userVerify }) => {
               )}
             </div>
             <div className={styles.formgroup}>
-              <button type="submit">Login</button>
+              <button className={styles.button} type="submit">Login</button>
             </div>
           </form>
           <p className={styles.instruction}>

@@ -1,34 +1,36 @@
-import React from "react";
+import React, {useEffect } from "react";
+import styles from './dashboard.module.css';
 import AdminHeader from "../../adminComponents/AdminHeader";
-import LineChart from "../../adminComponents/LineChart";
 import { Button, Box, IconButton, Typography, useTheme } from "@mui/material";
 import StatBox from "../../components/StatBox";
-import ProgressCircle from "../../components/ProgressCircle";
 import { tokens } from "../../theme";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import PeopleIcon from "@mui/icons-material/People";
-import EmailIcon from "@mui/icons-material/Email";
-import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
-import TrafficIcon from "@mui/icons-material/Traffic";
-import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
-import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
+
 import LocalAtmIcon from "@mui/icons-material/LocalAtm";
 import LocalAtmOutlinedIcon from "@mui/icons-material/LocalAtmOutlined";
-import SummarizeOutlinedIcon from "@mui/icons-material/SummarizeOutlined";
-import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
-import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
-import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
-import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
-import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
-import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
-import RadioButtonCheckedOutlinedIcon from "@mui/icons-material/RadioButtonCheckedOutlined";
 import ReceiptIcon from "@mui/icons-material/Receipt";
 import GppBadIcon from "@mui/icons-material/GppBad";
 import BlockIcon from "@mui/icons-material/Block";
-import DownloadingIcon from "@mui/icons-material/Downloading";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import HourglassBottomIcon from "@mui/icons-material/HourglassBottom";
+import DownloadingIcon from "@mui/icons-material/Downloading";
+
+import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
+import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
+// import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
+// import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
+// import RadioButtonCheckedOutlinedIcon from "@mui/icons-material/RadioButtonCheckedOutlined";
+// import EmailIcon from "@mui/icons-material/Email";
+// import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
+// import TrafficIcon from "@mui/icons-material/Traffic";
+// import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+// import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
+// import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
+// import SummarizeOutlinedIcon from "@mui/icons-material/SummarizeOutlined";
+// import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
+// import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
+// import PersonAddIcon from "@mui/icons-material/PersonAdd";
+
 import { mockTransactions } from "../../data/mockData";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
@@ -36,15 +38,17 @@ const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const isNotMobile = useMediaQuery("(min-width: 600px)");
+
+  
   return (
-    <Box m="20px">
-      <Box display="flex" justifyContent="space-between" alignItems="center">
+    <div className={styles.container}>
+      <div className={styles.top}>
         <AdminHeader title="Dashboard" subtitle="Welcome to your dashboard" />
         <Box>
           <Button
             sx={{
-              backgroundColor: colors.blueAccent[700],
-              color: colors.grey[100],
+              backgroundColor: 'rgb(0,0,50)',
+              color: 'white',
               fontSize: "14px",
               fontWeight: "bold",
               padding: "10px 20px",
@@ -54,7 +58,7 @@ const Dashboard = () => {
             Download Reports
           </Button>
         </Box>
-      </Box>
+      </div>
       <Box
         className="dashboardcontainer"
         display="grid"
@@ -82,7 +86,7 @@ const Dashboard = () => {
             increase="+14%"
             icon={
               <PeopleIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+                sx={{ color: '#176eb6', fontSize: "26px" }}
               />
             }
           />
@@ -102,7 +106,7 @@ const Dashboard = () => {
             increase="+14%"
             icon={
               <PeopleIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+                sx={{ color: "#176eb6", fontSize: "26px" }}
               />
             }
           />
@@ -122,7 +126,7 @@ const Dashboard = () => {
             // increase="+14%"
             icon={
               <VerifiedUserIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+                sx={{ color: "#176eb6", fontSize: "26px" }}
               />
             }
           />
@@ -142,7 +146,7 @@ const Dashboard = () => {
             // increase="+14%"
             icon={
               <GppBadIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+                sx={{ color: "#176eb6", fontSize: "26px" }}
               />
             }
           />
@@ -163,7 +167,7 @@ const Dashboard = () => {
             increase="+14%"
             icon={
               <ReceiptIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+                sx={{ color: "#176eb6", fontSize: "26px" }}
               />
             }
           />
@@ -183,7 +187,7 @@ const Dashboard = () => {
             increase="+14%"
             icon={
               <DownloadingIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+                sx={{ color: "#176eb6", fontSize: "26px" }}
               />
             }
           />
@@ -203,7 +207,7 @@ const Dashboard = () => {
             increase="+14%"
             icon={
               <BlockIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+                sx={{ color: "#176eb6", fontSize: "26px" }}
               />
             }
           />
@@ -223,7 +227,7 @@ const Dashboard = () => {
             increase="+12%"
             icon={
               <MonetizationOnOutlinedIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+                sx={{ color: "#176eb6", fontSize: "26px" }}
               />
             }
           />
@@ -244,7 +248,7 @@ const Dashboard = () => {
             // increase="+14%"
             icon={
               <LocalAtmIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+                sx={{ color: "#176eb6", fontSize: "26px" }}
               />
             }
           />
@@ -264,7 +268,7 @@ const Dashboard = () => {
             increase="+14%"
             icon={
               <HourglassBottomIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+                sx={{ color: "#176eb6", fontSize: "26px" }}
               />
             }
           />
@@ -283,7 +287,7 @@ const Dashboard = () => {
             increase="+14%"
             icon={
               <BlockIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+                sx={{ color: "#176eb6", fontSize: "26px" }}
               />
             }
           />
@@ -303,7 +307,7 @@ const Dashboard = () => {
             increase="+14%"
             icon={
               <MonetizationOnOutlinedIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+                sx={{ color: "#176eb6", fontSize: "26px" }}
               />
             }
           />
@@ -323,7 +327,7 @@ const Dashboard = () => {
             increase="+5%"
             icon={
               <LocalAtmIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+                sx={{ color: "#176eb6", fontSize: "26px" }}
               />
             }
           />
@@ -342,7 +346,7 @@ const Dashboard = () => {
             increase="+5%"
             icon={
               <LocalAtmOutlinedIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+                sx={{ color: "#176eb6", fontSize: "26px" }}
               />
             }
           />
@@ -362,7 +366,7 @@ const Dashboard = () => {
             increase="+5%"
             icon={
               <MonetizationOnOutlinedIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+                sx={{ color: "#176eb6", fontSize: "26px" }}
               />
             }
           />
@@ -381,7 +385,7 @@ const Dashboard = () => {
             increase="+5%"
             icon={
               <MonetizationOnOutlinedIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+                sx={{ color: "#176eb6", fontSize: "26px" }}
               />
             }
           />
@@ -391,9 +395,9 @@ const Dashboard = () => {
       {/* CHARTS */}
       <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" mt="20px" gridAutoRows='140px' sx={{
           "& > div": { gridColumn: isNotMobile ? undefined : "span 12" },
-          // "& > div": { height: isNotMobile ? undefined : '500px' }
+          
         }}>
-        <Box
+        {/* <Box
           gridColumn="span 8"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
@@ -418,70 +422,14 @@ const Dashboard = () => {
           <Box height="250px" mt="-20px">
             <LineChart isDashboard={true} />
           </Box>
-        </Box>
+        </Box> */}
 
         {/* TRANSACTIONS */}
 
-        <Box
-          gridColumn="span 4"
-          gridRow="span 2"
-          backgroundColor={colors.primary[400]}
-          overflow="auto"
-        >
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-            borderBottom={`4px solid ${colors.primary[500]}`}
-            colors={colors.grey[100]}
-            p="15px"
-          >
-            <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
-              Recent Transactions
-            </Typography>
-          </Box>
-          {mockTransactions.map((transaction, idx) => {
-            const { user, txId, date, cost } = transaction;
-            return (
-              <Box
-                key={`${txId}-${idx}`}
-                display="flex"
-                justifyContent="space-between"
-                alignItems="center"
-                borderBottom={`4px solid ${colors.primary[500]}`}
-                p="15px"
-              >
-                <Box>
-                  <Typography
-                    color={colors.greenAccent[500]}
-                    variant="h5"
-                    fontWeight="600"
-                  >
-                    {txId}
-                  </Typography>
-                  <Typography
-                    color={colors.grey[100]}
-                    variant="h5"
-                    fontWeight="600"
-                  >
-                    {user}
-                  </Typography>
-                </Box>
-                <Box color={colors.grey[100]}>{date}</Box>
-                <Box
-                  backgroundColor={colors.greenAccent[500]}
-                  p="5px 10px"
-                  borderRadius="4px"
-                >
-                  {cost}
-                </Box>
-              </Box>
-            );
-          })}
-        </Box>
+     
       </Box>
       {/*  */}
-    </Box>
+    </div>
   );
 };
 

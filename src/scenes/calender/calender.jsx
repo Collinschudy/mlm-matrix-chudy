@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from './calendar.module.css';
 import AdminHeader from "../../adminComponents/AdminHeader";
 import FullCalendar from "@fullcalendar/react";
 import { formatDate } from "@fullcalendar/core";
@@ -14,11 +15,10 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import { tokens } from "../../theme";
+
 
 const Calendar = () => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
+  
   const [currentEvents, setCurrentEvents] = useState([]);
 
   const handleDateClick = (selected) => {
@@ -34,6 +34,7 @@ const Calendar = () => {
         end: selected.endStr,
         allDay: selected.allDay,
       });
+      
     }
   };
   const handleEventClick = (selected) => {
@@ -46,12 +47,12 @@ const Calendar = () => {
     }
   };
   return (
-    <Box m="20px">
+    <div className={styles.container}>
       <AdminHeader title="CALENDAR" subtitle="Full Calendar Interactive page" />
       <Box display="flex" justifyContent="space-between">
         <Box
           flex="1 1 20%"
-          backgroundColor={colors.primary[400]}
+          backgroundColor='grey'
           p="15px"
           border="4px"
         >
@@ -62,7 +63,8 @@ const Calendar = () => {
                 <ListItem
                   key={event.id}
                   sx={{
-                    backgroundColor: colors.greenAccent[500],
+                    backgroundColor: 'rgb(0,0,50)',
+                    color: 'white',
                     margin: "10px 0",
                     borderRadius: "2px",
                   }}
@@ -85,11 +87,13 @@ const Calendar = () => {
           </List>
         </Box>
 
-        {/* CALENDAR */}
-        <Box flex="1 1 100%" ml="15px">
+        
+        <Box 
+        flex="1 1 80%" 
+        ml="15px">
           <FullCalendar
-            height="75vh"
-            color={[colors.grey[100]]}
+          height='70vh'
+          
             plugins={[
               dayGridPlugin,
               timeGridPlugin,
@@ -98,11 +102,11 @@ const Calendar = () => {
               
             ]}
             headerToolbar={{
-              left: "prev, next today",
+              left: "prev next today",
               center: "title",
               right: "dayGridMonth, timeGridWeek, timeGridDay, listMonth",
             }}
-            eventTextColor={colors.grey[100]}
+            eventTextColor={'black'}
             initialView="dayGridMonth"
             editable={true}
             
@@ -118,7 +122,7 @@ const Calendar = () => {
           />
         </Box>
       </Box>
-    </Box>
+    </div>
   );
 };
 

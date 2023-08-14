@@ -30,6 +30,7 @@ const Transactions = ({
       try {
         const res = await axios.get(url, { headers });
         const userTxns = res.data.data.transactions.data;
+        const sorted = userTxns.sort((a, b) => a.id - b.id);
         setRef(res.data.data.transactions.data.reference);
         setUserTransactions(userTxns);
         console.log(userTransactions);
@@ -65,16 +66,17 @@ const Transactions = ({
             </tr>
           </thead>
           {userTransactions.map((trx, idx) => {
-            const { reference, gateway_response, id, email, phone, amount } = trx;
+            const { reference, gateway_response, id, email, phone, amount, status } =
+              trx;
             return (
               <tbody key={id} className={styles.tbody}>
                 <tr>
-                  <td>{id}</td>
+                  <td className={styles.td}>{id}</td>
                   <td className={styles.hide}>{email}</td>
                   <td className={styles.hide}>{amount}</td>
                   <td className={styles.hide}>{phone}</td>
                   <td>{reference}</td>
-                  <td>{gateway_response}</td>
+                  <td>{status}</td>
                 </tr>
               </tbody>
             );

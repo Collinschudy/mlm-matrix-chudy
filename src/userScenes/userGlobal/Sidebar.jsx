@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Box, List, ListItem, Typography, IconButton } from "@mui/material";
+import { Box, Typography, IconButton } from "@mui/material";
 import { connect } from "react-redux";
 import { selectToggleView } from "../../redux/navToggle/navToggleSelect";
 import { setToggleView } from "../../redux/navToggle/navToggleAction";
@@ -20,30 +20,31 @@ import axios from "axios";
 
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
-import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
-import PeopleIcon from "@mui/icons-material/People";
-import EmailIcon from "@mui/icons-material/Email";
-import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
-import TrafficIcon from "@mui/icons-material/Traffic";
-import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
 import PaymentIcon from "@mui/icons-material/Payment";
 import LocalAtmIcon from "@mui/icons-material/LocalAtm";
-import SummarizeOutlinedIcon from "@mui/icons-material/SummarizeOutlined";
-import SendIcon from "@mui/icons-material/Send";
-import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
-import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
-import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
-import RadioButtonCheckedOutlinedIcon from "@mui/icons-material/RadioButtonCheckedOutlined";
+import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
+import PeopleIcon from "@mui/icons-material/People";
 import ReceiptIcon from "@mui/icons-material/Receipt";
-import GppBadIcon from "@mui/icons-material/GppBad";
 import BlockIcon from "@mui/icons-material/Block";
-import DownloadingIcon from "@mui/icons-material/Downloading";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
-
 import { useMediaQuery } from "@mui/material";
-import { MenuItem } from "react-pro-sidebar";
+
+// import { MenuItem } from "react-pro-sidebar";
+// import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
+// import EmailIcon from "@mui/icons-material/Email";
+// import TrafficIcon from "@mui/icons-material/Traffic";
+// import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+// import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
+// import SummarizeOutlinedIcon from "@mui/icons-material/SummarizeOutlined";
+// import SendIcon from "@mui/icons-material/Send";
+// import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
+// import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
+// import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
+// import RadioButtonCheckedOutlinedIcon from "@mui/icons-material/RadioButtonCheckedOutlined";
+// import GppBadIcon from "@mui/icons-material/GppBad";
+// import DownloadingIcon from "@mui/icons-material/Downloading";
+// import PersonAddIcon from "@mui/icons-material/PersonAdd";
+// import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
+
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import { selectMobileView } from "../../redux/mobileToggle/mobileToggleSelect";
 import { setMobileView } from "../../redux/mobileToggle/mobileToggleAction";
@@ -317,10 +318,10 @@ const Sidebar = ({
           </Link>
 
           <Box display="flex" alignItems="center" gap="5px" ml="15px" mt="5px" >
-            <IconButton>
+            <IconButton sx={{ color: 'b23b3b' }}>
               <LogoutOutlinedIcon />
             </IconButton>
-            <Typography onClick={() => {logOutUser(); console.log('')}}>Log out</Typography>
+            <Typography sx={{ cursor: 'pointer' }} onClick={() => logOutUser()}>Log out</Typography>
           </Box>
         </Box>
       </>

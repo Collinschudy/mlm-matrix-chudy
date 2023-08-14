@@ -1,8 +1,8 @@
 import { Box } from "@mui/material";
 import styles from "./dashboard.module.css";
 import AdminHeader from "../../userScenes/userGlobal/AdminHeader";
-import DashContent from "../../components/DashContent";
-import Searchbar from "../../userScenes/userGlobal/Searchbar";
+import DashContent from "../../userScenes/UserDashboardContent/DashContent";
+import Searchbar from "../../userScenes/userGlobal/Searchbar/Searchbar";
 import Sidebar from "../../userScenes/userGlobal/Sidebar";
 import { connect } from "react-redux";
 import { setToggleView } from "../../redux/navToggle/navToggleAction";
