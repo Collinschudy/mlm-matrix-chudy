@@ -137,7 +137,7 @@ const Withdrawal = ({
         <div className={styles.container}>
           <form onSubmit={initiateTransfer} className={styles.form}>
             <div className={styles.formgroup}>
-              <label>Select your bank below</label>
+              <label>Select recipient's bank below</label>
               <select onChange={(event) => setCode(event.target.value)}>
                 <option disabled>Select your bank:</option>
                 {bankList?.map((key) => (
