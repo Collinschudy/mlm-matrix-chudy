@@ -30,6 +30,7 @@ import { createStructuredSelector } from "reselect";
 import VerifyPayment from "./pages/VerifyTransaction/VerifyPayment";
 import PaymentSuccessful from "./pages/PaymentSuccessful/PaymentSuccessful";
 import Loader from "./components/Loader/Loader";
+import AdminDashboardPage from "./pages/Admin/AdminPage";
 
 const Homepage = lazy(() => import("./pages/Homepage/Homepage"));
 
@@ -95,7 +96,7 @@ function App({ userData, setUserData }) {
             <Route path="how" element={<HowItWorksPage />} />
             <Route path="contact" element={<ContactPage />} />
             <Route path="about" element={<AboutUsPage />} />
-            
+            <Route path="admin/*" element={<AdminDashboardPage />} />
             <Route
               path="user/*"
               element={
