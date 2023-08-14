@@ -14,9 +14,19 @@ export const setCurrentUser = (currentUser) => ({
 export const setPaymentResponse = (response) => ({
     type: ActionTypes.STORE_PAYMENT_RESPONSE,
     payload: response
-})
+});
 
 export const setUserTransactions = (transactions) => ({
     type:ActionTypes.STORE_USER_TRANSACTIONS,
     payload: transactions
+});
+
+export const setRecipientDetails = (details) => ({
+    type:ActionTypes.STORE_RECIPIENT_DETAILS,
+    payload: details
+});
+
+export const setTransferAccess = (details) => ({
+    type:ActionTypes.STORE_TRANSFER_ACCESS,
+    payload: details
 })

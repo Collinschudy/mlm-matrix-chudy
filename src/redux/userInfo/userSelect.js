@@ -22,3 +22,13 @@ export const selectUserTransactions = createSelector(
   (transactions) => transactions.userTransactions
 )
 
+export const selectRecipientDetails = createSelector(
+  [selectDetails],
+  (details) => details.recipient_details
+)
+
+export const selectTransferAccess = createSelector(
+  [selectDetails],
+  (details) => details.transfer_access
+)
+

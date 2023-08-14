@@ -5,6 +5,8 @@ const INITIAL_STATE = {
   userData: null,
   payment_response: null,
   userTransactions: null,
+  recipient_details: null,
+  transfer_access: null,
 };
 
 const userTokenAndEmailReducer = (state = INITIAL_STATE, action) => {
@@ -28,6 +30,16 @@ const userTokenAndEmailReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         userTransactions: action.payload,
+      };
+    case ActionTypes.STORE_RECIPIENT_DETAILS:
+      return {
+        ...state,
+        recipient_details: action.payload,
+      };
+      case ActionTypes.STORE_TRANSFER_ACCESS:
+      return {
+        ...state,
+        transfer_access: action.payload,
       };
 
     default:
