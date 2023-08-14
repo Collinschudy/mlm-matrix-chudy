@@ -19,7 +19,7 @@ const Transactions = ({
   setUserTransactions,
   userTransactions,
 }) => {
-  const [ref, setRef] = useState("");
+  const [ref, setRef] = useState("")
   const { token } = userVerify;
   useEffect(() => {
     const fetchTransactions = async () => {
