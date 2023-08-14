@@ -13,7 +13,7 @@ import { createStructuredSelector } from "reselect";
 const Searchbar = ({ collapsed, setIsCollapsed, show, setShow }) => {
   // const theme = useTheme();
   // const colors = tokens(theme.palette.mode);
-  const isNotMobile = useMediaQuery("(min-width:600px)");
+  const isNotMobile = useMediaQuery("(min-width:650px)");
 
   return (
     <>

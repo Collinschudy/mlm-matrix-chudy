@@ -65,7 +65,7 @@ const Transactions = ({
               <th>Status</th>
             </tr>
           </thead>
-          {userTransactions.map((trx, idx) => {
+          {userTransactions?.map((trx, idx) => {
             const { reference, gateway_response, id, email, phone, amount, status } =
               trx;
             return (
