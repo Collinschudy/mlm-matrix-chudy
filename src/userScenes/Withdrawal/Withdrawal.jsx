@@ -46,6 +46,7 @@ const Withdrawal = ({
       try {
         const res = await axios.get(url, { headers });
         const list = res.data.data.gateway_response;
+        console.log(list);
         setBankList(list);
       } catch (error) {
         console.log(error);

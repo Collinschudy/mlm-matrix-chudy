@@ -3,9 +3,9 @@ import { ActionTypes } from "./ActionType";
 const INITIAL_STATE = {
   userTokenAndEmail: [],
   userData: null,
+  recipientDetails: null,
   paymentResponse: null,
   userTransactions: null,
-  recipientDetails: null,
   transferAccess: null,
 };
 
@@ -21,6 +21,11 @@ const userTokenAndEmailReducer = (state = INITIAL_STATE, action) => {
         ...state,
         userData: action.payload,
       };
+    case ActionTypes.STORE_RECIPIENT_DETAILS:
+      return {
+        ...state,
+        recipientDetails: action.payload,
+      };
     case ActionTypes.STORE_PAYMENT_RESPONSE:
       return {
         ...state,
@@ -31,12 +36,8 @@ const userTokenAndEmailReducer = (state = INITIAL_STATE, action) => {
         ...state,
         userTransactions: action.payload,
       };
-    case ActionTypes.STORE_RECIPIENT_DETAILS:
-      return {
-        ...state,
-        recipientDetails: action.payload,
-      };
-      case ActionTypes.STORE_TRANSFER_ACCESS:
+
+    case ActionTypes.STORE_TRANSFER_ACCESS:
       return {
         ...state,
         transferAccess: action.payload,
