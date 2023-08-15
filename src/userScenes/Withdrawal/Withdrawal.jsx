@@ -182,11 +182,11 @@ const Withdrawal = ({
                   className={styles.createrequest}
                   onClick={(e) => createRecipientCode(e)}
                 >
-                  Create Transfer Request
+                  {showAmount ? "Request Created Successfully" : "Create Transfer Request"}
                 </div>
               </>
             )  }
-            {resolveError && <p className={styles.notApproved}>Error!</p>}
+            {resolveError && <p className={styles.notApproved}>Please ensure that the details provided are correct!</p>}
             {showAmount && (
               <>
                 <div className={styles.formgroup}>
