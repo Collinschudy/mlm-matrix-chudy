@@ -57,12 +57,12 @@ const Transactions = ({
         <table className={styles.table}>
           <thead>
             <tr>
-              <th>ID</th>
-              <th className={styles.hide}>Email</th>
-              <th className={styles.hide}>Amount</th>
-              <th className={styles.hide}>Phone Number</th>
-              <th>TransactionId</th>
-              <th>Status</th>
+              <th className={styles.th}>ID</th>
+              <th className={`${styles.hide} ${styles.th}`}>Email</th>
+              <th className={`${styles.hide} ${styles.th}`}>Amount</th>
+              <th className={`${styles.hide} ${styles.th}`}>Phone Number</th>
+              <th className={styles.th}>TransactionId</th>
+              <th className={styles.th}>Status</th>
             </tr>
           </thead>
           {userTransactions?.map((trx, idx) => {
@@ -72,11 +72,11 @@ const Transactions = ({
               <tbody key={id} className={styles.tbody}>
                 <tr>
                   <td className={styles.td}>{id}</td>
-                  <td className={styles.hide}>{email}</td>
-                  <td className={styles.hide}>{amount}</td>
-                  <td className={styles.hide}>{phone}</td>
-                  <td>{reference}</td>
-                  <td>{status}</td>
+                  <td className={`${styles.hide} ${styles.td}`}>{email}</td>
+                  <td className={`${styles.hide} ${styles.td}`}>{amount}</td>
+                  <td className={`${styles.hide} ${styles.td}`}>{phone}</td>
+                  <td className={styles.td}>{reference}</td>
+                  <td className={styles.td}>{status}</td>
                 </tr>
               </tbody>
             );

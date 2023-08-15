@@ -8,11 +8,13 @@
 .table{
     width: 100%;
     color: rgb(0,0,50);
+    border-collapse: collapse;
     
 }
-thead{
+.thead{
     font-size: 1.1rem;
     border: 1px solid black;
+    border-collapse: collapse;
     
 }
 .tbody{
@@ -24,9 +26,13 @@ tr{
     height: 2.5em;
     font-weight: 600;
 }
-td{
+.td{
     font-weight: 500;
-    border: 1px solid black;
+    border: 3px solid black;
+    padding: 0.5rem 0;
+    border-collapse: collapse;
+    border-left: none;
+    border-right: none;
 }
 /* tr:nth-child(odd) {
     background-color: #D6EEEE;
