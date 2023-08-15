@@ -4,35 +4,37 @@ const selectDetails = state => state.userTokenAndEmail;
 
 export const selectUserTokenAndEmail = createSelector(
   [selectDetails],
-  (tokenAndEmail) => tokenAndEmail.userTokenAndEmail
+  (tokenAndEmail) => tokenAndEmail?.userTokenAndEmail
 )
 
 export const selectCurrentUser = createSelector(
   [selectDetails],
-  (user) => user.userData
+  (user) => user?.userData
 )
 
 export const selectPaymentResponse = createSelector(
   [selectDetails],
-  (response) => response.paymentResponse
+  (response) => response?.paymentResponse
 )
 
 export const selectUserTransactions = createSelector(
   [selectDetails],
-  (transactions) => transactions.userTransactions
+  (transactions) => transactions?.userTransactions
 )
 
 export const selectRecipientDetails = createSelector(
   [selectDetails],
-  (details) => details.recipientDetails
+  (details) => details?.recipientDetails
 )
 
 export const selectTransferAccess = createSelector(
   [selectDetails],
-  (details) => details.transferAccess
+  (details) => details?.transferAccess
 )
 
 export const selectBankList = createSelector(
   [selectDetails],
   (list) => list.bankList
 )
+
+

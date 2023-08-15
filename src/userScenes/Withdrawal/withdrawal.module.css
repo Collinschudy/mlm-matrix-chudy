@@ -45,6 +45,10 @@
     font-size: 0.9rem;
     color: yellowgreen;
 }
+.notApproved{
+    font-size: 0.9rem;
+    color: red;
+}
 .createrequest{
     background-color: lightgray;
     padding: 0.4rem 0;

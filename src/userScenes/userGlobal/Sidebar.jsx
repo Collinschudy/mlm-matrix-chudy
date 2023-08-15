@@ -8,6 +8,7 @@ import { setToggleView } from "../../redux/navToggle/navToggleAction";
 import { createStructuredSelector } from "reselect";
 import {
   setCurrentUser,
+  setLogOut,
   setUserTokenAndEmail,
 } from "../../redux/userInfo/userInfoAction";
 import {
@@ -95,6 +96,7 @@ const Sidebar = ({
   userData,
   setUserVerify,
   setUserData,
+  setLogOut,
 }) => {
   const isNotMobile = useMediaQuery("(min-width: 600px)");
   const [selected, setSelected] = useState("Dashboard");
@@ -121,8 +123,9 @@ const Sidebar = ({
         "https://mlm.zurupevarietiesstore.com/api/auth/logout",
         config
       );
-      setUserVerify([]);
-      setUserData(null);
+      // setUserVerify([]);
+      // setUserData(null);
+      setLogOut();
       toast.success(res.data.message);
       navigate("/signin");
 
@@ -327,6 +330,7 @@ const mapDispatchToProps = (dispatch) => ({
   setMobileCollapsed: () => dispatch(setMobileView()),
   setUserVerify: (user) => dispatch(setUserTokenAndEmail(user)),
   setUserData: (userData) => dispatch(setCurrentUser(userData)),
+  setLogOut: () => dispatch(setLogOut())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

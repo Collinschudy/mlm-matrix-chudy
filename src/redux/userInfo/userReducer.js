@@ -48,6 +48,10 @@ const userTokenAndEmailReducer = (state = INITIAL_STATE, action) => {
         ...state,
         transferAccess: action.payload,
       };
+    case ActionTypes.LOG_OUT:
+      return (
+        state = null
+      )
 
     default:
       return state;

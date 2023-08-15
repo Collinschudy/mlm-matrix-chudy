@@ -35,3 +35,8 @@ export const setTransferAccess = (details) => ({
     type:ActionTypes.STORE_TRANSFER_ACCESS,
     payload: details
 })
+
+export const setLogOut = () => ({
+    type:ActionTypes.LOG_OUT,
+   
+})

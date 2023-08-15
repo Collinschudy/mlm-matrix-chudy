@@ -32,7 +32,8 @@
 }
 .button{
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.7rem 0;
+    border-radius: 4px;
     border: none;
     background-color: gray;
     font-size: 1rem;
@@ -51,7 +52,7 @@
         flex-direction: column;
         margin: 1rem;
     }
-    /* .form{
-        margin: 1rem;
-    } */
+    .form{
+        margin-bottom: 4rem;
+    }
 }

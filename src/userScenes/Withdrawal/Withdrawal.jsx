@@ -38,6 +38,7 @@ const Withdrawal = ({
   const [resMessage, setResMessage] = useState(null);
   const [showName, setShowName] = useState(false);
   const [showAmount, setShowAmount] = useState(false);
+  const [resolveError, setResolveError] = useState(false);
  
 
   useEffect(() => {
@@ -51,14 +52,13 @@ const Withdrawal = ({
       try {
         const res = await axios.get(url, { headers });
         const list = res.data.data.gateway_response;
-        console.log(list);
         setBankList(list);
       } catch (error) {
-        console.log(error);
+        console.log(error.message);
       }
     };
     return () => fetchBankList();
-  }, []);
+  }, [token]);
 
   const resolveAccount = async (e) => {
     e.preventDefault();
@@ -75,17 +75,17 @@ const Withdrawal = ({
     try {
       const res = await axios.get(url, config);
       const details = res.data.data.gateway_response;
-      console.log(details);
       setTransferDetails(details);
       const transfer_access = {
         recipient_code: res.data.data.recipient_code,
         reference: res.data.data.reference,
       };
       setTransferAccess(transfer_access);
-      setAccountName(transferDetails.account_name);
+      setAccountName(transferDetails?.account_name);
       setResMessage(res.data.message);
       setShowName(true);
     } catch (error) {
+      setResolveError(true);
       console.log(error.message);
     }
   };
@@ -159,7 +159,7 @@ const Withdrawal = ({
               <div>
                 <input
                   type="text"
-                  onChange={(e) => setAccountNumber(e.target.value)}
+                  onChange={(e) => {setAccountNumber(e.target.value); setResolveError(false)}}
                 />
                 <span type="click" onClick={(e) => resolveAccount(e)}>
                   confirm
@@ -172,11 +172,11 @@ const Withdrawal = ({
                   <label>Account Name:</label>
                   <input
                     type="text"
-                    onChange={(e) => setAccountName(e.target.value)}
-                    value={accountName}
+                    onChange={(e) => {setAccountName(e.target.value)}}
+                    value={accountName ? accountName : 'click the "confirm" button to view'}
                     disabled
                   />
-                  <p className={styles.approved}>{resMessage}</p>
+                  { resMessage && <p className={styles.approved}>{resMessage}</p> }
                 </div>
                 <div
                   className={styles.createrequest}
@@ -185,7 +185,8 @@ const Withdrawal = ({
                   Create Transfer Request
                 </div>
               </>
-            )}
+            )  }
+            {resolveError && <p className={styles.notApproved}>Error!</p>}
             {showAmount && (
               <>
                 <div className={styles.formgroup}>
