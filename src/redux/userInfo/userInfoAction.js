@@ -21,6 +21,11 @@ export const setUserTransactions = (transactions) => ({
     payload: transactions
 });
 
+export const setBankList = (list) => ({
+    type:ActionTypes.STORE_BANK_LIST,
+    payload: list
+})
+
 export const setRecipientDetails = (details) => ({
     type:ActionTypes.STORE_RECIPIENT_DETAILS,
     payload: details

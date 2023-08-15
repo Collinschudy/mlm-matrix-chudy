@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import styles from "./withdrawal.module.css";
 import AdminHeader from "../userGlobal/AdminHeader";
 import {
+  setBankList,
   setCurrentUser,
   setRecipientDetails,
   setTransferAccess,
   setUserTokenAndEmail,
 } from "../../redux/userInfo/userInfoAction";
 import {
+  selectBankList,
   selectCurrentUser,
   selectRecipientDetails,
   selectTransferAccess,
@@ -23,10 +25,12 @@ const Withdrawal = ({
   setTransferDetails,
   setTransferAccess,
   transferAccess,
+  bankList,
+  setBankList,
 }) => {
   const { token } = userVerify;
 
-  const [bankList, setBankList] = useState(null);
+  // const [bankList, setBankList] = useState(null);
   const [code, setCode] = useState("");
   const [accNumber, setAccountNumber] = useState("");
   const [accountName, setAccountName] = useState("");
@@ -211,11 +215,13 @@ const mapStateToProps = createStructuredSelector({
   userVerify: selectUserTokenAndEmail,
   transferDetails: selectRecipientDetails,
   transferAccess: selectTransferAccess,
+  bankList: selectBankList,
 });
 const mapDispatchToProps = (dispatch) => ({
   setUserVerify: (user) => dispatch(setUserTokenAndEmail(user)),
   setUserData: (userData) => dispatch(setCurrentUser(userData)),
   setTransferDetails: (details) => dispatch(setRecipientDetails(details)),
   setTransferAccess: (details) => dispatch(setTransferAccess(details)),
+  setBankList: (banklist) => dispatch(setBankList(banklist))
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Withdrawal);

@@ -32,3 +32,7 @@ export const selectTransferAccess = createSelector(
   (details) => details.transferAccess
 )
 
+export const selectBankList = createSelector(
+  [selectDetails],
+  (list) => list.bankList
+)
