@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./transactions.module.css";
-import { Box } from "@mui/material";
 import AdminHeader from "../userGlobal/AdminHeader";
-import { DataGrid } from "@mui/x-data-grid";
-
 import axios from "axios";
 
 import { connect } from "react-redux";
@@ -32,7 +29,7 @@ const Transactions = ({
         const userTxns = res.data.data.transactions.data;
         const sorted = userTxns.sort((a, b) => a.id - b.id);
         setRef(res.data.data.transactions.data.reference);
-        setUserTransactions(userTxns);
+        setUserTransactions(sorted);
         console.log(userTransactions);
       } catch (error) {
         console.log(error);
@@ -51,9 +48,6 @@ const Transactions = ({
       />
 
       <div className={styles.transactions}>
-        {/* <div className={styles.txnbox}>
-          <DataGrid rows={userTransactions} columns={columns} />
-        </div> */}
         <table className={styles.table}>
           <thead>
             <tr>
@@ -66,7 +60,7 @@ const Transactions = ({
             </tr>
           </thead>
           {userTransactions?.map((trx, idx) => {
-            const { reference, gateway_response, id, email, phone, amount, status } =
+            const { reference, id, email, phone, amount, status } =
               trx;
             return (
               <tbody key={id} className={styles.tbody}>

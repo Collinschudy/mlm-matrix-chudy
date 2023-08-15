@@ -34,6 +34,7 @@ const Withdrawal = ({
   const [resMessage, setResMessage] = useState(null);
   const [showName, setShowName] = useState(false);
   const [showAmount, setShowAmount] = useState(false);
+ 
 
   useEffect(() => {
     const fetchBankList = async () => {
@@ -53,7 +54,7 @@ const Withdrawal = ({
       }
     };
     return () => fetchBankList();
-  }, [token]);
+  }, []);
 
   const resolveAccount = async (e) => {
     e.preventDefault();

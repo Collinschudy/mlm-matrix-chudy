@@ -1,6 +1,6 @@
 import { IconButton, useMediaQuery } from "@mui/material";
 import styles from './searchbar.module.css';
-import SearchIcon from "@mui/icons-material/Search";
+// import SearchIcon from "@mui/icons-material/Search";
 import MenuIcon from "@mui/icons-material/Menu";
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 import { connect } from "react-redux";
@@ -11,8 +11,6 @@ import { setToggleView } from "../../../redux/navToggle/navToggleAction";
 import { createStructuredSelector } from "reselect";
 
 const Searchbar = ({ collapsed, setIsCollapsed, show, setShow }) => {
-  // const theme = useTheme();
-  // const colors = tokens(theme.palette.mode);
   const isNotMobile = useMediaQuery("(min-width:650px)");
 
   return (

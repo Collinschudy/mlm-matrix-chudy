@@ -57,7 +57,7 @@ const Item = ({
   setSelected,
   backGround,
 }) => {
-  const isNotMobile = useMediaQuery("(min-width: 600px)");
+  // const isNotMobile = useMediaQuery("(min-width: 600px)");
 
   return (
     <Box
@@ -218,20 +218,6 @@ const Sidebar = ({
               backGround={pathName.includes("withdrawal") ? "grey" : ""}
             />
           </Link>
-
-          {/* <Link to="epin-recharge" onClick={() => setMobileCollapsed(false)}>
-            <Item
-              title="E-Pin Recharge"
-              icon={
-                <HomeOutlinedIcon
-                  sx={{ color: "skyblue", fontSize: "1.1rem" }}
-                />
-              }
-              selected={selected}
-              setSelected={setSelected}
-              backGround={pathName.includes("epin-recharge") ? "grey" : ""}
-            />
-          </Link> */}
 
           <Link to="transfer-balance" onClick={() => setMobileCollapsed(false)}>
             <Item
