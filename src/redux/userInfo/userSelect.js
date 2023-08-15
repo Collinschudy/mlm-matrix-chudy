@@ -14,7 +14,7 @@ export const selectCurrentUser = createSelector(
 
 export const selectPaymentResponse = createSelector(
   [selectDetails],
-  (response) => response.payment_response
+  (response) => response.paymentResponse
 )
 
 export const selectUserTransactions = createSelector(
@@ -24,11 +24,11 @@ export const selectUserTransactions = createSelector(
 
 export const selectRecipientDetails = createSelector(
   [selectDetails],
-  (details) => details.recipient_details
+  (details) => details.recipientDetails
 )
 
 export const selectTransferAccess = createSelector(
   [selectDetails],
-  (details) => details.transfer_access
+  (details) => details.transferAccess
 )
 

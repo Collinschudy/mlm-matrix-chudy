@@ -3,10 +3,10 @@ import { ActionTypes } from "./ActionType";
 const INITIAL_STATE = {
   userTokenAndEmail: [],
   userData: null,
-  payment_response: null,
+  paymentResponse: null,
   userTransactions: null,
-  recipient_details: null,
-  transfer_access: null,
+  recipientDetails: null,
+  transferAccess: null,
 };
 
 const userTokenAndEmailReducer = (state = INITIAL_STATE, action) => {
@@ -24,7 +24,7 @@ const userTokenAndEmailReducer = (state = INITIAL_STATE, action) => {
     case ActionTypes.STORE_PAYMENT_RESPONSE:
       return {
         ...state,
-        payment_response: action.payload,
+        paymentResponse: action.payload,
       };
     case ActionTypes.STORE_USER_TRANSACTIONS:
       return {
@@ -34,12 +34,12 @@ const userTokenAndEmailReducer = (state = INITIAL_STATE, action) => {
     case ActionTypes.STORE_RECIPIENT_DETAILS:
       return {
         ...state,
-        recipient_details: action.payload,
+        recipientDetails: action.payload,
       };
       case ActionTypes.STORE_TRANSFER_ACCESS:
       return {
         ...state,
-        transfer_access: action.payload,
+        transferAccess: action.payload,
       };
 
     default:
