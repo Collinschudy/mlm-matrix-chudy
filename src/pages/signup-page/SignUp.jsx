@@ -77,6 +77,7 @@ const SignUpPage = ({ user = {}, userVerify, setUserVerify}) => {
       "email": email})
       navigate('/verify')
     } catch (err) {
+      console.log(err)
       toast.error(err.message);
     }
 
@@ -108,7 +109,7 @@ const SignUpPage = ({ user = {}, userVerify, setUserVerify}) => {
             <p className={styles.signinparagraph}>
               If you already have an account, you can{" "}
               <span>
-                <Link to="/signin">log in here</Link>
+                <Link to="/login">log in here</Link>
               </span>
             </p>
             <div className={styles.socialicons}>
