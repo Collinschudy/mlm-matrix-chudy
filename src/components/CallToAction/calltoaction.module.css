@@ -1,0 +1,37 @@
+.container{
+    height: 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eceee9;
+   
+}
+.inner{
+    width: 100%;
+    height: 100%;
+    /* border-radius: 0.8rem; */
+    /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+    background: linear-gradient(to right, #6CB4EE, #D6EEEE);
+    /* background: rgb(0,0,50); */
+    /* background: #D6EEEE; */
+    font-size: 4rem;
+    /* color: green; */
+    font-weight: 500;
+    font-family: "Raleway", "Lexend", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.container button{
+    height: 2.6rem;
+    width: 12rem;
+    background: rgb(0,0,50);
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    font-family: inherit;
+    font-size: 1rem;
+    margin-top: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
