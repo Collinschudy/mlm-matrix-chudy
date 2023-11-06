@@ -77,7 +77,7 @@ const SignUpPage = ({ user = {}, userVerify, setUserVerify}) => {
       "email": email})
       navigate('/verify')
     } catch (err) {
-      console.log(err)
+      console.log(err);
       toast.error(err.message);
     }
 

@@ -7,6 +7,7 @@ import Header from '../../components/Header/header.component';
 import Footer from '../../components/Footer-section/footer.component';
 import Plan from '../../components/Plan/Plan.component';
 import Vision from '../../components/vision/vision.component';
+import Calltoaction from '../../components/CallToAction/Calltoaction';
 
 const Homepage = () => {
   useEffect(() => {
@@ -21,6 +22,7 @@ const Homepage = () => {
         <AboutSection />
         <HowItWorks />
         <Plan />
+        <Calltoaction />
         <Footer />
     </div>
   )
