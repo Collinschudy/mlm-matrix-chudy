@@ -21,11 +21,11 @@
     font-size: 0.9rem;
 }
 
-tr{
+/* tr{
     text-align: center;
     height: 2.5em;
     font-weight: 600;
-}
+} */
 .td{
     font-weight: 500;
     border: 3px solid black;

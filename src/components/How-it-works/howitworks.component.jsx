@@ -9,7 +9,7 @@ import React from "react";
 const HowItWorks = () => {
   return (
     <section className={styles.howitworks}>
-      <Title heading={"How It Works"} title={""} howItWorks />
+      <Title heading={"How it Works"} title={""} howItWorks />
       <p className={styles.paragraph}>
         Alliance arcade subscribers use the power of leveraging and
         people-helping-people system. Imagine if everyone in this country

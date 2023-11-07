@@ -52,7 +52,7 @@ tr:nth-child(even) {
     thead{
         font-size: 1.2rem;
     }
-    table{
+    .table{
         width: 100%;
         margin: 0;
     }

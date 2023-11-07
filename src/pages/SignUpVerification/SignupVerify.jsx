@@ -10,13 +10,14 @@ import { useNavigate } from "react-router-dom";
 
 const SignupVerify = ({ setUserVerify, userVerify, userData, setUserData }) => {
   const navigate = useNavigate();
+  console.log(userVerify)
 
   const getUserToken = async () => {
     try {
       const res = await axios.post(
         "https://mlm.zurupevarietiesstore.com/api/auth/verify-signup", userVerify
       );
-
+      
       const userDetails = res.data.data.user;
       setUserData(userDetails);
       toast.success("Verification successful, sign in to continue");
@@ -27,7 +28,8 @@ const SignupVerify = ({ setUserVerify, userVerify, userData, setUserData }) => {
   };
   return (
     <div className={styles.container}>
-      {console.log("userData:", userData)}
+      {/* {console.log("userData:", userData)} */}
+      {/* {console.log("userVerify:", userVerify)} */}
       <h3>
         Thank you for registering with us, to verify your account, kindly{" "}
         <span onClick={() => getUserToken()}>click here</span>

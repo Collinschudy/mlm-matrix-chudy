@@ -41,7 +41,8 @@
     width: 4rem;
     height: 4rem;
     margin-bottom: 1rem;
-    color: yellowgreen;
+    color: black;
+    /* color: yellowgreen; */
 }
 .box:hover .icon{
     color: white;

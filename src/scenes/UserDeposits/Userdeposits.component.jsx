@@ -99,12 +99,12 @@ const UserDeposits = ({ userVerify, setUserVerify }) => {
             return (
               <tbody key={`${reference}`} className={styles.tbody}>
                 <tr >
-                  <td>{id}</td>
-                  <td className={styles.hide}>{email}</td>
+                  <td className={styles.td}>{id}</td>
+                  <td className={`${styles.hide} ${styles.td}`}>{email}</td>
                   {/* <td className={styles.hide}>{amount}</td> */}
-                  <td className={styles.hide}>{phone}</td>
-                  <td>{reference}</td>
-                  <td>{status}</td>
+                  <td className={`${styles.hide} ${styles.td}`}>{phone}</td>
+                  <td className={styles.td}>{reference}</td>
+                  <td className={styles.td}>{status}</td>
                 </tr>
               </tbody>
             );

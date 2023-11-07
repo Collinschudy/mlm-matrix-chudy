@@ -12,6 +12,9 @@
     text-align: center;
     
 }
+h3 span{
+    cursor: pointer;
+}
 .container h3 span{
     color: #3489ce;
 }

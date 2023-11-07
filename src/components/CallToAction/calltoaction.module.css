@@ -14,9 +14,6 @@
     background: linear-gradient(to right, #6CB4EE, #D6EEEE);
     /* background: rgb(0,0,50); */
     /* background: #D6EEEE; */
-    font-size: 4rem;
-    /* color: green; */
-    font-weight: 500;
     font-family: "Raleway", "Lexend", sans-serif;
     display: flex;
     align-items: center;
@@ -34,4 +31,16 @@
     font-size: 1rem;
     margin-top: 1rem;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
+.heading{
+    font-size: 4rem;
+}
+
+@media screen and (max-width: 600px) {
+    .heading{
+        font-size: 2rem;
+    }
+    .container button{
+        margin-top: 5rem;
+    }
 }

@@ -9,9 +9,8 @@
 .table{
     width: 100%;
     color: rgb(0,0,50);
-
-    
 }
+
 thead{
     font-size: 1.1rem;
 }
@@ -19,12 +18,12 @@ thead{
     font-size: 0.9rem;
 }
 
-tr{
+/* tr{
     text-align: center;
     height: 2.5em;
     font-weight: 600;
-}
-td{
+} */
+.td{
     font-weight: 500;
     border-bottom: 1px solid black;
   
