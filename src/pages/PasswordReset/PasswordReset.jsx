@@ -20,7 +20,7 @@ const PasswordReset = ({ userVerify, setUserVerify }) => {
     const email = userVerify.email;
     try{
     const res = await axios.post(
-      "https://mlm.zurupevarietiesstore.com/api/auth/reset-password",
+      "https://mlm.a1exchange.net/api/v1/auth/reset-password",
       {
         email,
         password: password,

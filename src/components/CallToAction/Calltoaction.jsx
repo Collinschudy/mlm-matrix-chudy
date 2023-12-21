@@ -5,7 +5,7 @@ const Calltoaction = () => {
   return (
     <div className={styles.container}>
         <div className={styles.inner}>
-            <h3 className={styles.heading}>Join us Today!</h3>
+            <h3 className={styles.heading}>Join us today!</h3>
             <button>
                 Click to Get Started
             </button>

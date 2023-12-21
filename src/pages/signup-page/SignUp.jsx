@@ -29,19 +29,18 @@ const SignUpPage = ({ user = {}, userVerify, setUserVerify}) => {
 
   const schema = z
     .object({
-      firstname: z.string().min(3),
-      lastname: z.string().min(3),
-      username: z.string().min(3),
+      first_name: z.string().min(3),
+      last_name: z.string().min(3),
       email: z.string().email(),
       phone_number: z.string().regex(phoneRegex, "Enter a valid phone number"),
       password: z.string().min(6).max(20),
-      confirmPassword: z.string().min(6).max(20),
+      password_confirmation: z.string().min(6).max(20),
     })
     .refine(
-      (formValues) => formValues.password === formValues.confirmPassword,
+      (formValues) => formValues.password === formValues.password_confirmation,
       {
         message: "Passwords do not match",
-        path: ["confirmPassword"],
+        path: ["password_confirmation"],
       }
     );
 
@@ -56,29 +55,29 @@ const SignUpPage = ({ user = {}, userVerify, setUserVerify}) => {
   };
 
   const submit = async (formValues) => {
-    const { firstname, lastname, email, username, phone_number, password } =
+    const { first_name, last_name, email, phone_number, password, password_confirmation } =
       formValues;
      
     try {
       const res = await axios.post(
-        "https://mlm.zurupevarietiesstore.com/api/auth/register",
+        "https://mlm.a1exchange.net/api/v1/auth/register",
         {
-          firstname,
-          lastname,
-          username,
+          first_name,
+          last_name,
           email,
           phone_number,
           password,
+          password_confirmation
         }
       );
-      const { token } = res.data.data;
+      // const { token } = res.data.data;
+      console.log(res.data);
       setSubmitting(true);
-      setUserVerify({"token":token,
-      "email": email})
+      setUserVerify(email)
       navigate('/verify')
     } catch (err) {
       console.log(err);
-      toast.error(err.message);
+      toast.error("Required fields are empty or invalid");
     }
 
     handleReset();
@@ -142,44 +141,43 @@ const SignUpPage = ({ user = {}, userVerify, setUserVerify}) => {
             <p className={styles.description}>Fill in your details below:</p>
             <form onSubmit={handleSubmit(submit)} autoComplete="off">
               <div className={styles.formgroup}>
-                <label htmlFor="firstname">First Name:</label>
+                <label htmlFor="firstname">First Name</label>
                 <input
                   type="text"
                   placeholder="first name"
                   name="firstname"
                   id="firstname"
                   autoFocus
-                  {...register("firstname")}
+                  {...register("first_name")}
                 />
                 <div className={styles.errors}>
-                  {errors.firstName
+                  {errors.first_name
                     ? "first name should have at least three characters"
                     : ""}
                 </div>
               </div>
 
               <div className={styles.formgroup}>
-                <label htmlFor="last-name">Last Name:</label>
+                <label htmlFor="last-name">Last Name</label>
                 <input
                   type="text"
                   placeholder="last name"
                   name="lastname"
-                  {...register("lastname")}
+                  {...register("last_name")}
                 />
                 <div className={styles.errors}>
-                  {errors.firstName
+                  {errors.last_name
                     ? "last name should have at least three characters"
                     : ""}
                 </div>
               </div>
 
-              <div className={styles.formgroup}>
-                <label htmlFor="last_name">Username:</label>
+              {/* <div className={styles.formgroup}>
+                <label htmlFor="last_name">Username</label>
                 <input
                   type="text"
                   placeholder="username"
                   name="username"
-                  id='last_name'
                   {...register("username")}
                 />
                 <div className={styles.errors}>
@@ -187,10 +185,10 @@ const SignUpPage = ({ user = {}, userVerify, setUserVerify}) => {
                     ? "username should have at least three characters"
                     : ""}
                 </div>
-              </div>
+              </div> */}
 
               <div className={styles.formgroup}>
-                <label htmlFor="email">Email:</label>
+                <label htmlFor="email">Email</label>
                 <input
                   type="email"
                   name="email"
@@ -201,7 +199,7 @@ const SignUpPage = ({ user = {}, userVerify, setUserVerify}) => {
               </div>
 
               <div className={styles.formgroup}>
-                <label htmlFor="phone">Phone Number:</label>
+                <label htmlFor="phone">Phone Number</label>
                 <input
                   type="number"
                   name="phone"
@@ -211,7 +209,7 @@ const SignUpPage = ({ user = {}, userVerify, setUserVerify}) => {
               </div>
 
               <div className={styles.formgroup}>
-                <label htmlFor="phone">Password:</label>
+                <label htmlFor="phone">Password</label>
                 <input
                   type="password"
                   name="password"
@@ -221,14 +219,14 @@ const SignUpPage = ({ user = {}, userVerify, setUserVerify}) => {
               </div>
 
               <div className={styles.formgroup}>
-                <label htmlFor="phone">Confirm your password:</label>
+                <label htmlFor="phone">Confirm your password</label>
                 <input
                   type="password"
                   name="phone"
-                  {...register("confirmPassword")}
+                  {...register("password_confirmation")}
                 />
                 <div className={styles.errors}>
-                  {errors.confirmPassword?.message}
+                  {errors.password_confirmation?.message}
                 </div>
               </div>
 

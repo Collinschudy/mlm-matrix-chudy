@@ -17,12 +17,13 @@ import Deposits from "../../userScenes/Deposit/Deposits";
 import Transactions from "../../userScenes/Transactions/Transactions";
 import Referral from "../../userScenes/Referral/Referral";
 import Withdrawal from "../../userScenes/Withdrawal/Withdrawal";
-import SubscriptionPlan from "../../userScenes/Subscription-plan/SubscriptionPlan";
 import AccountSettings from "../../userScenes/Account-settings/AccountSettings";
 import TwoFactorAuth from "../../userScenes/TwoFactorAuth/TwoFactorAuth";
 import MyMatrix from "../../userScenes/MyMatrix/MyMatrix";
 import TransferBalance from "../../userScenes/Transfer-balance/TransferBalance";
 import EpinRecharge from "../../userScenes/Epin-recharge/EpinRecharge";
+import UserProfile from "../../userScenes/Profile/UserProfile";
+import UpdateProfile from "../../userScenes/UpdateProfile/UpdateProfile";
 
 const Dashboard = ({ collapsed, setIsCollapsed }) => {
   const isNotMobile = useMediaQuery("(min-width: 600px)");
@@ -45,7 +46,8 @@ const Dashboard = ({ collapsed, setIsCollapsed }) => {
           <Route path="transactions" element={<Transactions />} />
           <Route path="referral" element={<Referral />} />
           <Route path="withdrawal" element={<Withdrawal />} />
-          <Route path="subscription" element={<SubscriptionPlan />} />
+          <Route path="profile" element={<UserProfile />} />
+          <Route path="update_details" element={<UpdateProfile />} />
           <Route path="account-settings" element={<AccountSettings />} />
           <Route path="2fa-security" element={<TwoFactorAuth />} />
           <Route path="mymatrix" element={<MyMatrix />} />

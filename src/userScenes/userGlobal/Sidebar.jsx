@@ -112,15 +112,13 @@ const Sidebar = ({
   }, [pathname]);
 
   const logOutUser = async () => {
-    
-    
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
 
     try {
       const res = await axios.get(
-        "https://mlm.zurupevarietiesstore.com/api/auth/logout",
+        "https://mlm.a1exchange.net/api/v1/auth/logout",
         config
       );
       // setUserVerify([]);
@@ -195,14 +193,26 @@ const Sidebar = ({
             />
           </Link>
 
-          <Link to="subscription" onClick={() => setMobileCollapsed(false)}>
+          <Link to="profile" onClick={() => setMobileCollapsed(false)}>
             <Item
-              title="Subscription Plan"
+              title="Your Profile"
               icon={
                 <LocalAtmIcon sx={{ color: "skyblue", fontSize: "1.1rem" }} />
               }
               selected={selected}
-              backGround={pathName.includes("subscription") ? "grey" : ""}
+              backGround={pathName.includes("profile") ? "grey" : ""}
+              setSelected={setSelected}
+            />
+          </Link>
+
+          <Link to="update_details" onClick={() => setMobileCollapsed(false)}>
+            <Item
+              title="Update Profile"
+              icon={
+                <LocalAtmIcon sx={{ color: "skyblue", fontSize: "1.1rem" }} />
+              }
+              selected={selected}
+              backGround={pathName.includes("update_details") ? "grey" : ""}
               setSelected={setSelected}
             />
           </Link>

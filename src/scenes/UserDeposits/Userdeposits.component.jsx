@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 // import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 // import { mockTransactions } from "../../data/mockData";
-import { tokens } from "../../theme";
 import { connect } from "react-redux";
 import { setUserTokenAndEmail } from "../../redux/userInfo/userInfoAction";
 import { selectUserTokenAndEmail } from "../../redux/userInfo/userSelect";
@@ -30,7 +29,7 @@ const UserDeposits = ({ userVerify, setUserVerify }) => {
     return () => {
       fetchUsersDeposits();
     };
-  }, []);
+  }, [token]);
   return (
     <div className={styles.container}>
       {/* <div className={styles.innercontainer}>
@@ -95,7 +94,7 @@ const UserDeposits = ({ userVerify, setUserVerify }) => {
             </tr>
           </thead>
           {depositList?.reverse().map((trx, idx) => {
-            const { reference, status, id, email, phone, amount } = trx;
+            const { reference, status, id, email, phone } = trx;
             return (
               <tbody key={`${reference}`} className={styles.tbody}>
                 <tr >

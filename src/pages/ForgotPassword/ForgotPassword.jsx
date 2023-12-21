@@ -20,7 +20,7 @@ const ForgotPassword = ({ userVerify, setUserVerify }) => {
     try {
       setSubmitting(true);
       const res = await axios.post(
-        "https://mlm.zurupevarietiesstore.com/api/auth/forgot-password",
+        "https://mlm.a1exchange.net/api/v1/auth/forgot-password",
         {
           email,
         }
