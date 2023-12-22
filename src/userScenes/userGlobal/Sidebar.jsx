@@ -115,12 +115,10 @@ const Sidebar = ({
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
+    const url = "https://mlm.a1exchange.net/api/v1/auth/logout"
 
     try {
-      const res = await axios.get(
-        "https://mlm.a1exchange.net/api/v1/auth/logout",
-        config
-      );
+      const res = await axios.post(url, null, config);
       // setUserVerify([]);
       // setUserData(null);
       setLogOut();
