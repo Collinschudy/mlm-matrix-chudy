@@ -193,7 +193,7 @@ const Sidebar = ({
 
           <Link to="profile" onClick={() => setMobileCollapsed(false)}>
             <Item
-              title="Your Profile"
+              title="My Profile"
               icon={
                 <LocalAtmIcon sx={{ color: "skyblue", fontSize: "1.1rem" }} />
               }
