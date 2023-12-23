@@ -16,6 +16,7 @@
 }
 .form{
     width: 100%;
+    margin-bottom: 2rem;
     
    
 }
@@ -44,6 +45,15 @@
     background: linear-Gradient(to right, rgb(0,0,50), yellowgreen);
   
 }
+.buttonContainer{
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.paymentButton{
+    padding: 0.5rem;
+}
 
 @media screen and (max-width:650px){
     .depositbox{
@@ -51,8 +61,5 @@
         align-items: flex-start;
         flex-direction: column;
         margin: 1rem;
-    }
-    .form{
-        margin-bottom: 4rem;
     }
 }
