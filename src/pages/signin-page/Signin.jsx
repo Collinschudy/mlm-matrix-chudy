@@ -23,6 +23,8 @@ const SignInPage = ({ setUserData, setUserVerify, userData, userVerify }) => {
   const [loginDetail, setLoginDetail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
+  const [loginError, setLoginError] = useState(false)
+  const [errMessage1, setErrMessage1] = useState("")
   const [errMessage, setErrMessage] = useState("");
   const [show, setShow] = useState(false);
 
@@ -68,8 +70,11 @@ const SignInPage = ({ setUserData, setUserVerify, userData, userVerify }) => {
       } catch (err) {
         setError(true);
         setErrMessage(err.message);
-        toast.error("Invalid login credentials");
+        toast.error(error.message);
       }
+    }else{
+      setLoginError(true);
+      setErrMessage1("Invalid Email or Phone")
     }
   };
 
@@ -105,9 +110,9 @@ const SignInPage = ({ setUserData, setUserVerify, userData, userVerify }) => {
                   name="loginDetail"
                   value={loginDetail}
                   autoFocus
-                  onChange={(e) => setLoginDetail(e.target.value)}
+                  onChange={(e) => {setLoginDetail(e.target.value);setLoginError(false)}}
                 />
-                {/* {<div className={styles.errors}>{"Invalid Email"}</div>} */}
+                {loginError && <div className={styles.errors}>{errMessage1}</div>}
               </div>
               <div className={`${styles.formgroup} ${styles.pass}`}>
                 <label htmlFor="email">Password</label>
@@ -120,7 +125,7 @@ const SignInPage = ({ setUserData, setUserVerify, userData, userVerify }) => {
                     setError(false);
                   }}
                 />
-                <p className={styles.showHide}>
+                <p className={`${styles.showHide} ${!error ? styles.move : ""}`}>
                   {show ? (
                     <BiShow onClick={() => setShow((prev) => !prev)} />
                   ) : (

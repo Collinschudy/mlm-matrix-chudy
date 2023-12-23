@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import { useNavigate } from 'react-router-dom';
 import styles from './aboutSection.module.css';
 import Title from '../titleComponent/title.component';

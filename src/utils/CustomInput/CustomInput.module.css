@@ -10,7 +10,7 @@
     font-size: 1.2rem;
     color: #1b1b32;
     margin-bottom: 0.5rem;
-    font-weight: bold;
+    /* font-weight: bold; */
     /* text-transform: capitalize; */
   }
   .input {
@@ -24,14 +24,14 @@
     padding: 0.7rem;
     font-size: 1rem;
   }
+
+  .smaller{
+    font-size: 0.65rem;
+  }
   .input:focus {
     border: 2px #1b1b32 solid;
   }
 
   @media screen and (max-width: 650px){
-  
-    .inputLabel{
-      font-size: 1rem;
-    }
-
+    
   }

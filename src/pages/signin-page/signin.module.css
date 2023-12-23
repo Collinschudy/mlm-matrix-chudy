@@ -126,10 +126,15 @@ input{
 .pass{
     position: relative;
 }
+
 .showHide{
     position: absolute;
-    bottom: 10%;
+    top: 40%;
     right: 5%;
+    /* transform: translateY(-50%); */
+}
+.move{
+    top: 50%;
 }
 
 @media screen and (max-width: 650px) {
