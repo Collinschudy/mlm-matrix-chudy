@@ -12,6 +12,11 @@ export const selectCurrentUser = createSelector(
   (user) => user?.userData
 )
 
+export const selectUserUpdated = createSelector(
+  [selectDetails],
+  (updated) => updated?.userUpdated
+)
+
 export const selectPaymentResponse = createSelector(
   [selectDetails],
   (response) => response?.paymentResponse

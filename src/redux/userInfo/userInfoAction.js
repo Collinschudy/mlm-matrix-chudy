@@ -11,6 +11,10 @@ export const setCurrentUser = (currentUser) => ({
     payload: currentUser
 });
 
+export const setUserUpdated = (userUpdated) => ({
+    type: ActionTypes.STORE_USER_UPDATED,
+    payload: userUpdated
+})
 export const setPaymentResponse = (response) => ({
     type: ActionTypes.STORE_PAYMENT_RESPONSE,
     payload: response

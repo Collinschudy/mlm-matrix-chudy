@@ -3,6 +3,7 @@ import { ActionTypes } from "./ActionType";
 const INITIAL_STATE = {
   userTokenAndEmail: [],
   userData: null,
+  userUpdated: null,
   recipientDetails: null,
   paymentResponse: null,
   userTransactions: null,
@@ -22,6 +23,11 @@ const userTokenAndEmailReducer = (state = INITIAL_STATE, action) => {
         ...state,
         userData: action.payload,
       };
+    case ActionTypes.STORE_USER_UPDATED:
+      return {
+        ...state,
+        userUpdated: action.payload,
+      }
     case ActionTypes.STORE_BANK_LIST:
         return {
           ...state,
