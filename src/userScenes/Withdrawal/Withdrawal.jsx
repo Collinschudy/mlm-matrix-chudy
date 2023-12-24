@@ -39,12 +39,10 @@ const Withdrawal = ({
   const [showName, setShowName] = useState(false);
   const [showAmount, setShowAmount] = useState(false);
   const [resolveError, setResolveError] = useState(false);
- 
 
   useEffect(() => {
     const fetchBankList = async () => {
-      const url =
-        "https://mlm.zurupevarietiesstore.com/api/transfers/bank-list";
+      const url = "https://mlm.a1exchange.net/api/v1/withdrawal/bank-list";
 
       const headers = {
         Authorization: `Bearer ${token}`,
@@ -62,19 +60,23 @@ const Withdrawal = ({
 
   const resolveAccount = async (e) => {
     e.preventDefault();
-    const url =
-      "https://mlm.zurupevarietiesstore.com/api/transfers/resolve-account";
+    const url = "https://mlm.a1exchange.net/api/v1/withdrawal/resolve-account";
 
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,
         Accept: "application/json",
       },
-      params: { account_number: accNumber, bank_code: code },
+      // params: { account_number: accNumber, bank_code: code },
+    };
+    const body = {
+      account_number: accNumber,
+      bank_code: code,
     };
     try {
-      const res = await axios.get(url, config);
+      const res = await axios.post(url, body, config);
       const details = res.data.data.gateway_response;
+      console.log(res);
       setTransferDetails(details);
       const transfer_access = {
         recipient_code: res.data.data.recipient_code,
@@ -84,37 +86,38 @@ const Withdrawal = ({
       setAccountName(transferDetails?.account_name);
       setResMessage(res.data.message);
       setShowName(true);
+      setShowAmount(true);
     } catch (error) {
       setResolveError(true);
       console.log(error.message);
     }
   };
 
-  const createRecipientCode = async (e) => {
-    e.preventDefault();
-    const url = "https://mlm.zurupevarietiesstore.com/api/transfers/recipient";
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
-    const body = {
-      account_number: transferDetails.account_number,
-      name: transferDetails.account_name,
-      bank_code: code,
-    };
-    try {
-      const res = await axios.post(url, body, config);
-      console.log(res.data);
-      setShowAmount(true);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
+  // const createRecipientCode = async (e) => {
+  //   e.preventDefault();
+  //   const url = "https://mlm.a1exchange.net/api/transfers/recipient";
+  //   const config = {
+  //     headers: {
+  //       Authorization: `Bearer ${token}`,
+  //     },
+  //   };
+  //   const body = {
+  //     account_number: transferDetails.account_number,
+  //     name: transferDetails.account_name,
+  //     bank_code: code,
+  //   };
+  //   try {
+  //     const res = await axios.post(url, body, config);
+  //     console.log(res.data);
+  //     setShowAmount(true);
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // };
 
   const initiateTransfer = async (e) => {
     e.preventDefault();
-    const url = "https://mlm.zurupevarietiesstore.com/api/transfers/initiate";
+    const url = "https://mlm.a1exchange.net/api/v1/withdrawal/initiate";
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -127,9 +130,9 @@ const Withdrawal = ({
     };
     try {
       const res = await axios.post(url, body, config);
-      console.log(res.data)
+      console.log(res.data);
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
     }
   };
 
@@ -159,7 +162,12 @@ const Withdrawal = ({
               <div>
                 <input
                   type="text"
-                  onChange={(e) => {setAccountNumber(e.target.value); setResolveError(false)}}
+                  onChange={(e) => {
+                    setAccountNumber(e.target.value);
+                    setResolveError(false);
+                    setShowName(false);
+                    setShowAmount(false);
+                  }}
                 />
                 <span type="click" onClick={(e) => resolveAccount(e)}>
                   confirm
@@ -172,21 +180,33 @@ const Withdrawal = ({
                   <label>Account Name:</label>
                   <input
                     type="text"
-                    onChange={(e) => {setAccountName(e.target.value)}}
-                    value={accountName ? accountName : 'click the "confirm" button to view'}
+                    onChange={(e) => {
+                      setAccountName(e.target.value);
+                    }}
+                    value={
+                      accountName
+                        ? accountName
+                        : 'click the "confirm" button to view'
+                    }
                     disabled
                   />
-                  { resMessage && <p className={styles.approved}>{resMessage}</p> }
+                  {resMessage && (
+                    <p className={styles.approved}>{resMessage}</p>
+                  )}
                 </div>
-                <div
+                {/* <div
                   className={styles.createrequest}
                   onClick={(e) => createRecipientCode(e)}
                 >
                   {showAmount ? "Request Created Successfully" : "Create Transfer Request"}
-                </div>
+                </div> */}
               </>
-            )  }
-            {resolveError && <p className={styles.notApproved}>Please ensure that the details provided are correct!</p>}
+            )}
+            {resolveError && (
+              <p className={styles.notApproved}>
+                Please ensure that the details provided are correct!
+              </p>
+            )}
             {showAmount && (
               <>
                 <div className={styles.formgroup}>
@@ -223,6 +243,6 @@ const mapDispatchToProps = (dispatch) => ({
   setUserData: (userData) => dispatch(setCurrentUser(userData)),
   setTransferDetails: (details) => dispatch(setRecipientDetails(details)),
   setTransferAccess: (details) => dispatch(setTransferAccess(details)),
-  setBankList: (banklist) => dispatch(setBankList(banklist))
+  setBankList: (banklist) => dispatch(setBankList(banklist)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Withdrawal);
