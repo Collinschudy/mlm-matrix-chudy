@@ -58,7 +58,7 @@ const Item = ({
   setSelected,
   backGround,
 }) => {
-  // const isNotMobile = useMediaQuery("(min-width: 600px)");
+  const isNotMobile = useMediaQuery("(min-width: 600px)");
 
   return (
     <Box
@@ -314,8 +314,8 @@ const Sidebar = ({
             />
           </Link>
 
-          <Box display="flex" alignItems="center" gap="5px" ml="15px" mt="5px" >
-            <IconButton sx={{ color: 'b23b3b' }}>
+          <Box display="flex" alignItems="center" gap="5px" ml="15px" mt="5px" mb={!isNotMobile ? "15px": ""}>
+            <IconButton sx={{ color: '#b23b3b' }}>
               <LogoutOutlinedIcon />
             </IconButton>
             <Typography sx={{ cursor: 'pointer' }} onClick={() => logOutUser()}>Log out</Typography>
