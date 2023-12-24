@@ -19,7 +19,7 @@ import { MdAddAPhoto } from "react-icons/md";
 
 const UserProfile = ({ userData, userVerify, userProfile }) => {
   const [avatar, setAvatar] = useState(null);
-  const [imgUrl, setImgUrl] = useState("");
+  const [imgUrl, setImgUrl] = useState(null);
 
   const firstNameCap =
       userData?.first_name.charAt(0).toUpperCase() +
@@ -53,8 +53,6 @@ const UserProfile = ({ userData, userVerify, userProfile }) => {
     const formData = new FormData();
     formData.append("image", avatar);
 
-    console.log(formData);
-
     try {
       const res = await axios.post(url, formData, config);
       console.log(res);
@@ -79,17 +77,22 @@ const UserProfile = ({ userData, userVerify, userProfile }) => {
           <article>
             <p>Username: {usernameCap}</p>
             <br />
-            <p>Type: Membership</p>
+            <p>Type: {userData.type}</p>
+            <br />
+            <p>
+              Status: {" "}
+            {userData.member_status === "inactive" ? 'inactive (Proceed to the "Deposit" to make your one-time payment)' : "active"}
+            </p>
           </article>
         </div>
 
         <div className={styles.profileimagewrap}>
           <div className={styles.usericon}>
             <div>
-              {!imgUrl ? (
-                <img className={styles.pp} src={userData?.image_path} alt="" />
-              ) : (
+              {!imgUrl && userData.image_path === null ? (
                 <span className={styles.initials}>{initials}</span>
+              ) : (
+                <img className={styles.pp} src={imgUrl ? imgUrl : userData?.image_path} alt="" />
               )}
             </div>
           </div>
@@ -101,16 +104,13 @@ const UserProfile = ({ userData, userVerify, userProfile }) => {
               id="photo"
             />
             <label htmlFor="photo" className={styles.label}>
-              {/* <span className={styles.avatardesc}>
-                choose a profile picture
-              </span> */}
+            
               <span>
                 <MdAddAPhoto /> Add photo
               </span>
               <button onClick={uploadAvatar}>Upload</button>
             </label>
-            {/* <p>{avatar}</p> */}
-            {/* <img src={avatar} alt='ddd' /> */}
+          
           </p>
         </div>
         <div className={styles.formwrap}>
@@ -142,7 +142,6 @@ const UserProfile = ({ userData, userVerify, userProfile }) => {
               label="Your Referral Code"
               value={userData.referral_code}
             />
-            <p>{/* <img src={userProfile.image_path} alt="" /> */}</p>
           </form>
         </div>
       </section>
