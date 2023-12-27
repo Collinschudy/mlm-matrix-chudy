@@ -1,0 +1,4 @@
+.container{
+    width: calc(100vw - 15rem);
+    border: 1px solid #000;
+}
