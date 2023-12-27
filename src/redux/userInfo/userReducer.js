@@ -9,6 +9,7 @@ const INITIAL_STATE = {
   userTransactions: null,
   transferAccess: null,
   bankList: null,
+  usersList: null,
 };
 
 const userTokenAndEmailReducer = (state = INITIAL_STATE, action) => {
@@ -27,12 +28,17 @@ const userTokenAndEmailReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         userUpdated: action.payload,
-      }
+      };
     case ActionTypes.STORE_BANK_LIST:
-        return {
-          ...state,
-          bankList: action.payload,
-        };
+      return {
+        ...state,
+        bankList: action.payload,
+      };
+    case ActionTypes.STORE_USERS_LIST:
+      return {
+        ...state,
+        usersList: action.payload,
+      };
     case ActionTypes.STORE_RECIPIENT_DETAILS:
       return {
         ...state,
@@ -55,9 +61,7 @@ const userTokenAndEmailReducer = (state = INITIAL_STATE, action) => {
         transferAccess: action.payload,
       };
     case ActionTypes.LOG_OUT:
-      return (
-        state = null
-      )
+      return (state = null);
 
     default:
       return state;

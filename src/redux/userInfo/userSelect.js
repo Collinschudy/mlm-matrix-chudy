@@ -26,6 +26,11 @@ export const selectUserTransactions = createSelector(
   [selectDetails],
   (transactions) => transactions?.userTransactions
 )
+export const selectUsersList = createSelector(
+  [selectDetails],
+  (users) => users?.usersList
+)
+
 
 export const selectRecipientDetails = createSelector(
   [selectDetails],

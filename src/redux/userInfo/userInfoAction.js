@@ -30,6 +30,11 @@ export const setBankList = (list) => ({
     payload: list
 })
 
+export const setUsersList = (list) => ({
+    type:ActionTypes.STORE_USERS_LIST,
+    payload: list
+})
+
 export const setRecipientDetails = (details) => ({
     type:ActionTypes.STORE_RECIPIENT_DETAILS,
     payload: details
