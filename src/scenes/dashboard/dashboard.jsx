@@ -1,10 +1,11 @@
-import React, {useEffect } from "react";
-import styles from './dashboard.module.css';
-import AdminHeader from "../../adminComponents/AdminHeader";
+import React, { useEffect } from "react";
+import styles from "./dashboard.module.css";
+
+import AdminHeader from "../../adminComponents/AdminHeader/AdminHeader";
 import { Button, Box, IconButton, Typography, useTheme } from "@mui/material";
-import StatBox from "../../components/StatBox";
+import StatBox from "../../components/StatBox/StatBox";
 import { tokens } from "../../theme";
-import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
+// import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import PeopleIcon from "@mui/icons-material/People";
 
 import LocalAtmIcon from "@mui/icons-material/LocalAtm";
@@ -31,7 +32,6 @@ import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 // import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
 // import PersonAddIcon from "@mui/icons-material/PersonAdd";
 
-
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 const Dashboard = () => {
@@ -39,187 +39,91 @@ const Dashboard = () => {
   const colors = tokens(theme.palette.mode);
   const isNotMobile = useMediaQuery("(min-width: 600px)");
 
-  
   return (
     <div className={styles.container}>
       <div className={styles.top}>
         <AdminHeader title="Dashboard" subtitle="Welcome to your dashboard" />
-        <Box>
-          <Button
-            sx={{
-              backgroundColor: 'rgb(0,0,50)',
-              color: 'white',
-              fontSize: "14px",
-              fontWeight: "bold",
-              padding: "10px 20px",
-            }}
-          >
-            <DownloadOutlinedIcon sx={{ mr: "10px" }} />
-            Download Reports
-          </Button>
-        </Box>
       </div>
-      <Box
-        className="dashboardcontainer"
-        display="grid"
-        gridTemplateColumns="repeat(12, 1fr)"
-        sx={{
-          "& > div": { gridColumn: isNotMobile ? undefined : "span 6" },
-        }}
-        // flexWrap='wrap'
-        gridAutoRows="140px"
-        gap="20px"
-      >
+
+      <div className={styles.innercontainer}>
         {/* ROWS */}
         {/* <USERS>                        </USERS> */}
-        <Box
-          gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
+        <div className={styles.card}>
           <StatBox
             title="121"
             subtitle="Number of Users"
             progress="0.75"
             increase="+14%"
-            icon={
-              <PeopleIcon
-                sx={{ color: '#176eb6', fontSize: "26px" }}
-              />
-            }
+            icon={<PeopleIcon sx={{ color: "#176eb6", fontSize: "26px" }} />}
           />
-        </Box>
+        </div>
 
-        <Box
-          gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
+        <div className={styles.card}>
           <StatBox
             title="121"
             subtitle="Active Users"
             progress="0.75"
             increase="+14%"
-            icon={
-              <PeopleIcon
-                sx={{ color: "#176eb6", fontSize: "26px" }}
-              />
-            }
+            icon={<PeopleIcon sx={{ color: "#176eb6", fontSize: "26px" }} />}
           />
-        </Box>
+        </div>
 
-        <Box
-          gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
+        <div className={styles.card}>
           <StatBox
             title="121"
             subtitle="Verified Users"
             progress="0.75"
             // increase="+14%"
             icon={
-              <VerifiedUserIcon
-                sx={{ color: "#176eb6", fontSize: "26px" }}
-              />
+              <VerifiedUserIcon sx={{ color: "#176eb6", fontSize: "26px" }} />
             }
           />
-        </Box>
+        </div>
 
-        <Box
-          gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
+        <div className={styles.card}>
           <StatBox
             title="12"
             subtitle="Unverified Users"
             progress="0.25"
             // increase="+14%"
-            icon={
-              <GppBadIcon
-                sx={{ color: "#176eb6", fontSize: "26px" }}
-              />
-            }
+            icon={<GppBadIcon sx={{ color: "#176eb6", fontSize: "26px" }} />}
           />
-        </Box>
+        </div>
 
         {/* <DEPOSITS>       </DEPOSITS> */}
-        <Box
-          gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
+        <div className={styles.card}>
           <StatBox
             title="$56,998"
             subtitle="Amount Deposited"
             progress="0.75"
             increase="+14%"
-            icon={
-              <ReceiptIcon
-                sx={{ color: "#176eb6", fontSize: "26px" }}
-              />
-            }
+            icon={<ReceiptIcon sx={{ color: "#176eb6", fontSize: "26px" }} />}
           />
-        </Box>
+        </div>
 
-        <Box
-          gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
+        <div className={styles.card}>
           <StatBox
             title="3"
             subtitle="Pending Deposits"
             progress="0.75"
             increase="+14%"
             icon={
-              <DownloadingIcon
-                sx={{ color: "#176eb6", fontSize: "26px" }}
-              />
+              <DownloadingIcon sx={{ color: "#176eb6", fontSize: "26px" }} />
             }
           />
-        </Box>
+        </div>
 
-        <Box
-          gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
+        <div className={styles.card}>
           <StatBox
             title="3"
             subtitle="Rejected Deposits"
             progress="0.75"
             increase="+14%"
-            icon={
-              <BlockIcon
-                sx={{ color: "#176eb6", fontSize: "26px" }}
-              />
-            }
+            icon={<BlockIcon sx={{ color: "#176eb6", fontSize: "26px" }} />}
           />
-        </Box>
+        </div>
 
-        <Box
-          gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
+        <div className={styles.card}>
           <StatBox
             title="$322"
             subtitle="Deposit Charges"
@@ -231,36 +135,20 @@ const Dashboard = () => {
               />
             }
           />
-        </Box>
+        </div>
 
         {/* WITHDRAWALS */}
-        <Box
-          gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
+        <div className={styles.card}>
           <StatBox
             title="$20,486"
             subtitle="Total Withdrawn"
             progress="0.75"
             // increase="+14%"
-            icon={
-              <LocalAtmIcon
-                sx={{ color: "#176eb6", fontSize: "26px" }}
-              />
-            }
+            icon={<LocalAtmIcon sx={{ color: "#176eb6", fontSize: "26px" }} />}
           />
-        </Box>
+        </div>
 
-        <Box
-          gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
+        <div className={styles.card}>
           <StatBox
             title="8"
             subtitle="Pending Withrawals"
@@ -272,34 +160,18 @@ const Dashboard = () => {
               />
             }
           />
-        </Box>
-        <Box
-          gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
+        </div>
+        <div className={styles.card}>
           <StatBox
             title="8"
             subtitle="Rejected Withrawals"
             progress="0.75"
             increase="+14%"
-            icon={
-              <BlockIcon
-                sx={{ color: "#176eb6", fontSize: "26px" }}
-              />
-            }
+            icon={<BlockIcon sx={{ color: "#176eb6", fontSize: "26px" }} />}
           />
-        </Box>
+        </div>
 
-        <Box
-          gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
+        <div className={styles.card}>
           <StatBox
             title="$144"
             subtitle="Withrawal Charges"
@@ -311,34 +183,18 @@ const Dashboard = () => {
               />
             }
           />
-        </Box>
+        </div>
 
-        <Box
-          gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
+        <div className={styles.card}>
           <StatBox
             title="$48,210"
             subtitle="Total Investments"
             progress="0.15"
             increase="+5%"
-            icon={
-              <LocalAtmIcon
-                sx={{ color: "#176eb6", fontSize: "26px" }}
-              />
-            }
+            icon={<LocalAtmIcon sx={{ color: "#176eb6", fontSize: "26px" }} />}
           />
-        </Box>
-        <Box
-          gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
+        </div>
+        <div className={styles.card}>
           <StatBox
             title="$80"
             subtitle="Last 7 days investments"
@@ -350,15 +206,9 @@ const Dashboard = () => {
               />
             }
           />
-        </Box>
+        </div>
 
-        <Box
-          gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
+        <div className={styles.card}>
           <StatBox
             title="$480"
             subtitle="Total Referral Commission"
@@ -370,14 +220,8 @@ const Dashboard = () => {
               />
             }
           />
-        </Box>
-        <Box
-          gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
+        </div>
+        <div className={styles.card}>
           <StatBox
             title="$480"
             subtitle="Total Binary Commission"
@@ -389,15 +233,16 @@ const Dashboard = () => {
               />
             }
           />
-        </Box>
-      </Box>
+        </div>
+      </div>
+      {/* </Box> */}
 
       {/* CHARTS */}
-      <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" mt="20px" gridAutoRows='140px' sx={{
+      {/* <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" mt="20px" gridAutoRows='140px' sx={{
           "& > div": { gridColumn: isNotMobile ? undefined : "span 12" },
           
-        }}>
-        {/* <Box
+        }}> */}
+      {/* <Box
           gridColumn="span 8"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
@@ -424,10 +269,9 @@ const Dashboard = () => {
           </Box>
         </Box> */}
 
-        {/* TRANSACTIONS */}
+      {/* TRANSACTIONS */}
 
-     
-      </Box>
+      {/* </Box> */}
       {/*  */}
     </div>
   );

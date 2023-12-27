@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Box, Typography, IconButton } from "@mui/material";
@@ -17,7 +18,7 @@ import {
 } from "../../redux/userInfo/userSelect";
 
 import { toast, ToastContainer } from "react-toastify";
-import axios from "axios";
+
 
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
@@ -119,8 +120,6 @@ const Sidebar = ({
 
     try {
       const res = await axios.post(url, null, config);
-      // setUserVerify([]);
-      // setUserData(null);
       setLogOut();
       toast.success(res.data.message);
       navigate("/signin");

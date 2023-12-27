@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import Calendar from '../../scenes/calender/calender';
 import Dashboard from '../../scenes/dashboard/dashboard';
 import UserDeposits from '../../scenes/UserDeposits/Userdeposits.component';
+import Users from '../../scenes/users/Users';
 
 
 
@@ -25,6 +26,7 @@ const AdminDashboardPage = () => {
             <Route path="/calendar" element={<Calendar />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/deposits" element={<UserDeposits />} />
+            <Route path="/users" element={<Users />} />
             {/* <Route path="/results" element={<Results />} /> */}
             {/* <Route path="/referral" element={<Referral />} /> */}
           </Routes>

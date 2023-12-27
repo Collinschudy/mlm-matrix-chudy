@@ -3,8 +3,12 @@
     padding-top: 4rem;
     margin-top: 5rem;
     height: calc(100vh - 5rem);
+    /* background-color: aliceblue; */
+    background: linear-gradient(to left, aliceblue, #E0F4FF);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    /* color: black; */
     /* background: linear-gradient(to bottom right, rgba(0,0,50), rgba(0,0,50,0.9));  */
-    background: linear-gradient(to top, black, #176eb6)
+    /* background: linear-gradient(to top, black, #176eb6) */
 }
 
 @media screen and (max-width: 650px){

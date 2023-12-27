@@ -1,5 +1,4 @@
-/* .updateprofile{
-} */
+
 .wrapper{
     margin: 7rem 2rem 2rem 2rem;
     display: flex;
@@ -37,7 +36,6 @@
     color: white;
     transition: 0.5s all ease-in;
     margin-top: 2rem;
-    /* margin: 2rem auto; */
 }
 .button:hover{
     background: linear-Gradient(to right, rgb(0,0,50), yellowgreen);

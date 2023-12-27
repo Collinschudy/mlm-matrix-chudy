@@ -9,14 +9,13 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectMobileView } from '../../redux/mobileToggle/mobileToggleSelect';
 import { setMobileView } from '../../redux/mobileToggle/mobileToggleAction';
+import { selectCurrentUser } from "../../redux/userInfo/userSelect"
 
 
-const AdminTopbar = ({toggle, setToggle}) => {
+const AdminTopbar = ({toggle, setToggle, userData }) => {
+  const navigate = useNavigate(); 
   const [arrowFlip, setArrowFlip] = useState(false);
-  const firstName = "Renold", lastName = "Collins";
-  const navigate = useNavigate();
-
-
+  const firstName = userData?.first_name, lastName = userData?.last_name;
   const firstNameCap = firstName?.charAt(0).toUpperCase() + firstName?.slice(1),
     lastNameCap = lastName?.charAt(0).toUpperCase() + lastName?.slice(1),
     initials = firstNameCap.charAt(0) + lastNameCap.charAt(0);
@@ -34,10 +33,13 @@ const AdminTopbar = ({toggle, setToggle}) => {
 
       <div className={styles.namecontainer}>
         <div className={styles.usericon}>
-          <object type="image/jpeg" data="">
-            initials
-          </object>
-          <p>{initials}</p>
+        <div>
+              {userData.image_path === null ? (
+                <span className={styles.initials}>{initials}</span>
+              ) : (
+                <img className={styles.pp} src={userData?.image_path} alt="" />
+              )}
+            </div>
         </div>
         <div className={styles.namewrap}>
           <p>{firstNameCap + " " + lastNameCap}</p>
@@ -67,11 +69,13 @@ const AdminTopbar = ({toggle, setToggle}) => {
 
 const mapStateToProps = createStructuredSelector({
   toggle: selectMobileView,
+  userData: selectCurrentUser,
 });
 
 
 const mapDispatchToProps = (dispatch) => ({
   setToggle: () => dispatch(setMobileView()),
+  
 });
 
 

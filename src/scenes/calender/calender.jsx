@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from './calendar.module.css';
-import AdminHeader from "../../adminComponents/AdminHeader";
+import AdminHeader from "../../adminComponents/AdminHeader/AdminHeader";
 import FullCalendar from "@fullcalendar/react";
 import { formatDate } from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";

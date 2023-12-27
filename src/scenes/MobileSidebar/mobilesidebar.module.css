@@ -1,11 +1,12 @@
 .container{
     position: absolute;
-    background-color: gray;
+    background-color: white;
     height:calc(100vh - 5rem);
     width: 60%;
     display: none;
     margin-top: 5rem;
     z-index: 50;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 @media screen and (max-width: 650px){
     .container{

@@ -58,7 +58,6 @@ const SignInPage = ({ setUserData, setUserVerify, userData, userVerify }) => {
           }
         );
         toast.success(res.data.message);
-        console.log(res.data);
         const { token } = res.data.data;
         const userdata = res.data.data.user;
         setUserVerify({ token: token, login: loginDetail });

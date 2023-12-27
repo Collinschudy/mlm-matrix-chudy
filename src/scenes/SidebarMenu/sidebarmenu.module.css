@@ -6,18 +6,22 @@
     margin: 0.8em 1em 0 1em;
 
 }
-
-
+/* #a8a4e6 */
 /* #A01FE7 */
 .itembox:hover {
-    background: linear-Gradient(to right, transparent, #a8a4e6);
+    background: linear-Gradient(to right, transparent, #176eb6);
+    border-radius: 0.4rem;
     cursor: pointer;
+    
 }
 
 .itembox a {
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin-left: 1rem;
-    color: white;
+    color: black;
+}
+.itembox a:hover{
+    font-weight: bolder;
 }
 
 .hide {

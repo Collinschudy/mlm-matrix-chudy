@@ -1,0 +1,12 @@
+.container{
+    width: 100%;
+    margin: 0px 30px;
+}
+.inner{
+    display: flex;
+    justify-content: space-between;
+}
+.desc{
+    display: flex;
+    justify-content: space-between;
+}
