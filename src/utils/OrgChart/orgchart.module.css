@@ -1,0 +1,21 @@
+.org-_node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 8px;
+    text-align: center;
+  }
+  
+  .org_node p {
+    margin-top: 8px;
+  }
+
+  @media (max-width: 650px) {
+    .org_node {
+      margin: 4px;
+    }
+  
+    .org_node p {
+      font-size: 6px; 
+    }
+  }
