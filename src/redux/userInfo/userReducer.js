@@ -10,6 +10,8 @@ const INITIAL_STATE = {
   transferAccess: null,
   bankList: null,
   usersList: null,
+  userMatrix: null,
+  usersWithdrawals: null,
 };
 
 const userTokenAndEmailReducer = (state = INITIAL_STATE, action) => {
@@ -38,6 +40,16 @@ const userTokenAndEmailReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         usersList: action.payload,
+      };
+    case ActionTypes.STORE_USER_MATRIX:
+      return {
+        ...state,
+        userMatrix: action.payload,
+      };
+    case ActionTypes.STORE_USERS_WITHDRAWALS:
+      return {
+        ...state,
+        usersWithdrawals: action.payload,
       };
     case ActionTypes.STORE_RECIPIENT_DETAILS:
       return {

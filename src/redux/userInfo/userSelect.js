@@ -30,7 +30,15 @@ export const selectUsersList = createSelector(
   [selectDetails],
   (users) => users?.usersList
 )
+export const selectUserMatrix = createSelector(
+  [selectDetails],
+  (user) => user?.userMatrix
+)
 
+export const selectUsersWithdrawals = createSelector(
+  [selectDetails],
+  (users) => users?.usersWithdrawals
+)
 
 export const selectRecipientDetails = createSelector(
   [selectDetails],

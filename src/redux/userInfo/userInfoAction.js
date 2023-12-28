@@ -35,6 +35,16 @@ export const setUsersList = (list) => ({
     payload: list
 })
 
+export const setUserMatrix = (list) => ({
+    type:ActionTypes.STORE_USER_MATRIX,
+    payload: list
+})
+
+export const setUsersWithdrawals = (list) => ({
+    type:ActionTypes.STORE_USERS_WITHDRAWALS,
+    payload: list
+})
+
 export const setRecipientDetails = (details) => ({
     type:ActionTypes.STORE_RECIPIENT_DETAILS,
     payload: details
