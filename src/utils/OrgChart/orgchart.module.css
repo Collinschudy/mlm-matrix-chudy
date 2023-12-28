@@ -5,7 +5,12 @@
     margin: 8px;
     text-align: center;
   }
-  
+  .avatar{
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
   .org_node p {
     margin-top: 8px;
   }
@@ -16,6 +21,6 @@
     }
   
     .org_node p {
-      font-size: 6px; 
+      font-size: 10px; 
     }
   }

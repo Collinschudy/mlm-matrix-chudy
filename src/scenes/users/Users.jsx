@@ -43,7 +43,6 @@ const Users = ({ userData, userVerify, usersList, setUsersList }) => {
         const users = res.data.data;
         const sorted = users.sort((a, b) => a.id - b.id);
         setUsersList(sorted);
-        console.log(usersList)
       } catch (error) {
         console.log(error);
       }

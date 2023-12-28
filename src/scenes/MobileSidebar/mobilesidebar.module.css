@@ -1,6 +1,7 @@
 .container{
     position: absolute;
-    background-color: white;
+    /* background: linear-gradient(to left, #f5f5f5, white); */
+    background-color: aliceblue;
     height:calc(100vh - 5rem);
     width: 60%;
     display: none;
