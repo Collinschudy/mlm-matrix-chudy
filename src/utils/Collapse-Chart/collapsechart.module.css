@@ -1,0 +1,20 @@
+.user {
+    /* border: 1px solid #000; */
+    margin-left: 1rem; 
+    display: flex;
+
+    align-items: center;
+  }
+  
+  .level-1 {
+    margin-left: 0; 
+  }
+  .downlines{
+    margin-bottom: 1rem;
+  }
+  .avatar{
+    height: 2rem;
+    width: 2rem;
+    object-fit: cover;
+    border-radius: 50%;
+  }
