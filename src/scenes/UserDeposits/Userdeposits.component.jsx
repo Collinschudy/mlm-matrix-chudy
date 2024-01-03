@@ -10,28 +10,28 @@ import { createStructuredSelector } from "reselect";
 
 const UserDeposits = ({ userVerify, setUserVerify }) => {
   const [depositList, setDepositList] = useState(null);
-//   const theme = useTheme();
-//   const colors = tokens(theme.palette.mode);
-//   const isNotMobile = useMediaQuery("(min-width: 600px)");
+  //   const theme = useTheme();
+  //   const colors = tokens(theme.palette.mode);
+  //   const isNotMobile = useMediaQuery("(min-width: 600px)");
   const { token } = userVerify;
 
   useEffect(() => {
     const fetchUsersDeposits = async () => {
       const config = {
-         headers: {
+        headers: {
           Authorization: `Bearer ${token}`,
         },
-      }
-     
+      };
+
       try {
         const url = "https://mlm.a1exchange.net/api/v1/payment/history";
-      const res = await axios.get(url, config);
-      const list = res.data.data.data;
-      const sorted = list.sort((a, b) => a.id - b.id)
-      setDepositList(sorted);
+        const res = await axios.get(url, config);
+        const list = res.data.data.data;
+        const sorted = list.sort((a, b) => a.id - b.id);
+        setDepositList(sorted);
       } catch (error) {
-        console.log(error)
-      }  
+        console.log(error);
+      }
     };
     return () => {
       fetchUsersDeposits();
@@ -39,9 +39,8 @@ const UserDeposits = ({ userVerify, setUserVerify }) => {
   }, [token]);
   return (
     <div className={styles.container}>
-
       <div className={styles.innercontainer}>
-      <table className={styles.table}>
+        <table className={styles.table}>
           <thead>
             <tr>
               <th>ID</th>
@@ -56,7 +55,7 @@ const UserDeposits = ({ userVerify, setUserVerify }) => {
             const { reference, status, id, email, phone } = trx;
             return (
               <tbody key={`${reference}`} className={styles.tbody}>
-                <tr >
+                <tr>
                   <td className={styles.td}>{id}</td>
                   <td className={`${styles.hide} ${styles.td}`}>{email}</td>
                   {/* <td className={styles.hide}>{amount}</td> */}
@@ -68,7 +67,7 @@ const UserDeposits = ({ userVerify, setUserVerify }) => {
             );
           })}
         </table>
-        </div>
+      </div>
     </div>
   );
 };

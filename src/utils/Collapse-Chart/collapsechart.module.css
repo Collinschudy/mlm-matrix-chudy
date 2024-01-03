@@ -1,5 +1,4 @@
 .user {
-    /* border: 1px solid #000; */
     margin-left: 1rem; 
     display: flex;
 
@@ -17,4 +16,14 @@
     width: 2rem;
     object-fit: cover;
     border-radius: 50%;
+  }
+  @media screen and (max-width:600px){
+    .user {
+        display: block;
+    }
+    .avatar{
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+    
   }

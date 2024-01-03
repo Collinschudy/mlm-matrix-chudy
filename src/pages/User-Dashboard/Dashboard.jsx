@@ -20,10 +20,11 @@ import Withdrawal from "../../userScenes/Withdrawal/Withdrawal";
 import AccountSettings from "../../userScenes/Account-settings/AccountSettings";
 import TwoFactorAuth from "../../userScenes/TwoFactorAuth/TwoFactorAuth";
 import MyMatrix from "../../userScenes/MyMatrix/MyMatrix";
-import TransferBalance from "../../userScenes/Transfer-balance/TransferBalance";
 import EpinRecharge from "../../userScenes/Epin-recharge/EpinRecharge";
 import UserProfile from "../../userScenes/Profile/UserProfile";
 import UpdateProfile from "../../userScenes/UpdateProfile/UpdateProfile";
+import WithDrawalHistory from "../../userScenes/Withdrawal-History/WithdrawalHistory";
+
 
 const Dashboard = ({ collapsed, setIsCollapsed }) => {
   const isNotMobile = useMediaQuery("(min-width: 600px)");
@@ -48,10 +49,10 @@ const Dashboard = ({ collapsed, setIsCollapsed }) => {
           <Route path="withdrawal" element={<Withdrawal />} />
           <Route path="profile" element={<UserProfile />} />
           <Route path="update_details" element={<UpdateProfile />} />
-          <Route path="account-settings" element={<AccountSettings />} />
+          {/* <Route path="account-settings" element={<AccountSettings />} /> */}
           <Route path="2fa-security" element={<TwoFactorAuth />} />
           <Route path="mymatrix" element={<MyMatrix />} />
-          <Route path="transfer-balance" element={<TransferBalance />} />
+          <Route path="withdraw-history" element={<WithDrawalHistory />} />
           <Route path="epin-recharge" element={<EpinRecharge />} />
         </Routes>
       </div>

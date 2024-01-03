@@ -33,11 +33,27 @@ import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 // import PersonAddIcon from "@mui/icons-material/PersonAdd";
 
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { createStructuredSelector } from "reselect";
+import { connect } from "react-redux";
+import {
+  setUserTokenAndEmail,
+  setUserUpdated,
+  setUsersList,
+} from "../../redux/userInfo/userInfoAction";
+import {
+  selectCurrentUser,
+  selectUserTokenAndEmail,
+  selectUsersList,
+} from "../../redux/userInfo/userSelect";
 
-const Dashboard = () => {
+const Dashboard = ({ usersList }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const isNotMobile = useMediaQuery("(min-width: 600px)");
+  const members = usersList.filter((user) => user.type === "member")
+  const admins = usersList.filter((user) => user.type === "admin")
+  const active = usersList.filter((user) => user.member_status === "active");
+  const inactive = usersList.filter((user) => user.member_status === "inactive");
 
   return (
     <div className={styles.container}>
@@ -50,7 +66,7 @@ const Dashboard = () => {
         {/* <USERS>                        </USERS> */}
         <div className={styles.card}>
           <StatBox
-            title="121"
+            title={`${usersList.length}`}
             subtitle="Number of Users"
             progress="0.75"
             increase="+14%"
@@ -60,7 +76,7 @@ const Dashboard = () => {
 
         <div className={styles.card}>
           <StatBox
-            title="121"
+            title={`${active.length}`}
             subtitle="Active Users"
             progress="0.75"
             increase="+14%"
@@ -70,8 +86,8 @@ const Dashboard = () => {
 
         <div className={styles.card}>
           <StatBox
-            title="121"
-            subtitle="Verified Users"
+            title={`${inactive.length}`}
+            subtitle="Inactive Users"
             progress="0.75"
             // increase="+14%"
             icon={
@@ -82,11 +98,21 @@ const Dashboard = () => {
 
         <div className={styles.card}>
           <StatBox
-            title="12"
-            subtitle="Unverified Users"
+            title={`${members.length}`}
+            subtitle="Members"
             progress="0.25"
             // increase="+14%"
-            icon={<GppBadIcon sx={{ color: "#176eb6", fontSize: "26px" }} />}
+            icon={<PeopleIcon sx={{ color: "#176eb6", fontSize: "26px" }} />}
+          />
+        </div>
+
+        <div className={styles.card}>
+          <StatBox
+            title={`${admins.length}`}
+            subtitle="Admins"
+            progress="0.25"
+            // increase="+14%"
+            icon={<PeopleIcon sx={{ color: "#176eb6", fontSize: "26px" }} />}
           />
         </div>
 
@@ -277,4 +303,17 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+const mapStateToProps = createStructuredSelector({
+  userData: selectCurrentUser,
+  userVerify: selectUserTokenAndEmail,
+  // userProfile: selectUserUpdated,
+  usersList: selectUsersList,
+});
+const mapDispatchToProps = (dispatch) => ({
+  setUserVerify: (user) => dispatch(setUserTokenAndEmail(user)),
+  // setUserProfile: (profile) => dispatch(setUserUpdated(profile)),
+  setUsersList: (users) => dispatch(setUsersList(users)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+// export default Dashboard;

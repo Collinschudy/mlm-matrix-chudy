@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import { selectCurrentUser, selectUserMatrix, selectUserTokenAndEmail } from "../../redux/userInfo/userSelect";
 import { setUserMatrix, setUserTokenAndEmail } from "../../redux/userInfo/userInfoAction";
 import { createStructuredSelector } from "reselect";
+import ExpandableTree from "../../utils/Collapse-Chart/CollapseChart";
 
 
 
@@ -44,8 +45,13 @@ const MyMatrix = ({ userVerify, userData, userChart, setUserChart }) => {
         subtitle="Welcome to your matrix section"
       />
       <div className={styles.matrixSection}>
-        <h1>My Matrix</h1>
+        <h1>My Matrix (Tree)</h1>
         <OrgChartComponent data={userChart} />
+      </div>
+
+      <div className={styles.matrixSection}>
+        <h1>My Matrix (Collapse)</h1>
+        <ExpandableTree user={userChart} level={1} />
       </div>
     </>
   );

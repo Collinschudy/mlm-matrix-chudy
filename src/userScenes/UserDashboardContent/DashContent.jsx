@@ -99,7 +99,7 @@ const DashContent = ({ collapsed, setIsCollapsed, userData, setUserData, payment
             >
               <StatBox
                 icon={<LocalAtmIcon sx={{ height: "4em", width: "4em" }} />}
-                title='0'
+                title={`\u20A6${userData.member_status === "active" ? '1000' : '0'}`}
                 subtitle="Total Deposits"
               />
             </Box>
@@ -117,8 +117,8 @@ const DashContent = ({ collapsed, setIsCollapsed, userData, setUserData, payment
             >
               <StatBox
                 icon={<PaymentIcon sx={{ height: "4em", width: "4em" }} />}
-                title={"\u20A6"}
-                subtitle="Total Withdrawal"
+                title={userData?.level}
+                subtitle="Current Level"
               />
             </Box>
             <Box
@@ -231,7 +231,8 @@ const DashContent = ({ collapsed, setIsCollapsed, userData, setUserData, payment
             >
               <StatBox
                 icon={<PersonAddIcon sx={{ height: "4em", width: "4em" }} />}
-                title="0"
+                title={`${userData.current_level_referrals
+                }`}
                 subtitle="Total Direct Referrals"
               />
             </Box>

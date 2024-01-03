@@ -229,9 +229,9 @@ const Sidebar = ({
             />
           </Link>
 
-          <Link to="transfer-balance" onClick={() => setMobileCollapsed(false)}>
+          <Link to="withdraw-history" onClick={() => setMobileCollapsed(false)}>
             <Item
-              title="Transfer Balance"
+              title="Withdrawal History"
               icon={
                 <MonetizationOnIcon
                   sx={{ color: "skyblue", fontSize: "1.1rem" }}
@@ -239,7 +239,7 @@ const Sidebar = ({
               }
               selected={selected}
               setSelected={setSelected}
-              backGround={pathName.includes("transfer-balance") ? "grey" : ""}
+              backGround={pathName.includes("withdraw-history") ? "grey" : ""}
             />
           </Link>
 
@@ -270,7 +270,7 @@ const Sidebar = ({
             />
           </Link>
 
-          <Link to="transactions" onClick={() => setMobileCollapsed(false)}>
+          <Link to="#" onClick={() => setMobileCollapsed(false)}>
             <Item
               title="Transactions"
               to="user/transactions"
@@ -285,7 +285,7 @@ const Sidebar = ({
             />
           </Link>
 
-          <Link to="2fa-security" onClick={() => setMobileCollapsed(false)}>
+          {/* <Link to="2fa-security" onClick={() => setMobileCollapsed(false)}>
             <Item
               title="2FA Security"
               icon={
@@ -297,9 +297,9 @@ const Sidebar = ({
               setSelected={setSelected}
               backGround={pathName.includes("2fa-security") ? "grey" : ""}
             />
-          </Link>
+          </Link> */}
 
-          <Link to="account-settings" onClick={() => setMobileCollapsed(false)}>
+          {/* <Link to="account-settings" onClick={() => setMobileCollapsed(false)}>
             <Item
               title="Account Settings"
               icon={
@@ -311,7 +311,7 @@ const Sidebar = ({
               setSelected={setSelected}
               backGround={pathName.includes("account-settings") ? "grey" : ""}
             />
-          </Link>
+          </Link> */}
 
           <Box display="flex" alignItems="center" gap="5px" ml="15px" mt="5px" mb={!isNotMobile ? "15px": ""}>
             <IconButton sx={{ color: '#b23b3b' }}>

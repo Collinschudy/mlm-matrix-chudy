@@ -1,0 +1,35 @@
+.container{
+    margin: 7rem 1rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.wrapper{
+    width: 40rem;
+}
+
+.wrapper h3{
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.table{
+    width: 100%;
+    font-family: "Source Sans 3", "Raleway", sans-serif;
+}
+.table .td{
+    font-family: "Source Sans 3", "Raleway", sans-serif;
+}
+.avatar{
+    height: 2.3rem;
+    width: 2.3rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
+@media screen and (max-width: 650px){
+    .wrapper{
+        width: 100%;
+    }
+   
+}
