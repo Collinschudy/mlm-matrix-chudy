@@ -40,6 +40,11 @@ export const selectUsersWithdrawals = createSelector(
   (users) => users?.usersWithdrawals
 )
 
+export const selectUserCommissions = createSelector(
+  [selectDetails],
+  (user) => user?.userCommissions
+)
+
 export const selectRecipientDetails = createSelector(
   [selectDetails],
   (details) => details?.recipientDetails

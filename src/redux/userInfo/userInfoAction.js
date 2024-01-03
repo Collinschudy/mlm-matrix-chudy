@@ -45,6 +45,11 @@ export const setUsersWithdrawals = (list) => ({
     payload: list
 })
 
+export const setUserCommissions = (list) => ({
+    type:ActionTypes.STORE_USERS_COMMISSIONS,
+    payload: list
+})
+
 export const setRecipientDetails = (details) => ({
     type:ActionTypes.STORE_RECIPIENT_DETAILS,
     payload: details
