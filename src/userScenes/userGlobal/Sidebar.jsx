@@ -229,7 +229,7 @@ const Sidebar = ({
             />
           </Link>
 
-          <Link to="withdraw-history" onClick={() => setMobileCollapsed(false)}>
+          <Link to="#" onClick={() => setMobileCollapsed(false)}>
             <Item
               title="Withdrawal History"
               icon={
@@ -270,10 +270,10 @@ const Sidebar = ({
             />
           </Link>
 
-          <Link to="#" onClick={() => setMobileCollapsed(false)}>
+          <Link to="commissions" onClick={() => setMobileCollapsed(false)}>
             <Item
-              title="Transactions"
-              to="user/transactions"
+              title="Commissions"
+              to="user/commissions"
               icon={
                 <PointOfSaleIcon
                   sx={{ color: "skyblue", fontSize: "1.1rem" }}
@@ -281,7 +281,7 @@ const Sidebar = ({
               }
               selected={selected}
               setSelected={setSelected}
-              backGround={pathName.includes("transactions") ? "grey" : ""}
+              backGround={pathName.includes("commissions") ? "grey" : ""}
             />
           </Link>
 

@@ -14,7 +14,7 @@ import { Route, Routes } from "react-router-dom";
 
 import { useMediaQuery } from "@mui/material";
 import Deposits from "../../userScenes/Deposit/Deposits";
-import Transactions from "../../userScenes/Transactions/Transactions";
+import Commissions from "../../userScenes/Commissions/Commissions"
 import Referral from "../../userScenes/Referral/Referral";
 import Withdrawal from "../../userScenes/Withdrawal/Withdrawal";
 import AccountSettings from "../../userScenes/Account-settings/AccountSettings";
@@ -44,7 +44,7 @@ const Dashboard = ({ collapsed, setIsCollapsed }) => {
         <Routes>
           <Route path="dashboard" element={<DashContent />} />
           <Route path="deposit" element={<Deposits />} />
-          <Route path="transactions" element={<Transactions />} />
+          <Route path="commissions" element={<Commissions />} />
           <Route path="referral" element={<Referral />} />
           <Route path="withdrawal" element={<Withdrawal />} />
           <Route path="profile" element={<UserProfile />} />

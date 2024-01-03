@@ -20,7 +20,7 @@ const ExpandableTree = ({ user, level }) => {
       {user?.avatar && (
         <img src={user.avatar} alt="Avatar" className={styles.avatar} />
       )}
-      <span>{user?.name}</span>
+      <span className={styles.name}>{user?.name}</span>
       {showDownlines && (
         <div className={styles.downlines}>
           {user?.downlines?.map((downline) => (
