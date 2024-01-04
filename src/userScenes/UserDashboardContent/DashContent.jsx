@@ -68,7 +68,7 @@ const DashContent = ({
   );
   const token = userVerify?.token;
 
-  useEffect(() => {
+  // useEffect(() => {
     const retrieveDetails = async () => {
       const url = "https://mlm.a1exchange.net/api/v1/profile/info";
       const config = {
@@ -84,11 +84,13 @@ const DashContent = ({
         console.log(error.message);
       }
     }
-
-      return () => {
-        retrieveDetails();
-      };
-  }, [token]);
+    useEffect(() => {
+      retrieveDetails();
+    }, [])
+      // return () => {
+        
+      // };
+  // }, []);
 
   return (
     <>
