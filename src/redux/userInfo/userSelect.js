@@ -50,6 +50,11 @@ export const selectRecipientDetails = createSelector(
   (details) => details?.recipientDetails
 )
 
+export const selectUserWallet = createSelector(
+  [selectDetails],
+  (user) => user?.userWallet
+)
+
 export const selectTransferAccess = createSelector(
   [selectDetails],
   (details) => details?.transferAccess

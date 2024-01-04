@@ -12,7 +12,8 @@ const INITIAL_STATE = {
   usersList: null,
   userMatrix: null,
   usersWithdrawals: null,
-  userCommissions: null
+  userCommissions: null,
+  userWallet: null,
 };
 
 const userTokenAndEmailReducer = (state = INITIAL_STATE, action) => {
@@ -52,11 +53,16 @@ const userTokenAndEmailReducer = (state = INITIAL_STATE, action) => {
         ...state,
         usersWithdrawals: action.payload,
       };
-      case ActionTypes.STORE_USERS_COMMISSIONS:
-        return {
-          ...state,
-          userCommissions: action.payload,
-        };
+    case ActionTypes.STORE_USERS_COMMISSIONS:
+      return {
+        ...state,
+        userCommissions: action.payload,
+      };
+    case ActionTypes.STORE_USER_WALLET:
+      return {
+        ...state,
+        userWallet: action.payload,
+      };
     case ActionTypes.STORE_RECIPIENT_DETAILS:
       return {
         ...state,
