@@ -29,58 +29,58 @@ const Plan = () => {
               </thead>
               <tbody className={styles.tbody}>
                 <tr>
-                  <td>1</td>
-                  <td>3</td>
-                  <td>20</td>
-                  <td>600</td>
+                  <td className={styles.td}>1</td>
+                  <td className={styles.td}>3</td>
+                  <td className={styles.td}>20</td>
+                  <td className={styles.td}>600</td>
                 </tr>
                 <tr>
-                  <td>2</td>
-                  <td>9</td>
-                  <td>10</td>
-                  <td>900</td>
+                  <td className={styles.td}>2</td>
+                  <td className={styles.td}>9</td>
+                  <td className={styles.td}>10</td>
+                  <td className={styles.td}>900</td>
                 </tr>
                 <tr>
-                  <td>3</td>
-                  <td>27</td>
-                  <td>10</td>
-                  <td>2,700</td>
+                  <td className={styles.td}>3</td>
+                  <td className={styles.td}>27</td>
+                  <td className={styles.td}>10</td>
+                  <td className={styles.td}>2,700</td>
                 </tr>
                 <tr>
-                  <td>4</td>
-                  <td>81</td>
-                  <td>10</td>
-                  <td>8,100</td>
+                  <td className={styles.td}>4</td>
+                  <td className={styles.td}>81</td>
+                  <td className={styles.td}>10</td>
+                  <td className={styles.td}>8,100</td>
                 </tr>
                 <tr>
-                  <td>5</td>
-                  <td>243</td>
-                  <td>10</td>
-                  <td>24,300</td>
+                  <td className={styles.td}>5</td>
+                  <td className={styles.td}>243</td>
+                  <td className={styles.td}>10</td>
+                  <td className={styles.td}>24,300</td>
                 </tr>
                 <tr>
-                  <td>6</td>
-                  <td>729</td>
-                  <td>10</td>
-                  <td>72,900</td>
+                  <td className={styles.td}>6</td>
+                  <td className={styles.td}>729</td>
+                  <td className={styles.td}>10</td>
+                  <td className={styles.td}>72,900</td>
                 </tr>
                 <tr>
-                  <td>7</td>
-                  <td>2,187</td>
-                  <td>10</td>
-                  <td>218,700</td>
+                  <td className={styles.td}>7</td>
+                  <td className={styles.td}>2,187</td>
+                  <td className={styles.td}>10</td>
+                  <td className={styles.td}>218,700</td>
                 </tr>
                 <tr>
-                  <td>8</td>
-                  <td>6,561</td>
-                  <td>10</td>
-                  <td>656,100</td>
+                  <td className={styles.td}>8</td>
+                  <td className={styles.td}>6,561</td>
+                  <td className={styles.td}>10</td>
+                  <td className={styles.td}>656,100</td>
                 </tr>
                 <tr>
-                  <td>9</td>
-                  <td>19,683</td>
-                  <td>10</td>
-                  <td>1,968,300</td>
+                  <td className={styles.td}>9</td>
+                  <td className={styles.td}>19,683</td>
+                  <td className={styles.td}>10</td>
+                  <td className={styles.td}>1,968,300</td>
                 </tr>
               </tbody>
             </table>
