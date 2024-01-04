@@ -30,7 +30,6 @@ const Users = ({ userData, userVerify, usersList, setUsersList }) => {
   const token = userVerify?.token
   
 
-  useEffect(() => {
     const listUsers = async () => {
       const url = "https://mlm.a1exchange.net/api/v1/admin/users";
       const config = {
@@ -47,55 +46,14 @@ const Users = ({ userData, userVerify, usersList, setUsersList }) => {
         console.log(error);
       }
     };
-    // setTimeout(() => {
-    //   console.log("Delayed for 3 seconds.");
-      return () => listUsers();
-    // }, "3000");
-    
-  }, [token]);
+    useEffect(() => {
+      listUsers();
+    }, [])
 
-  // const theme = useTheme();
-  // const colors = tokens(theme.palette.mode);
-
-  // const action = <Button>Details</Button>
-
-  // const columns = [
-  //   { field: "id", headerName: "ID" },
-  //   {
-  //     field: "name",
-  //     headerName: "Name",
-  //     flex: 1,
-  //     cellClassName: "name-column--cell",
-  //   },
-  //   {
-  //       field: "email",
-  //       headerName: "Email",
-  //       flex: 1,
-  //     },
-  //     {
-  //       field: "street_no",
-  //       headerName: "Balance",
-  //       type: 'number',
-  //       headerAlign: 'left',
-  //       align: "left",
-  //     },
-  //     {
-  //       field: "phone",
-  //       headerName: "Phone Number",
-  //       flex: 1,
-  //     },
-  //     {
-  //       field: `action`,
-  //       headerName: "Action",
-  //       flex: 1,
-  //     },
-  // ];
   return (
     <div className={styles.container}>
       <AdminHeader title="Users" subtitle="Managing users" />
-      {/* <Box>
-        <DataGrid rows={mockDataUsers} columns={columns} />
-      </Box> */}
+   
       <div className={styles.users}>
       <table className={styles.table}>
           <thead>
