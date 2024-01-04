@@ -6,4 +6,6 @@
     align-items: center;
     justify-content: center;
 }
-
+.matrixSection h3{
+    font-size: 2rem;
+}

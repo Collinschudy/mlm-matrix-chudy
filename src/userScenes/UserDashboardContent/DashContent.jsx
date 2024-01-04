@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
-import React from "react";
-import styles from './dashcontent.module.css'
+import React, { useEffect } from "react";
+import styles from "./dashcontent.module.css";
 
 import StatBox from "../../components/StatBoxUser";
 import AdminHeader from "../userGlobal/AdminHeader";
@@ -34,17 +34,69 @@ import { setToggleView } from "../../redux/navToggle/navToggleAction";
 import { selectToggleView } from "../../redux/navToggle/navToggleSelect";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { selectCurrentUser, selectPaymentResponse } from "../../redux/userInfo/userSelect";
-import { setCurrentUser } from "../../redux/userInfo/userInfoAction";
+import {
+  selectCurrentUser,
+  selectPaymentResponse,
+  selectUserCommissions,
+  selectUserTokenAndEmail,
+  selectUserWallet,
+} from "../../redux/userInfo/userSelect";
+import { setCurrentUser, setUserWallet } from "../../redux/userInfo/userInfoAction";
+import axios from "axios";
 
-const DashContent = ({ collapsed, setIsCollapsed, userData, setUserData, paymentResponse }) => {
+const DashContent = ({
+  collapsed,
+  setIsCollapsed,
+  userData,
+  setUserData,
+  userVerify,
+  userCommissions,
+  userWallet,
+  setUserEarnings,
+}) => {
   const isNotMobile = useMediaQuery("(min-width: 600px)");
-  const usernameCap = userData?.username.charAt(0).toUpperCase() + userData?.username.slice(1)
+  const usernameCap =
+    userData?.username.charAt(0).toUpperCase() + userData?.username.slice(1);
+  // const maxBalance = userCommissions?.reduce(
+  //   (max, current) =>
+  //     current.balance_after > max.balance_after ? current : max,
+  //   userCommissions[0]
+  // );
+  const totalCommission = userCommissions?.reduce(
+    (sum, current) => Number(sum) + Number(current.amount),
+    0
+  );
+  const token = userVerify?.token;
+
+  useEffect(() => {
+    const retrieveDetails = async () => {
+      const url = "https://mlm.a1exchange.net/api/v1/profile/info";
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      try {
+        const res = await axios.get(url, config);
+        setUserEarnings(res?.data.data.user)
+        console.log(userWallet)
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
+
+      return () => {
+        retrieveDetails();
+      };
+  }, [token]);
 
   return (
     <>
       <div className={styles.adminheaderbox}>
-        <AdminHeader title="Dashboard" subtitle={`Welcome to your dashboard, ${usernameCap} `} />
+        <AdminHeader
+          title="Dashboard"
+          subtitle={`Welcome to your dashboard, ${usernameCap} `}
+        />
       </div>
       <div>
         <Box
@@ -78,7 +130,9 @@ const DashContent = ({ collapsed, setIsCollapsed, userData, setUserData, payment
                 icon={
                   <MonetizationOnIcon sx={{ height: "4em", width: "4em" }} />
                 }
-                title={`\u20A6${paymentResponse ? Number(paymentResponse.amount) + Number(userData.balance) : '0'}`}
+                title={`\u20A6${
+                  userWallet ? userWallet.commission.balance : "0"
+                }`}
                 subtitle="Current Balance"
               />
             </Box>
@@ -92,14 +146,13 @@ const DashContent = ({ collapsed, setIsCollapsed, userData, setUserData, payment
               sx={{
                 background:
                   "linear-gradient(to bottom right, #14213d, #8ec33e)",
-
-                // '#8ec33e'
-                // "linear-gradient(to bottom right, rgba(0,0,50), yellowgreen)",
               }}
             >
               <StatBox
                 icon={<LocalAtmIcon sx={{ height: "4em", width: "4em" }} />}
-                title={`\u20A6${userData.member_status === "active" ? '1000' : '0'}`}
+                title={`\u20A6${
+                  userData.member_status === "active" ? "1000" : "0"
+                }`}
                 subtitle="Total Deposits"
               />
             </Box>
@@ -137,7 +190,7 @@ const DashContent = ({ collapsed, setIsCollapsed, userData, setUserData, payment
                 icon={
                   <MonetizationOnIcon sx={{ height: "4em", width: "4em" }} />
                 }
-                title={`\u20A6`}
+                title={`\u20A6${userWallet ? userWallet.network_earnings : "0"}`}
                 subtitle="Total Referral Commission"
               />
             </Box>
@@ -157,8 +210,8 @@ const DashContent = ({ collapsed, setIsCollapsed, userData, setUserData, payment
                 icon={
                   <MonetizationOnIcon sx={{ height: "4em", width: "4em" }} />
                 }
-                title="0"
-                subtitle="Total Level Commission"
+                title={`\u20A6${userWallet ? userWallet.total_earnings : "0"}`}
+                subtitle="Total Earnings"
               />
             </Box>
             <Box
@@ -231,8 +284,7 @@ const DashContent = ({ collapsed, setIsCollapsed, userData, setUserData, payment
             >
               <StatBox
                 icon={<PersonAddIcon sx={{ height: "4em", width: "4em" }} />}
-                title={`${userData.current_level_referrals
-                }`}
+                title={`${userData.current_level_referrals}`}
                 subtitle="Total Direct Referrals"
               />
             </Box>
@@ -245,13 +297,17 @@ const DashContent = ({ collapsed, setIsCollapsed, userData, setUserData, payment
 
 const mapStateToProps = createStructuredSelector({
   collapsed: selectToggleView,
+  userVerify: selectUserTokenAndEmail,
   userData: selectCurrentUser,
-  paymentResponse: selectPaymentResponse
+  paymentResponse: selectPaymentResponse,
+  userCommissions: selectUserCommissions,
+  userWallet: selectUserWallet,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   setIsCollapsed: () => dispatch(setToggleView()),
   setUserData: (userData) => dispatch(setCurrentUser(userData)),
+  setUserEarnings: (user) => dispatch(setUserWallet(user)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DashContent);

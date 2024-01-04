@@ -17,16 +17,8 @@ const Referral = ({ userMatrix }) => {
       <div className={styles.container}>
         <div className={styles.wrapper}>
           <h3>Direct Downlines</h3>
-          {/* <ol>
-        {downlines.map((downline) => {
-          const { name, ref_id, avatar, level } = downline;
-          return (
-            <li key={downlines.id}>{name}<img className={styles.avatar} src={avatar === null ? '' : avatar} /></li>
-          )
-        })}
-      </ol> */}
           <table className={styles.table}>
-            <thead>
+            <thead className={styles.thead}>
               <tr>
                 <th className={styles.th}>Id</th>
                 <th className={styles.th}>Name</th>
