@@ -54,6 +54,8 @@ const Dashboard = ({ usersList }) => {
   const admins = usersList.filter((user) => user.type === "admin")
   const active = usersList.filter((user) => user.member_status === "active");
   const inactive = usersList.filter((user) => user.member_status === "inactive");
+  const verified = usersList.filter((user) => user.is_verified === "1");
+  const notVerified = usersList.filter((user) => user.is_verified !== "1")
 
   return (
     <div className={styles.container}>
@@ -83,7 +85,6 @@ const Dashboard = ({ usersList }) => {
             icon={<PeopleIcon sx={{ color: "#176eb6", fontSize: "26px" }} />}
           />
         </div>
-
         <div className={styles.card}>
           <StatBox
             title={`${inactive.length}`}
@@ -95,6 +96,19 @@ const Dashboard = ({ usersList }) => {
             }
           />
         </div>
+
+        <div className={styles.card}>
+          <StatBox
+            title={`${verified.length}`}
+            subtitle="Verified Users"
+            progress="0.75"
+            // increase="+14%"
+            icon={
+              <VerifiedUserIcon sx={{ color: "#176eb6", fontSize: "26px" }} />
+            }
+          />
+        </div>
+    
 
         <div className={styles.card}>
           <StatBox
