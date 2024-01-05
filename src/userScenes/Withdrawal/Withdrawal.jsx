@@ -56,7 +56,7 @@ const Withdrawal = ({
       }
     };
     fetchBankList();
-  }, [token]);
+  }, []);
 
   const resolveAccount = async (e) => {
     e.preventDefault();
@@ -67,7 +67,6 @@ const Withdrawal = ({
         Authorization: `Bearer ${token}`,
         Accept: "application/json",
       },
-      // params: { account_number: accNumber, bank_code: code },
     };
     const body = {
       account_number: accNumber,
@@ -93,27 +92,6 @@ const Withdrawal = ({
     }
   };
 
-  // const createRecipientCode = async (e) => {
-  //   e.preventDefault();
-  //   const url = "https://mlm.a1exchange.net/api/transfers/recipient";
-  //   const config = {
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   };
-  //   const body = {
-  //     account_number: transferDetails.account_number,
-  //     name: transferDetails.account_name,
-  //     bank_code: code,
-  //   };
-  //   try {
-  //     const res = await axios.post(url, body, config);
-  //     console.log(res.data);
-  //     setShowAmount(true);
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   }
-  // };
 
   const initiateTransfer = async (e) => {
     e.preventDefault();

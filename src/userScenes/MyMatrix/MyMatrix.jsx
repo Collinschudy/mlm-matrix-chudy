@@ -32,10 +32,8 @@ const MyMatrix = ({ userVerify, userData, userChart, setUserChart }) => {
         // Toast.error(error.message)
       }
     };
-
-    return () => {
       userMatrix();
-    };
+      
   }, [token]);
 
   return (

@@ -37,7 +37,6 @@ const UserProfile = ({ userData, userVerify, userProfile }) => {
   };
 
   const uploadAvatar = async () => {
-    console.log(avatar);
     if (!avatar) {
       toast.error("Please select a file");
       return;

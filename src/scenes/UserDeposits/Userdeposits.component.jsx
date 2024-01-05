@@ -33,9 +33,9 @@ const UserDeposits = ({ userVerify, setUserVerify }) => {
         console.log(error);
       }
     };
-    return () => {
+
       fetchUsersDeposits();
-    };
+    
   }, [token]);
   return (
     <div className={styles.container}>

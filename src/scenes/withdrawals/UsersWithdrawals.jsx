@@ -27,9 +27,8 @@ const UsersWithdrawals = ({ userVerify, usersWithdrawals, setUsersWithdrawalsHis
             }
         }
     
-      return () => {
-        viewWithdrawalsHistory()
-      }
+        viewWithdrawalsHistory();
+        
     }, [token])
     
     

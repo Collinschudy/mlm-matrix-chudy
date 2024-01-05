@@ -62,13 +62,13 @@ const DashContent = ({
   //     current.balance_after > max.balance_after ? current : max,
   //   userCommissions[0]
   // );
-  // const totalCommission = userCommissions?.reduce(
-  //   (sum, current) => Number(sum) + Number(current.amount),
-  //   0
-  // );
+  const totalCommission = userCommissions?.reduce(
+    (sum, current) => Number(sum) + Number(current.amount),
+    0
+  );
   const token = userVerify?.token;
 
-
+  useEffect(() => {
     const retrieveDetails = async () => {
       const url = "https://mlm.a1exchange.net/api/v1/profile/info";
       const config = {
@@ -84,10 +84,11 @@ const DashContent = ({
         console.log(error.message);
       }
     }
-    useEffect(() => {
-      retrieveDetails();
-    }, [token])
 
+
+      retrieveDetails();
+  
+  }, [token]);
 
   return (
     <>

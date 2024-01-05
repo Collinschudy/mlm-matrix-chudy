@@ -36,9 +36,7 @@ const Commissions = ({ userVerify, userCommissions, setCommissions }) => {
       }
     };
 
-    return () => {
       fetchCommission();
-    };
   }, [token]);
 
   return (
