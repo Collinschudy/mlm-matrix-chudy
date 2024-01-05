@@ -30,6 +30,7 @@ const Users = ({ userData, userVerify, usersList, setUsersList }) => {
   const token = userVerify?.token
   
 
+  useEffect(() => {
     const listUsers = async () => {
       const url = "https://mlm.a1exchange.net/api/v1/admin/users";
       const config = {
@@ -46,10 +47,11 @@ const Users = ({ userData, userVerify, usersList, setUsersList }) => {
         console.log(error);
       }
     };
-    useEffect(() => {
       listUsers();
-    }, [])
+    
+  }, [token]);
 
+  
   return (
     <div className={styles.container}>
       <AdminHeader title="Users" subtitle="Managing users" />
