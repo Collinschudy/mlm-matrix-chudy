@@ -62,10 +62,10 @@ const DashContent = ({
   //     current.balance_after > max.balance_after ? current : max,
   //   userCommissions[0]
   // );
-  const totalCommission = userCommissions?.reduce(
-    (sum, current) => Number(sum) + Number(current.amount),
-    0
-  );
+  // const totalCommission = userCommissions?.reduce(
+  //   (sum, current) => Number(sum) + Number(current.amount),
+  //   0
+  // );
   const token = userVerify?.token;
 
 
@@ -86,7 +86,7 @@ const DashContent = ({
     }
     useEffect(() => {
       retrieveDetails();
-    }, [])
+    }, [token])
 
 
   return (

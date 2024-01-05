@@ -55,7 +55,7 @@ const Withdrawal = ({
         console.log(error.message);
       }
     };
-    return () => fetchBankList();
+    fetchBankList();
   }, [token]);
 
   const resolveAccount = async (e) => {

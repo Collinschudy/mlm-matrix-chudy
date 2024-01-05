@@ -84,7 +84,6 @@ const Users = ({ userData, userVerify, usersList, setUsersList }) => {
           })}
         </table>
       </div>
-      {/* <button onClick={listUsers}>View</button> */}
     </div>
   );
 };
