@@ -50,12 +50,12 @@ const Dashboard = ({ usersList }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const isNotMobile = useMediaQuery("(min-width: 600px)");
-  const members = usersList.filter((user) => user.type === "member")
-  const admins = usersList.filter((user) => user.type === "admin")
-  const active = usersList.filter((user) => user.member_status === "active");
-  const inactive = usersList.filter((user) => user.member_status === "inactive");
-  const verified = usersList.filter((user) => user.is_verified === "1");
-  const notVerified = usersList.filter((user) => user.is_verified !== "1")
+  const members = usersList?.filter((user) => user.type === "member")
+  const admins = usersList?.filter((user) => user.type === "admin")
+  const active = usersList?.filter((user) => user.member_status === "active");
+  const inactive = usersList?.filter((user) => user.member_status === "inactive");
+  const verified = usersList?.filter((user) => user.is_verified === "1");
+  const notVerified = usersList?.filter((user) => user.is_verified !== "1")
 
   return (
     <div className={styles.container}>
@@ -68,7 +68,7 @@ const Dashboard = ({ usersList }) => {
         {/* <USERS>                        </USERS> */}
         <div className={styles.card}>
           <StatBox
-            title={`${usersList.length}`}
+            title={`${usersList?.length}`}
             subtitle="Number of Users"
             progress="0.75"
             increase="+14%"
@@ -78,7 +78,7 @@ const Dashboard = ({ usersList }) => {
 
         <div className={styles.card}>
           <StatBox
-            title={`${active.length}`}
+            title={`${active?.length}`}
             subtitle="Active Users"
             progress="0.75"
             increase="+14%"
@@ -87,7 +87,7 @@ const Dashboard = ({ usersList }) => {
         </div>
         <div className={styles.card}>
           <StatBox
-            title={`${inactive.length}`}
+            title={`${inactive?.length}`}
             subtitle="Inactive Users"
             progress="0.75"
             // increase="+14%"
@@ -99,7 +99,7 @@ const Dashboard = ({ usersList }) => {
 
         <div className={styles.card}>
           <StatBox
-            title={`${verified.length}`}
+            title={`${verified?.length}`}
             subtitle="Verified Users"
             progress="0.75"
             // increase="+14%"
@@ -112,7 +112,7 @@ const Dashboard = ({ usersList }) => {
 
         <div className={styles.card}>
           <StatBox
-            title={`${members.length}`}
+            title={`${members?.length}`}
             subtitle="Members"
             progress="0.25"
             // increase="+14%"
@@ -122,7 +122,7 @@ const Dashboard = ({ usersList }) => {
 
         <div className={styles.card}>
           <StatBox
-            title={`${admins.length}`}
+            title={`${admins?.length}`}
             subtitle="Admins"
             progress="0.25"
             // increase="+14%"
@@ -133,7 +133,7 @@ const Dashboard = ({ usersList }) => {
         {/* <DEPOSITS>       </DEPOSITS> */}
         <div className={styles.card}>
           <StatBox
-            title="$56,998"
+            title={`\u20A6${active.length * 1000}`}
             subtitle="Amount Deposited"
             progress="0.75"
             increase="+14%"
@@ -165,7 +165,7 @@ const Dashboard = ({ usersList }) => {
 
         <div className={styles.card}>
           <StatBox
-            title="$322"
+            title={`\u20A6`}
             subtitle="Deposit Charges"
             progress="0.75"
             increase="+12%"
@@ -180,7 +180,7 @@ const Dashboard = ({ usersList }) => {
         {/* WITHDRAWALS */}
         <div className={styles.card}>
           <StatBox
-            title="$20,486"
+            title={`\u20A6`}
             subtitle="Total Withdrawn"
             progress="0.75"
             // increase="+14%"
@@ -213,7 +213,7 @@ const Dashboard = ({ usersList }) => {
 
         <div className={styles.card}>
           <StatBox
-            title="$144"
+            title={`\u20A6`}
             subtitle="Withrawal Charges"
             progress="0.75"
             increase="+14%"
@@ -227,7 +227,7 @@ const Dashboard = ({ usersList }) => {
 
         <div className={styles.card}>
           <StatBox
-            title="$48,210"
+            title={`\u20A6`}
             subtitle="Total Investments"
             progress="0.15"
             increase="+5%"
@@ -236,7 +236,7 @@ const Dashboard = ({ usersList }) => {
         </div>
         <div className={styles.card}>
           <StatBox
-            title="$80"
+            title={`\u20A6`}
             subtitle="Last 7 days investments"
             progress="0.15"
             increase="+5%"
@@ -250,7 +250,7 @@ const Dashboard = ({ usersList }) => {
 
         <div className={styles.card}>
           <StatBox
-            title="$480"
+            title={`\u20A6`}
             subtitle="Total Referral Commission"
             progress="0.15"
             increase="+5%"
@@ -263,7 +263,7 @@ const Dashboard = ({ usersList }) => {
         </div>
         <div className={styles.card}>
           <StatBox
-            title="$480"
+            title={`\u20A6`}
             subtitle="Total Binary Commission"
             progress="0.15"
             increase="+5%"

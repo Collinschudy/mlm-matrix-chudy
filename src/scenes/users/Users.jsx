@@ -1,9 +1,9 @@
 import styles from "./users.module.css";
 import { useEffect } from "react";
 import AdminHeader from "../../adminComponents/AdminHeader/AdminHeader";
-
+import axios from "axios";
 // import { Box, Typography, useTheme, Button } from "@mui/material";
-import { tokens } from "../../theme";
+// import { tokens } from "../../theme";
 // import { DataGrid } from "@mui/x-data-grid";
 // import { mockDataUsers } from "../../data/mockData";
 
@@ -24,32 +24,9 @@ import {
   setUserUpdated,
   setUsersList,
 } from "../../redux/userInfo/userInfoAction";
-import axios from "axios";
+
 
 const Users = ({ userData, userVerify, usersList, setUsersList }) => {
-  const token = userVerify?.token
-  
-
-  useEffect(() => {
-    const listUsers = async () => {
-      const url = "https://mlm.a1exchange.net/api/v1/admin/users";
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
-      try {
-        const res = await axios.get(url, config);
-        const users = res.data.data;
-        const sorted = users.sort((a, b) => a.id - b.id);
-        setUsersList(sorted);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-      listUsers();
-    
-  }, [token]);
 
   
   return (

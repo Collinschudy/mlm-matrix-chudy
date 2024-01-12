@@ -79,7 +79,6 @@ const DashContent = ({
       try {
         const res = await axios.get(url, config);
         setUserEarnings(res?.data.data.user)
-        console.log(userWallet)
       } catch (error) {
         console.log(error.message);
       }

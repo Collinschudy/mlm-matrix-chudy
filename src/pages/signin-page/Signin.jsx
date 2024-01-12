@@ -23,8 +23,8 @@ const SignInPage = ({ setUserData, setUserVerify, userData, userVerify }) => {
   const [loginDetail, setLoginDetail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
-  const [loginError, setLoginError] = useState(false)
-  const [errMessage1, setErrMessage1] = useState("")
+  const [loginError, setLoginError] = useState(false);
+  const [errMessage1, setErrMessage1] = useState("");
   const [errMessage, setErrMessage] = useState("");
   const [show, setShow] = useState(false);
 
@@ -34,7 +34,6 @@ const SignInPage = ({ setUserData, setUserVerify, userData, userVerify }) => {
   };
 
   const validatePhoneNumber = (phoneNumber) => {
-
     const phoneRegex = new RegExp(
       /^(\+234|234|0)(701|702|703|704|705|706|707|708|709|801|802|803|804|805|806|807|808|809|810|811|812|813|814|815|816|817|818|819|909|908|901|902|903|904|905|906|907)([0-9]{7})$/
     );
@@ -59,21 +58,31 @@ const SignInPage = ({ setUserData, setUserVerify, userData, userVerify }) => {
         );
         toast.success(res.data.message);
         const { token } = res.data.data;
-        const userdata = res.data.data.user;
+        const userdata = res?.data.data.user;
         setUserVerify({ token: token, login: loginDetail });
         setUserData(userdata);
 
-        if (userData?.email_verified_at === null) {
+        if (userdata?.email_verified_at === null) {
           navigate("/verify");
-        } else navigate("/user/dashboard");
-      } catch (err) {
+        } else if (
+          userdata?.is_verified === "1" &&
+          userdata?.type === "admin"
+        ) {
+          navigate("/admin/dashboard");
+        } else if (
+          userdata?.is_verified === "1" &&
+          userdata?.type === "member"
+        ) {
+          navigate("/user/dashboard");
+        }
+      } catch (error) {
         setError(true);
-        setErrMessage(err.message);
+        setErrMessage(error.message);
         toast.error(error.message);
       }
-    }else{
+    } else {
       setLoginError(true);
-      setErrMessage1("Invalid Email or Phone")
+      setErrMessage1("Invalid Email or Phone");
     }
   };
 
@@ -109,9 +118,14 @@ const SignInPage = ({ setUserData, setUserVerify, userData, userVerify }) => {
                   name="loginDetail"
                   value={loginDetail}
                   autoFocus
-                  onChange={(e) => {setLoginDetail(e.target.value);setLoginError(false)}}
+                  onChange={(e) => {
+                    setLoginDetail(e.target.value);
+                    setLoginError(false);
+                  }}
                 />
-                {loginError && <div className={styles.errors}>{errMessage1}</div>}
+                {loginError && (
+                  <div className={styles.errors}>{errMessage1}</div>
+                )}
               </div>
               <div className={`${styles.formgroup} ${styles.pass}`}>
                 <label htmlFor="email">Password</label>
@@ -124,7 +138,9 @@ const SignInPage = ({ setUserData, setUserVerify, userData, userVerify }) => {
                     setError(false);
                   }}
                 />
-                <p className={`${styles.showHide} ${!error ? styles.move : ""}`}>
+                <p
+                  className={`${styles.showHide} ${!error ? styles.move : ""}`}
+                >
                   {show ? (
                     <BiShow onClick={() => setShow((prev) => !prev)} />
                   ) : (
