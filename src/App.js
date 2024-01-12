@@ -16,6 +16,7 @@ import ContactPage from "./pages/contact-us/contactpage";
 import AboutUsPage from "./pages/about-us/AboutUsPage";
 import Admin from "./pages/Admin/admin";
 import Dashboard from "./pages/User-Dashboard/Dashboard";
+
 import SignUpPage from "./pages/signup-page/SignUp";
 import SignInPage from "./pages/signin-page/Signin";
 import Plan from "./components/Plan/Plan.component";
@@ -83,11 +84,7 @@ function App({ userData, setUserData }) {
             <Route
               path="/"
               element={
-                <React.Suspense
-                  fallback={
-                   <Loader />
-                  }
-                >
+                <React.Suspense fallback={<Loader />}>
                   <Homepage />
                 </React.Suspense>
               }
@@ -96,7 +93,15 @@ function App({ userData, setUserData }) {
             <Route path="how" element={<HowItWorksPage />} />
             <Route path="contact" element={<ContactPage />} />
             <Route path="about" element={<AboutUsPage />} />
-            <Route path="admin/*" element={<AdminDashboardPage />} />
+            {/* <Route path="admin/*" element={<AdminDashboardPage />} /> */}
+            <Route
+              path="admin/*"
+              element={
+                <Protected userData={userData}>
+                  <AdminDashboardPage />{" "}
+                </Protected>
+              }
+            />
             <Route
               path="user/*"
               element={
@@ -106,7 +111,6 @@ function App({ userData, setUserData }) {
               }
             />
             <Route path="signup" element={<SignUpPage />} />
-            
             <Route path="login" element={<SignInPage />} />
             <Route path="plan" element={<PlanPage />} />
             <Route path="verify" element={<SignupVerify />} />
