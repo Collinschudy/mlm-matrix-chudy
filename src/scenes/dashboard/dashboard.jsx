@@ -133,7 +133,7 @@ const Dashboard = ({ usersList }) => {
         {/* <DEPOSITS>       </DEPOSITS> */}
         <div className={styles.card}>
           <StatBox
-            title={`\u20A6${active.length * 1000}`}
+            title={`\u20A6${active?.length * 1000}`}
             subtitle="Amount Deposited"
             progress="0.75"
             increase="+14%"
