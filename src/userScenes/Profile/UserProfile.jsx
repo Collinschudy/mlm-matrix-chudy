@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import AdminHeader from "../userGlobal/AdminHeader";
 import styles from "./profile.module.css";
 import CustomInput from "../../utils/CustomInput/CustomInput";
@@ -12,12 +12,49 @@ import {
   selectPaymentResponse,
   selectUserTokenAndEmail,
   selectUserUpdated,
+  selectUserWallet,
 } from "../../redux/userInfo/userSelect";
 import { setCurrentUser } from "../../redux/userInfo/userInfoAction";
 
 import { MdAddAPhoto } from "react-icons/md";
 
-const UserProfile = ({ userData, userVerify, userProfile }) => {
+
+
+
+const CopyToClipboard = ({ value }) => {
+  const [isCopied, setIsCopied] = useState(false);
+  const inputRef = useRef(null);
+
+  const copyToClipboard = (e) => {
+    e.preventDefault()
+    if (inputRef.current) {
+      inputRef.current.select();
+      document.execCommand('copy');
+            setIsCopied(true);
+
+      setTimeout(() => {
+        setIsCopied(false);
+      }, 3000);
+
+    }
+  };
+
+  return (
+    <>
+      <input
+        ref={inputRef}
+        type="text"
+        value={value}
+        readOnly
+        style={{ position: 'absolute', left: '-9999px' }}
+      />
+      <button onClick={copyToClipboard}>{isCopied ? " Copied! " : " Copy "}</button>
+    </>
+  );
+};
+
+
+const UserProfile = ({ userData, userVerify, userProfile, userWallet }) => {
   const [avatar, setAvatar] = useState(null);
   const [imgUrl, setImgUrl] = useState(null);
 
@@ -58,7 +95,6 @@ const UserProfile = ({ userData, userVerify, userProfile }) => {
       const image = res?.data.data.image_path;
       setImgUrl(image);
       toast.success("Image upload successful")
-      // console.log("URL:", imgUrl);
     } catch (error) {
       toast.error("Profile image upload failed");
     }
@@ -117,29 +153,38 @@ const UserProfile = ({ userData, userVerify, userProfile }) => {
             <CustomInput
               type="text"
               label="First Name"
-              value={userData?.first_name}
+              readOnly
+              defaultValue={userData?.first_name}
             />
             <CustomInput
               type="text"
               label="Last Name"
-              value={userData?.last_name}
+              readOnly
+              defaultValue={userData?.last_name}
             />
-            <CustomInput type="email" label="Email" value={userData.email} />
+            <CustomInput type="email" label="Email" defaultValue={userData.email} />
             <CustomInput
               type="number"
               label="Phone"
-              value={userData.phone_number}
+              readOnly
+              defaultValue={userData.phone_number}
             />
-               <CustomInput
+            <div>
+            <CustomInput
                referralInput
               type="text"
               label="Your Referral Link"
-              value={userData.refer_link}
+              readOnly
+              defaultValue={userWallet?.refer_link}
             />
+            <CopyToClipboard value={userWallet?.refer_link} />
+            </div>
+               
                 <CustomInput
               type="text"
               label="Your Referral Code"
-              value={userData.referral_code}
+              readOnly
+              defaultValue={userData.referral_code}
             />
           </form>
         </div>
@@ -153,6 +198,7 @@ const mapStateToProps = createStructuredSelector({
   userData: selectCurrentUser,
   userVerify: selectUserTokenAndEmail,
   userProfile: selectUserUpdated,
+  userWallet: selectUserWallet,
 });
 
 const mapDispatchToProps = (dispatch) => ({

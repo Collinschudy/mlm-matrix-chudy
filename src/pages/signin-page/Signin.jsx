@@ -118,6 +118,7 @@ const SignInPage = ({ setUserData, setUserVerify, userData, userVerify }) => {
                   name="loginDetail"
                   value={loginDetail}
                   autoFocus
+                  className={styles.emailInput}
                   onChange={(e) => {
                     setLoginDetail(e.target.value);
                     setLoginError(false);
@@ -133,6 +134,7 @@ const SignInPage = ({ setUserData, setUserVerify, userData, userVerify }) => {
                   type={show ? "text" : "password"}
                   name="password"
                   value={password}
+                  className={styles.password}
                   onChange={(e) => {
                     setPassword(e.target.value);
                     setError(false);

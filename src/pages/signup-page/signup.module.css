@@ -167,9 +167,7 @@
 select {
     height: 3rem;
 }
-input{
-    font-family: 'Lexend', sans-serif;
-}
+
 .errors{
     font-size: 0.8rem;
     color: red;

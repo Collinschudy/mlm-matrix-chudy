@@ -18,6 +18,7 @@
     border: 1px gray solid;
     border-radius: 0.3rem;
     background: transparent;
+    font-family: "Source Sans 3", "Raleway", sans-serif;
     width: 100%;
     max-width: 100%;
     /* height: 3rem; */
@@ -29,7 +30,8 @@
     font-size: 0.65rem;
   }
   .input:focus {
-    border: 2px #1b1b32 solid;
+    /* border: 2px #1b1b32 solid; */
+    /* border: none; */
   }
 
   @media screen and (max-width: 650px){
