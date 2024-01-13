@@ -54,11 +54,11 @@ const UserProfile = ({ userData, userVerify, userProfile }) => {
 
     try {
       const res = await axios.post(url, formData, config);
-      console.log(res);
-      console.log(res.data.data.image_path);
-      const image = res.data.data.image_path;
+     
+      const image = res?.data.data.image_path;
       setImgUrl(image);
-      console.log("URL:", imgUrl);
+      toast.success("Image upload successful")
+      // console.log("URL:", imgUrl);
     } catch (error) {
       toast.error("Profile image upload failed");
     }
