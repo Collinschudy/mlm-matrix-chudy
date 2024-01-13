@@ -77,9 +77,11 @@ const Withdrawal = ({
       const details = res.data.data.gateway_response;
       console.log(res);
       setTransferDetails(details);
+      const recipient_code = res?.data.data.recipient_code
+      const reference = res?.data.data.reference
       const transfer_access = {
-        recipient_code: res.data.data.recipient_code,
-        reference: res.data.data.reference,
+        recipient_code: recipient_code,
+        reference: reference,
       };
       setTransferAccess(transfer_access);
       setAccountName(transferDetails?.account_name);
