@@ -175,7 +175,7 @@ const UserProfile = ({ userData, userVerify, userProfile, userWallet }) => {
               type="text"
               label="Your Referral Link"
               readOnly
-              defaultValue={userWallet?.refer_link}
+              defaultValue={userWallet?.member_status === "active" ? userWallet?.refer_link : "Your account is inactive"}
             />
             <CopyToClipboard value={userWallet?.refer_link} />
             </div>
