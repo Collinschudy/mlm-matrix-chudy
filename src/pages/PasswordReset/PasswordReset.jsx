@@ -3,31 +3,33 @@ import styles from "./passwordreset.module.css";
 import { useState } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
-import { setUserTokenAndEmail } from "../../redux/userInfo/userInfoAction";
-import { selectUserTokenAndEmail } from "../../redux/userInfo/userSelect";
+import { setResetToken, setUserTokenAndEmail } from "../../redux/userInfo/userInfoAction";
+import { selectResetToken, selectUserTokenAndEmail } from "../../redux/userInfo/userSelect";
 import { createStructuredSelector } from "reselect";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
-const PasswordReset = ({ userVerify, setUserVerify }) => {
+const PasswordReset = ({ resetToken, setResetToken }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [err, setErr] = useState(false);
   const navigate = useNavigate();
 
   const userResetToken = async () => {
-    const token = userVerify.token;
-    const email = userVerify.email;
+    const token = resetToken?.reset_token;
+    const login = resetToken?.email;
+    const url = "https://mlm.a1exchange.net/api/v1/auth/reset-password"
     try{
     const res = await axios.post(
-      "https://mlm.a1exchange.net/api/v1/auth/reset-password",
+      url,
       {
-        email,
+        login,
         password: password,
         password_confirmation: confirmPassword,
         reset_token: token,
       }
     );
+    toast.success("password changed successfully")
     navigate('/login')
     }catch(error){
         toast.error(error.message)
@@ -76,10 +78,10 @@ const PasswordReset = ({ userVerify, setUserVerify }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  userVerify: selectUserTokenAndEmail,
+  resetToken: selectResetToken,
 });
 const mapDispatchToProps = (dispatch) => ({
-  setUserVerify: (user) => dispatch(setUserTokenAndEmail(user)),
+  setResetToken: (user) => dispatch(setResetToken(user)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PasswordReset);
