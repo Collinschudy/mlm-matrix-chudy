@@ -177,7 +177,7 @@ const UserProfile = ({ userData, userVerify, userProfile, userWallet }) => {
               readOnly
               defaultValue={userWallet?.member_status === "active" ? userWallet?.refer_link : "Your account is inactive"}
             />
-            <CopyToClipboard value={userWallet?.refer_link} />
+            <CopyToClipboard value={userWallet?.member_status === "active" ? userWallet?.refer_link : ""} />
             </div>
                
                 <CustomInput

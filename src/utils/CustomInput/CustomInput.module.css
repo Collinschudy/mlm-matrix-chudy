@@ -25,10 +25,10 @@
   }
 
   .smaller{
-    font-size: 0.65rem;
+    font-size: 0.75rem;
   }
   .input:focus {
-    /* border: 2px #1b1b32 solid; */
+    border: 2px #1b1b32 solid;
     /* border: none; */
   }
 
