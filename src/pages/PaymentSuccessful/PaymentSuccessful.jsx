@@ -15,20 +15,19 @@ import { FaArrowLeft } from "react-icons/fa";
 
 const PaymentSuccessful = ({ userVerify, setLogOut }) => {
   const navigate = useNavigate();
-  const token = userVerify?.token
+  const token = userVerify?.token;
 
   const logOutUser = async () => {
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
-    const url = "https://mlm.a1exchange.net/api/v1/auth/logout"
+    const url = "https://mlm.a1exchange.net/api/v1/auth/logout";
 
     try {
       const res = await axios.post(url, null, config);
       setLogOut();
       toast.success(res.data.message);
-      navigate("/signin");
-
+      navigate("/login");
     } catch (error) {
       toast.error(error.message);
     }
@@ -42,7 +41,7 @@ const PaymentSuccessful = ({ userVerify, setLogOut }) => {
       <div className={styles.wrapper}>
         <div className={styles.messagewrapper}>
           <article className={styles.imgcontainer}>
-            <img src={tick} alt="" />
+            <img src={tick} alt="success" />
           </article>
           <h2 className={styles.message}>Congratulations!</h2>
           <p>Your account has been activated</p>
@@ -51,8 +50,14 @@ const PaymentSuccessful = ({ userVerify, setLogOut }) => {
           Please note that for your account to be updated, you have to re-signin
         </p>
         <div className={styles.buttons}>
-          <button className={styles.btn} onClick={() => backToHome()}><FaArrowLeft /><span>Back to Dashboard</span></button>
-          <button className={styles.btn} onClick={() => logOutUser()}><MdLogout fill="orange"/><span>Sign out</span></button>
+          <button className={styles.btn} onClick={() => backToHome()}>
+            <FaArrowLeft />
+            <span>Back to Dashboard</span>
+          </button>
+          <button className={styles.btn} onClick={() => logOutUser()}>
+            <MdLogout fill="orange" />
+            <span>Sign out</span>
+          </button>
         </div>
       </div>
     </div>
@@ -60,11 +65,11 @@ const PaymentSuccessful = ({ userVerify, setLogOut }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  userVerify: selectUserTokenAndEmail
+  userVerify: selectUserTokenAndEmail,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setLogOut: () => dispatch(setLogOut())
+  setLogOut: () => dispatch(setLogOut()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PaymentSuccessful);
