@@ -65,7 +65,7 @@ const SignupVerify = ({ setUserVerify, userVerify, userData, setUserData }) => {
       </h3>
       <p>We have sent a verification code to your email</p>
         <form onSubmit={handleSubmit}>
-        <input type="text" value={otp} onChange={handleOtp} className={styles.input}/>
+        <input type="text" value={otp} onChange={handleOtp} autoFocus className={styles.input}/>
         <p className={styles.resend} onClick={resendOtp}>Resend code</p>
         <button className={styles.button}>Submit</button>
         </form>
