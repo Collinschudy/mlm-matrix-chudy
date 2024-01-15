@@ -35,7 +35,6 @@ const PaymentSuccessful = ({ userVerify, setLogOut }) => {
   };
 
   const backToHome = () => {
-    // setPaymentResponse()
     navigate("/user/dashboard");
   };
   return (
@@ -48,8 +47,6 @@ const PaymentSuccessful = ({ userVerify, setLogOut }) => {
           <h2 className={styles.message}>Congratulations!</h2>
           <p>Your account has been activated</p>
         </div>
-
-        {/* <p>Transaction Id: {paymentResponse?.reference}</p> */}
         <p className={styles.instruction}>
           Please note that for your account to be updated, you have to re-signin
         </p>
@@ -67,7 +64,6 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setPaymentResponse: (response) => dispatch(setPaymentResponse(response)),
   setLogOut: () => dispatch(setLogOut())
 });
 
