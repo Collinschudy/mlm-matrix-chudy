@@ -118,7 +118,7 @@ function App({ userData, setUserData }) {
             <Route path="resetpassword" element={<PasswordReset />} />
 
             <Route path="verifypayment" element={<VerifyPayment />} />
-            <Route path="paymentsuccess" element={<PaymentSuccessful />} />
+            <Route path="success" element={<PaymentSuccessful />} />
           </Routes>
           {/* <Footer /> */}
         </div>
