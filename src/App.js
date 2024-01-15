@@ -116,7 +116,7 @@ function App({ userData, setUserData }) {
             <Route path="verify" element={<SignupVerify />} />
             <Route path="forgotpassword" element={<ForgotPassword />} />
             <Route path="resetpassword" element={<PasswordReset />} />
-
+              
             <Route path="verifypayment" element={<VerifyPayment />} />
             <Route path="success" element={<PaymentSuccessful />} />
           </Routes>

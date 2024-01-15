@@ -74,7 +74,7 @@ const Withdrawal = ({
     };
     try {
       const res = await axios.post(url, body, config);
-      const details = res.data.data.gateway_response;
+      const details = res?.data.data.gateway_response;
       console.log(res);
       setTransferDetails(details);
       const recipient_code = res?.data.data.recipient_code
@@ -84,7 +84,7 @@ const Withdrawal = ({
         reference: reference,
       };
       setTransferAccess(transfer_access);
-      setAccountName(transferDetails?.account_name);
+      setAccountName(details?.account_name);
       setResMessage(res.data.message);
       setShowName(true);
       setShowAmount(true);

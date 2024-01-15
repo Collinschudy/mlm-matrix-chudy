@@ -299,7 +299,7 @@ const Sidebar = ({
             />
           </Link> */}
 
-          {/* <Link to="account-settings" onClick={() => setMobileCollapsed(false)}>
+          <Link to="account-settings" onClick={() => setMobileCollapsed(false)}>
             <Item
               title="Account Settings"
               icon={
@@ -311,7 +311,7 @@ const Sidebar = ({
               setSelected={setSelected}
               backGround={pathName.includes("account-settings") ? "grey" : ""}
             />
-          </Link> */}
+          </Link>
 
           <Box display="flex" alignItems="center" gap="5px" ml="15px" mt="5px" mb={!isNotMobile ? "15px": ""}>
             <IconButton sx={{ color: 'orange' }}>

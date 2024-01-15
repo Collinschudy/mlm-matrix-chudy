@@ -49,7 +49,7 @@ const Dashboard = ({ collapsed, setIsCollapsed }) => {
           <Route path="withdrawal" element={<Withdrawal />} />
           <Route path="profile" element={<UserProfile />} />
           <Route path="update_details" element={<UpdateProfile />} />
-          {/* <Route path="account-settings" element={<AccountSettings />} /> */}
+          <Route path="account-settings" element={<AccountSettings />} />
           <Route path="2fa-security" element={<TwoFactorAuth />} />
           <Route path="mymatrix" element={<MyMatrix />} />
           <Route path="withdraw-history" element={<WithDrawalHistory />} />

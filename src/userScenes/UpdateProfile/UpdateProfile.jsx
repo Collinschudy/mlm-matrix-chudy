@@ -69,7 +69,7 @@ const UpdateProfile = ({ userVerify, setUserProfile, userProfile }) => {
       //   draggable: true,
       // })
       alert(res.data.message)
-      navigate("/user/dashboard")
+      navigate("/user/profile")
 
     } catch (error) {
       console.log(error.message);

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import AdminHeader from "../userGlobal/AdminHeader";
 import styles from "./profile.module.css";
 import CustomInput from "../../utils/CustomInput/CustomInput";
@@ -10,32 +10,33 @@ import { createStructuredSelector } from "reselect";
 import {
   selectCurrentUser,
   selectPaymentResponse,
+  selectUserProfile,
   selectUserTokenAndEmail,
   selectUserUpdated,
   selectUserWallet,
 } from "../../redux/userInfo/userSelect";
-import { setCurrentUser } from "../../redux/userInfo/userInfoAction";
+import {
+  setCurrentUser,
+  setUserProfile,
+  setUserUpdated,
+} from "../../redux/userInfo/userInfoAction";
 
 import { MdAddAPhoto } from "react-icons/md";
-
-
-
 
 const CopyToClipboard = ({ value }) => {
   const [isCopied, setIsCopied] = useState(false);
   const inputRef = useRef(null);
 
   const copyToClipboard = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (inputRef.current) {
       inputRef.current.select();
-      document.execCommand('copy');
-            setIsCopied(true);
+      document.execCommand("copy");
+      setIsCopied(true);
 
       setTimeout(() => {
         setIsCopied(false);
       }, 3000);
-
     }
   };
 
@@ -46,17 +47,26 @@ const CopyToClipboard = ({ value }) => {
         type="text"
         value={value}
         readOnly
-        style={{ position: 'absolute', left: '-9999px' }}
+        style={{ position: "absolute", left: "-9999px" }}
       />
-      <button onClick={copyToClipboard}>{isCopied ? " Copied! " : " Copy "}</button>
+      <button onClick={copyToClipboard}>
+        {isCopied ? " Copied! " : " Copy "}
+      </button>
     </>
   );
 };
 
-
-const UserProfile = ({ userData, userVerify, userProfile, userWallet }) => {
+const UserProfile = ({
+  userData,
+  userVerify,
+  userProfile,
+  userWallet,
+  userUpdated,
+  setUserProfile,
+}) => {
   const [avatar, setAvatar] = useState(null);
   const [imgUrl, setImgUrl] = useState(null);
+  const token = userVerify?.token;
 
   const firstNameCap =
       userData?.first_name.charAt(0).toUpperCase() +
@@ -91,14 +101,34 @@ const UserProfile = ({ userData, userVerify, userProfile, userWallet }) => {
 
     try {
       const res = await axios.post(url, formData, config);
-     
+
       const image = res?.data.data.image_path;
       setImgUrl(image);
-      toast.success("Image upload successful")
+      toast.success("Image upload successful");
     } catch (error) {
       toast.error("Profile image upload failed");
     }
   };
+
+  useEffect(() => {
+    const fetchUserDetails = async () => {
+      const url = "https://mlm.a1exchange.net/api/v1/profile/info";
+
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      try {
+        const res = await axios.get(url, config);
+        console.log(res.data);
+        setUserProfile(res?.data.data.user_profile);
+      } catch (error) {
+        toast.error(error.message);
+      }
+    };
+    fetchUserDetails();
+  }, [token]);
 
   return (
     <div>
@@ -115,8 +145,10 @@ const UserProfile = ({ userData, userVerify, userProfile, userWallet }) => {
             <p>Type: {userData.type}</p>
             <br />
             <p>
-              Status: {" "}
-            {userData.member_status === "inactive" ? 'inactive (Proceed to the "Deposit" to make your one-time payment)' : "active"}
+              Status:{" "}
+              {userData.member_status === "inactive"
+                ? 'inactive (Proceed to the "Deposit" to make your one-time payment)'
+                : "active"}
             </p>
           </article>
         </div>
@@ -127,7 +159,11 @@ const UserProfile = ({ userData, userVerify, userProfile, userWallet }) => {
               {!imgUrl && userData.image_path === null ? (
                 <span className={styles.initials}>{initials}</span>
               ) : (
-                <img className={styles.pp} src={imgUrl ? imgUrl : userData?.image_path} alt="" />
+                <img
+                  className={styles.pp}
+                  src={imgUrl ? imgUrl : userData?.image_path}
+                  alt=""
+                />
               )}
             </div>
           </div>
@@ -139,13 +175,11 @@ const UserProfile = ({ userData, userVerify, userProfile, userWallet }) => {
               id="photo"
             />
             <label htmlFor="photo" className={styles.label}>
-            
               <span>
                 <MdAddAPhoto /> Add photo
               </span>
               <button onClick={uploadAvatar}>Upload</button>
             </label>
-          
           </p>
         </div>
         <div className={styles.formwrap}>
@@ -162,7 +196,11 @@ const UserProfile = ({ userData, userVerify, userProfile, userWallet }) => {
               readOnly
               defaultValue={userData?.last_name}
             />
-            <CustomInput type="email" label="Email" defaultValue={userData.email} />
+            <CustomInput
+              type="email"
+              label="Email"
+              defaultValue={userData.email}
+            />
             <CustomInput
               type="number"
               label="Phone"
@@ -170,22 +208,88 @@ const UserProfile = ({ userData, userVerify, userProfile, userWallet }) => {
               defaultValue={userData.phone_number}
             />
             <div>
-            <CustomInput
-               referralInput
-              type="text"
-              label="Your Referral Link"
-              readOnly
-              defaultValue={userWallet?.member_status === "active" ? userWallet?.refer_link : "Your account is inactive"}
-            />
-            <CopyToClipboard value={userWallet?.member_status === "active" ? userWallet?.refer_link : ""} />
+              <CustomInput
+                referralInput
+                type="text"
+                label="Your Referral Link"
+                readOnly
+                defaultValue={
+                  userWallet?.member_status === "active"
+                    ? userWallet?.refer_link
+                    : "Your account is inactive"
+                }
+              />
+              <CopyToClipboard
+                value={
+                  userWallet?.member_status === "active"
+                    ? userWallet?.refer_link
+                    : ""
+                }
+              />
             </div>
-               
-                <CustomInput
+
+            <CustomInput
               type="text"
               label="Your Referral Code"
               readOnly
               defaultValue={userData.referral_code}
             />
+            {userProfile && (
+              <CustomInput
+                type="text"
+                label="Account Name"
+                readOnly
+                defaultValue={userProfile?.account_name}
+              />
+            )}
+            {userProfile && (
+              <CustomInput
+                type="text"
+                label="Account Number"
+                readOnly
+                defaultValue={userProfile?.account_number}
+              />
+            )}
+                 {userProfile && (
+              <CustomInput
+                type="text"
+                label="Country"
+                readOnly
+                value={userUpdated ? userUpdated.country : userProfile.country}
+              />
+            )}
+               {userProfile && (
+              <CustomInput
+                type="text"
+                label="State"
+                readOnly
+                value={userUpdated ? userUpdated.state : userProfile.state}
+              />
+            )}
+             {userProfile && (
+              <CustomInput
+                type="text"
+                label="State"
+                readOnly
+                value={userUpdated ? userUpdated.lga : userProfile.lga}
+              />
+            )}
+               {userProfile && (
+              <CustomInput
+                type="text"
+                label="City"
+                readOnly
+                value={userUpdated ? userUpdated.city : userProfile.city}
+              />
+            )}
+               {userProfile && (
+              <CustomInput
+                type="text"
+                label="Address"
+                readOnly
+                value={userUpdated ? userUpdated.address : userProfile.address}
+              />
+            )}
           </form>
         </div>
       </section>
@@ -197,12 +301,15 @@ const UserProfile = ({ userData, userVerify, userProfile, userWallet }) => {
 const mapStateToProps = createStructuredSelector({
   userData: selectCurrentUser,
   userVerify: selectUserTokenAndEmail,
-  userProfile: selectUserUpdated,
+  userProfile: selectUserProfile,
   userWallet: selectUserWallet,
+  // userUpdated: selectUserUpdated,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   setUserData: (userData) => dispatch(setCurrentUser(userData)),
+  setUserProfile: (userProfile) => dispatch(setUserProfile(userProfile)),
+  setUserUpdated: (updateDetails) => dispatch(setUserUpdated(updateDetails)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);
