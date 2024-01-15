@@ -47,6 +47,7 @@ const PaymentSuccessful = ({ userVerify, setLogOut }) => {
           <p>Your account has been activated</p>
         </div>
         <p className={styles.instruction}>
+          <span>*</span>
           Please note that for your account to be updated, you have to re-signin
         </p>
         <div className={styles.buttons}>

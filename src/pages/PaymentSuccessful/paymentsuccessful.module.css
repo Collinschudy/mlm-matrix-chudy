@@ -1,4 +1,4 @@
-.container{
+.container {
     height: 100vh;
     width: 100%;
     display: flex;
@@ -6,7 +6,7 @@
     justify-content: center;
 }
 
-.wrapper{
+.wrapper {
     border-radius: 1rem;
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
     padding-top: 1rem;
@@ -18,13 +18,15 @@
     align-items: center;
     justify-content: center;
 }
-.messagewrapper{
+
+.messagewrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.imgcontainer{
+
+.imgcontainer {
     border: 1px solid #6CB4EE;
     width: 10rem;
     height: 10rem;
@@ -35,14 +37,26 @@
     /* background-color: #3489ce; */
     /* background: gainsboro; */
 }
-.imgcontainer img{
+
+.imgcontainer img {
     height: 80%;
     width: 100%;
 }
-.message{
+
+.message {
     margin-top: 1rem;
 }
-.buttons{
+
+.instruction {
+    margin-top: 4rem;
+    color: #3489ce;
+}
+
+.instruction span {
+    color: orange;
+}
+
+.buttons {
     width: 100%;
     margin-top: 2rem;
     display: flex;
@@ -50,25 +64,24 @@
     justify-content: space-around;
 
 }
-.btn{
-        padding: 1rem 1.5rem;
-        border-radius: 0.2rem;
-        border: none;
-        background-color: #6CB4EE;
-        font-size: 1.2rem;
-        color: #fff;
-        transition: 0.5s all ease-in;
-        display: flex;
-        align-items: center;
-   
+
+.btn {
+    padding: 1rem 1.5rem;
+    border-radius: 0.2rem;
+    border: none;
+    background-color: #6CB4EE;
+    font-size: 1.2rem;
+    color: #fff;
+    transition: 0.5s all ease-in;
+    display: flex;
+    align-items: center;
+
 }
-.btn:hover{
+
+.btn:hover {
     background-color: #3489ce;
 }
-.btn span{
+
+.btn span {
     margin-left: 1rem;
-}
-.instruction{
-    margin-top: 4rem;
-    color: #3489ce;
 }
