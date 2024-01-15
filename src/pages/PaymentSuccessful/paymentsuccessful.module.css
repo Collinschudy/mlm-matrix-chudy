@@ -42,6 +42,10 @@
     height: 80%;
     width: 100%;
 }
+.imgcontainer p{
+    display: flex;
+    align-items: center;
+}
 
 .message {
     margin-top: 1rem;

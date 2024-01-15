@@ -12,6 +12,7 @@ import { toast, ToastContainer } from "react-toastify";
 import tick from "../../assets/test66.png";
 import { MdLogout } from "react-icons/md";
 import { FaArrowLeft } from "react-icons/fa";
+import { TiTick } from "react-icons/ti";
 
 const PaymentSuccessful = ({ userVerify, setLogOut }) => {
   const navigate = useNavigate();
@@ -44,7 +45,7 @@ const PaymentSuccessful = ({ userVerify, setLogOut }) => {
             <img src={tick} alt="success" />
           </article>
           <h2 className={styles.message}>Congratulations!</h2>
-          <p>Your account has been activated</p>
+          <p>Your account has been activated {" "}<TiTick /></p>
         </div>
         <p className={styles.instruction}>
           <span>*</span>
