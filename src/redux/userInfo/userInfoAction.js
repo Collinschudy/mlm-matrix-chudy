@@ -10,7 +10,10 @@ export const setCurrentUser = (currentUser) => ({
     type: ActionTypes.STORE_CURRENT_USER,
     payload: currentUser
 });
-
+export const setUserProfile = (details) => ({
+    type:ActionTypes.STORE_USER_PROFILE,
+    payload: details
+});
 export const setUserUpdated = (userUpdated) => ({
     type: ActionTypes.STORE_USER_UPDATED,
     payload: userUpdated
@@ -62,6 +65,11 @@ export const setRecipientDetails = (details) => ({
 
 export const setTransferAccess = (details) => ({
     type:ActionTypes.STORE_TRANSFER_ACCESS,
+    payload: details
+})
+
+export const setResetToken = (details) => ({
+    type:ActionTypes.STORE_RESET_TOKEN,
     payload: details
 })
 

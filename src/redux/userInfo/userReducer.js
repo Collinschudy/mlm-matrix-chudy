@@ -3,6 +3,7 @@ import { ActionTypes } from "./ActionType";
 const INITIAL_STATE = {
   userTokenAndEmail: [],
   userData: null,
+  userProfile: null,
   userUpdated: null,
   recipientDetails: null,
   paymentResponse: null,
@@ -14,6 +15,7 @@ const INITIAL_STATE = {
   usersWithdrawals: null,
   userCommissions: null,
   userWallet: null,
+  resetToken: null,
 };
 
 const userTokenAndEmailReducer = (state = INITIAL_STATE, action) => {
@@ -28,6 +30,11 @@ const userTokenAndEmailReducer = (state = INITIAL_STATE, action) => {
         ...state,
         userData: action.payload,
       };
+      case ActionTypes.STORE_USER_PROFILE:
+        return {
+          ...state,
+          userProfile: action.payload,
+        };
     case ActionTypes.STORE_USER_UPDATED:
       return {
         ...state,
@@ -83,6 +90,11 @@ const userTokenAndEmailReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         transferAccess: action.payload,
+      };
+      case ActionTypes.STORE_RESET_TOKEN:
+      return {
+        ...state,
+        resetToken: action.payload,
       };
     case ActionTypes.LOG_OUT:
       return (state = null);

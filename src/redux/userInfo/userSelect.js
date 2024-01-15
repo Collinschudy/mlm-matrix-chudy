@@ -11,10 +11,19 @@ export const selectCurrentUser = createSelector(
   [selectDetails],
   (user) => user?.userData
 )
+export const selectUserProfile = createSelector(
+  [selectDetails],
+  (updated) => updated?.userProfile
+)
 
 export const selectUserUpdated = createSelector(
   [selectDetails],
   (updated) => updated?.userUpdated
+)
+
+export const selectResetToken = createSelector(
+  [selectDetails],
+  (token) => token?.resetToken
 )
 
 export const selectPaymentResponse = createSelector(
