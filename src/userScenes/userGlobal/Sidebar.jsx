@@ -105,7 +105,7 @@ const Sidebar = ({
   const [pathName, setPathName] = useState("");
   const location = useLocation();
   const { pathname } = location;
-  const token = userVerify.token;
+  const token = userVerify?.token;
  
   
   useEffect(() => {
@@ -314,7 +314,7 @@ const Sidebar = ({
           </Link> */}
 
           <Box display="flex" alignItems="center" gap="5px" ml="15px" mt="5px" mb={!isNotMobile ? "15px": ""}>
-            <IconButton sx={{ color: '#b23b3b' }}>
+            <IconButton sx={{ color: 'orange' }}>
               <LogoutOutlinedIcon />
             </IconButton>
             <Typography sx={{ cursor: 'pointer' }} onClick={() => logOutUser()}>Log out</Typography>
