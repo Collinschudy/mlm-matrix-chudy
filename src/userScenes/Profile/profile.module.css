@@ -108,7 +108,7 @@
     article p {
       font-size: 0.9rem;
     }
-    .formwrap form {
+    .formwrap .form {
       grid-template-columns: 1fr;
     }
   }
