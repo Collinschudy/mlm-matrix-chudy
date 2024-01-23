@@ -1,8 +1,8 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 
 import styles from "./signup.module.css";
 import Logo from "../../logo.png";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 
 import { number, z, string, required } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -16,12 +16,27 @@ import { ToastContainer, toast } from "react-toastify";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectUserTokenAndEmail } from "../../redux/userInfo/userSelect";
-import { setUserInfo, setUserTokenAndEmail } from "../../redux/userInfo/userInfoAction";
+import {
+  setUserInfo,
+  setUserTokenAndEmail,
+} from "../../redux/userInfo/userInfoAction";
 
-const SignUpPage = ({ user = {}, userVerify, setUserVerify}) => {
+const SignUpPage = ({ user = {}, userVerify, setUserVerify }) => {
   const [submitting, setSubmitting] = useState(false);
   const navigate = useNavigate();
+  const [parent_code, setParentCode] = useState("");
+  const location = useLocation();
 
+  useEffect(() => {
+    const extractRef = () => {
+      const { search } = location;
+      const urlSearchParams = new URLSearchParams(search);
+      const parent_code = urlSearchParams.get("ref");
+      setParentCode(parent_code);
+    }
+    
+extractRef();
+  }, []);
 
   const phoneRegex = new RegExp(
     /^(\+234|234|0)(701|702|703|704|705|706|707|708|709|801|802|803|804|805|806|807|808|809|810|811|812|813|814|815|816|817|818|819|909|908|901|902|903|904|905|906|907)([0-9]{7})$/
@@ -55,9 +70,15 @@ const SignUpPage = ({ user = {}, userVerify, setUserVerify}) => {
   };
 
   const submit = async (formValues) => {
-    const { first_name, last_name, email, phone_number, password, password_confirmation } =
-      formValues;
-     
+    const {
+      first_name,
+      last_name,
+      email,
+      phone_number,
+      password,
+      password_confirmation,
+    } = formValues;
+
     try {
       const res = await axios.post(
         "https://mlm.a1exchange.net/api/v1/auth/register",
@@ -66,15 +87,16 @@ const SignUpPage = ({ user = {}, userVerify, setUserVerify}) => {
           last_name,
           email,
           phone_number,
+          parent_code,
           password,
-          password_confirmation
+          password_confirmation,
         }
       );
       // const { token } = res.data.data;
       console.log(res.data);
       setSubmitting(true);
-      setUserVerify(email)
-      navigate('/verify')
+      setUserVerify(email);
+      navigate("/verify");
     } catch (err) {
       console.log(err);
       toast.error("Required fields are empty or invalid");
@@ -112,15 +134,17 @@ const SignUpPage = ({ user = {}, userVerify, setUserVerify}) => {
               </span>
             </p>
             <div className={styles.socialicons}>
-              <IconButton sx={{color: 'white' }}>
+              <IconButton sx={{ color: "white" }}>
                 <FacebookIcon />
               </IconButton>
 
-              <IconButton sx={{color: 'white' }}>
+              <IconButton sx={{ color: "white" }}>
                 <WhatsAppIcon />
               </IconButton>
             </div>
-            <p className={styles.footnote}>Alliance Arcade. All rights reserved</p>
+            <p className={styles.footnote}>
+              Alliance Arcade. All rights reserved
+            </p>
           </div>
         </section>
         <section className={styles.formsection}>
@@ -205,7 +229,9 @@ const SignUpPage = ({ user = {}, userVerify, setUserVerify}) => {
                   name="phone"
                   {...register("phone_number")}
                 />
-                <div className={styles.errors}>{errors.phone_number?.message}</div>
+                <div className={styles.errors}>
+                  {errors.phone_number?.message}
+                </div>
               </div>
 
               <div className={styles.formgroup}>
@@ -231,12 +257,16 @@ const SignUpPage = ({ user = {}, userVerify, setUserVerify}) => {
               </div>
 
               <div className={styles.formgroup}>
-                <button type="submit" disabled={submitting} className={styles.button}>
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className={styles.button}
+                >
                   {submitting ? "submitting..." : "submit"}
                 </button>
               </div>
             </form>
-            <ToastContainer limit={1}/>
+            <ToastContainer limit={1} />
           </div>
         </section>
       </div>
@@ -245,11 +275,11 @@ const SignUpPage = ({ user = {}, userVerify, setUserVerify}) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  userVerify: selectUserTokenAndEmail
-})
+  userVerify: selectUserTokenAndEmail,
+});
 
-const mapDispatchToProps = dispatch => ({
-  setUserVerify: (user) => dispatch(setUserTokenAndEmail(user))
-})
+const mapDispatchToProps = (dispatch) => ({
+  setUserVerify: (user) => dispatch(setUserTokenAndEmail(user)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpPage);

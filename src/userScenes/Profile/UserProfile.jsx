@@ -183,7 +183,7 @@ const UserProfile = ({
           </p>
         </div>
         <div className={styles.formwrap}>
-          <form>
+          <form className={styles.form}>
             <CustomInput
               type="text"
               label="First Name"

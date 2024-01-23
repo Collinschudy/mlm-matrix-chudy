@@ -1,9 +1,22 @@
-.org-_node {
+.org_node {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 8px;
     text-align: center;
+  }
+  .org_node div {
+    background-color: gainsboro;
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .initials{
+    display: block;
+    font-size: 1rem;
   }
   .avatar{
     height: 2rem;

@@ -229,7 +229,7 @@ const Sidebar = ({
             />
           </Link>
 
-          <Link to="#" onClick={() => setMobileCollapsed(false)}>
+          <Link to="withdraw-history" onClick={() => setMobileCollapsed(false)}>
             <Item
               title="Withdrawal History"
               icon={

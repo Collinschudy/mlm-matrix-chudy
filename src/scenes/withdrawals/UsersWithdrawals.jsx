@@ -20,7 +20,7 @@ const UsersWithdrawals = ({ userVerify, usersWithdrawals, setUsersWithdrawalsHis
             }
             try {
                 const res = await axios.get(url, config)
-                setUsersWithdrawalsHistory(res.data.data)
+                setUsersWithdrawalsHistory(res.data.data);
                 
             } catch (error) {
                 console.log(error)
@@ -43,7 +43,7 @@ const UsersWithdrawals = ({ userVerify, usersWithdrawals, setUsersWithdrawalsHis
               <th className={`${styles.hide} ${styles.th}`}>Email </th>
               <th className={`${styles.hide} ${styles.th}`}>A/c Number</th>
               <th className={styles.th}>Name</th>
-              <th className={`${styles.hide} ${styles.th}`}>Bank Code</th>
+              <th className={`${styles.hide} ${styles.th}`}>Amount</th>
               <th className={styles.th}>Status</th>
             </tr>
           </thead>
@@ -57,7 +57,7 @@ const UsersWithdrawals = ({ userVerify, usersWithdrawals, setUsersWithdrawalsHis
                   <td className={styles.td}>{email}</td>
                   <td className={`${styles.hide} ${styles.td}`}>{account_number}</td>
                   <td className={`${styles.hide} ${styles.td}`}>{name}</td>
-                  <td className={`${styles.hide} ${styles.td}`}>{bank_code}</td>
+                  <td className={`${styles.hide} ${styles.td}`}>{amount}</td>
                   <td className={styles.td}>{status}</td>
                 </tr>
               </tbody>

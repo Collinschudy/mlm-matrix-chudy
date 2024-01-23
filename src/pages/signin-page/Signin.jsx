@@ -71,7 +71,7 @@ const SignInPage = ({ setUserData, setUserVerify, userData, userVerify }) => {
           navigate("/admin/dashboard");
         } else if (
           userdata?.is_verified === "1" &&
-          userdata?.type === "member"
+          userdata?.type === "member" || userdata?.type === "seed"
         ) {
           navigate("/user/dashboard");
         }

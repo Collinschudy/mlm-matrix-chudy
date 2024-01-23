@@ -153,7 +153,7 @@ const SidebarMenu = ({ userData, setLogOut, userVerify }) => {
       />
 
           <Box display="flex" alignItems="center" gap="5px" ml="15px" mt="5px" >
-            <IconButton sx={{ color: '#b23b3b' }}>
+            <IconButton sx={{ color: 'orange' }}>
               <LogoutOutlinedIcon />
             </IconButton>
             <Typography sx={{ cursor: 'pointer', color: "black" }} onClick={() => logOutUser()}>Log out</Typography>

@@ -81,35 +81,13 @@
   .formwrap {
     margin-top: 2rem;
   }
-  .formwrap form {
+  .formwrap .form {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 5rem;
     row-gap: 2rem;
   }
-  .formgroup {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 2rem;
-  }
-  .formgroup label {
-    font-size: 1.5rem;
-    color: #1b1b32;
-    margin-bottom: 0.5rem;
-  }
-  .formgroup select {
-    outline: none;
-    border: 1px gray solid;
-    border-radius: 0.3rem;
-    background: transparent;
-    width: 100%;
-    max-width: 100%;
-    padding: 0.7rem;
-    font-size: 1rem;
-  }
-  .formgroup select:focus {
-    border: 2px #1b1b32 solid;
-  }
+  
   
   @media screen and (max-width: 650px) {
     .profile {
