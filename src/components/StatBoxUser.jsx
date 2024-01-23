@@ -19,9 +19,9 @@ const StatBox = ({ title, subtitle, icon, progress, increase, }) => {
         <Typography variant="h4" sx={{ color: 'lightgray' }}>
           {subtitle}
         </Typography>
-        <Button  sx={{ color: 'greenyellow' }}>
+        {/* <Button  sx={{ color: 'greenyellow' }}>
           Details
-        </Button>
+        </Button> */}
       </Box>
       <IconButton sx={{ color: 'rgba(0,0,50)' }} size='large'>
       {icon}

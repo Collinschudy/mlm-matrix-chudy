@@ -227,8 +227,8 @@ const DashContent = ({
             >
               <StatBox
                 icon={<ReceiptIcon sx={{ height: "4em", width: "4em" }} />}
-                title="0"
-                subtitle="Total E-Pin Recharged"
+                title={`${userWallet?.direct_referrals}`}
+                subtitle="Total Direct Referrals"
               />
             </Box>
             <Box
@@ -247,8 +247,8 @@ const DashContent = ({
                 icon={
                   <AddCircleOutlinedIcon sx={{ height: "4em", width: "4em" }} />
                 }
-                title="0"
-                subtitle="Total E-Pin Generated"
+                title={`${userWallet?.system_referrals}`}
+                subtitle="Total System Referrals"
               />
             </Box>
             <Box
@@ -284,7 +284,7 @@ const DashContent = ({
               <StatBox
                 icon={<PersonAddIcon sx={{ height: "4em", width: "4em" }} />}
                 title={`${userData.current_level_referrals}`}
-                subtitle="Total Direct Referrals"
+                subtitle="Total Referrals"
               />
             </Box>
           </Box>
