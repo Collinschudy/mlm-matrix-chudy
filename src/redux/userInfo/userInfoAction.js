@@ -52,7 +52,10 @@ export const setUsersWithdrawals = (list) => ({
     type:ActionTypes.STORE_USERS_WITHDRAWALS,
     payload: list
 })
-
+export const setWithdrawalHistory = (list) => ({
+    type:ActionTypes.STORE_WITHDRAWAL_HISTORY,
+    payload: list
+})
 export const setUserCommissions = (list) => ({
     type:ActionTypes.STORE_USERS_COMMISSIONS,
     payload: list

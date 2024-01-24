@@ -16,6 +16,7 @@ const INITIAL_STATE = {
   userCommissions: null,
   userWallet: null,
   resetToken: null,
+  withdrawalHistory: null,
 };
 
 const userTokenAndEmailReducer = (state = INITIAL_STATE, action) => {
@@ -60,6 +61,11 @@ const userTokenAndEmailReducer = (state = INITIAL_STATE, action) => {
         ...state,
         usersWithdrawals: action.payload,
       };
+      case ActionTypes.STORE_WITHDRAWAL_HISTORY:
+        return {
+          ...state,
+          withdrawalHistory: action.payload,
+        };
     case ActionTypes.STORE_USERS_COMMISSIONS:
       return {
         ...state,
