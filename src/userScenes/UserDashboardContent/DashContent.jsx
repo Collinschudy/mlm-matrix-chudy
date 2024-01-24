@@ -40,6 +40,7 @@ import {
   selectUserCommissions,
   selectUserTokenAndEmail,
   selectUserWallet,
+  selectWithdrawalHistory,
 } from "../../redux/userInfo/userSelect";
 import { setCurrentUser, setUserWallet } from "../../redux/userInfo/userInfoAction";
 import axios from "axios";
@@ -53,15 +54,12 @@ const DashContent = ({
   userCommissions,
   userWallet,
   setUserEarnings,
+  withdrawalHistory,
 }) => {
   const isNotMobile = useMediaQuery("(min-width: 600px)");
   const usernameCap =
     userData?.username.charAt(0).toUpperCase() + userData?.username.slice(1);
-  // const maxBalance = userCommissions?.reduce(
-  //   (max, current) =>
-  //     current.balance_after > max.balance_after ? current : max,
-  //   userCommissions[0]
-  // );
+ 
   const totalCommission = userCommissions?.reduce(
     (sum, current) => Number(sum) + Number(current.amount),
     0
@@ -265,7 +263,7 @@ const DashContent = ({
             >
               <StatBox
                 icon={<SendIcon sx={{ height: "4em", width: "4em" }} />}
-                title="0"
+                title={`${withdrawalHistory ? withdrawalHistory.total_withdrawal : "0"}`}
                 subtitle="Total Transferred Balance"
               />
             </Box>
@@ -301,6 +299,7 @@ const mapStateToProps = createStructuredSelector({
   paymentResponse: selectPaymentResponse,
   userCommissions: selectUserCommissions,
   userWallet: selectUserWallet,
+  withdrawalHistory: selectWithdrawalHistory,
 });
 
 const mapDispatchToProps = (dispatch) => ({

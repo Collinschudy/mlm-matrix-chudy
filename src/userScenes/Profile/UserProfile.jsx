@@ -269,7 +269,7 @@ const UserProfile = ({
              {userProfile && (
               <CustomInput
                 type="text"
-                label="State"
+                label="LGA"
                 readOnly
                 value={userUpdated ? userUpdated.lga : userProfile.lga}
               />
