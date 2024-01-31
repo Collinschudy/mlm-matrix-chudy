@@ -39,7 +39,7 @@ extractRef();
   }, []);
 
   const phoneRegex = new RegExp(
-    /^(\+234|234|0)(701|702|703|704|705|706|707|708|709|801|802|803|804|805|806|807|808|809|810|811|812|813|814|815|816|817|818|819|909|908|901|902|903|904|905|906|907)([0-9]{7})$/
+    /^(\+234|234|0)(701|702|703|704|705|706|707|708|709|801|802|803|804|805|806|807|808|809|810|811|812|813|814|815|816|817|818|819|909|908|901|902|903|904|905|906|907|911|912|913|914|915|916|917|918|919)([0-9]{7})$/
   );
 
   const schema = z
@@ -92,14 +92,17 @@ extractRef();
           password_confirmation,
         }
       );
-      // const { token } = res.data.data;
-      console.log(res.data);
+    
       setSubmitting(true);
       setUserVerify(email);
       navigate("/verify");
     } catch (err) {
       console.log(err);
-      toast.error("Required fields are empty or invalid");
+      if (err.code === "ERR_NETWORK"){
+        toast.error("Your connection timed out")
+      }
+      else if (err.code === "ERR_BAD_REQUEST")
+      toast.error("Email or Phone Number has already been taken");
     }
 
     handleReset();
