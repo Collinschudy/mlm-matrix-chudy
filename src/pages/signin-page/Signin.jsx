@@ -70,15 +70,16 @@ const SignInPage = ({ setUserData, setUserVerify, userData, userVerify }) => {
         ) {
           navigate("/admin/dashboard");
         } else if (
-          userdata?.is_verified === "1" &&
-          userdata?.type === "member" || userdata?.type === "seed"
+          (userdata?.is_verified === "1") &&
+          (userdata?.type === "member" || userdata?.type === "seed")
         ) {
           navigate("/user/dashboard");
         }
       } catch (error) {
         setError(true);
-        setErrMessage(error.message);
-        toast.error(error.message);
+        console.log(error)
+        setErrMessage(error.response.data.message);
+        toast.error(error.response.data.message);
       }
     } else {
       setLoginError(true);
