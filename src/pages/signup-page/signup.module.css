@@ -162,6 +162,10 @@
     margin-bottom: 1rem;
     cursor: pointer;
 }
+.formgroup input{
+    padding-left: 0.5rem;
+    font-family: "Lexend", "Source Sans 3", sans-serif;
+}
 
 .formgroup input,
 select {

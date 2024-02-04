@@ -171,7 +171,7 @@ extractRef();
                 <label htmlFor="firstname">First Name</label>
                 <input
                   type="text"
-                  placeholder="first name"
+                  // placeholder="first name"
                   name="firstname"
                   id="firstname"
                   autoFocus
@@ -188,7 +188,7 @@ extractRef();
                 <label htmlFor="last-name">Last Name</label>
                 <input
                   type="text"
-                  placeholder="last name"
+                  // placeholder="last name"
                   name="lastname"
                   {...register("last_name")}
                 />
